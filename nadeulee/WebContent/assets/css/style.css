@@ -1082,7 +1082,7 @@ section {
   padding: 10px 12px;
 }
 
-.contact .php-email-form button[type="submit"] {
+/* .contact .php-email-form button [type="submit"] {
   background: #3498db;
   border: 0;
   padding: 10px 24px;
@@ -1091,9 +1091,9 @@ section {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type="submit"]:hover {
+.contact .php-email-form button [type="submit"]:hover {
   background: #5faee3;
-}
+} */
 
 @-webkit-keyframes animate-loading {
   0% {
@@ -1354,7 +1354,7 @@ section {
   width: calc(100% - 100px);
 }
 
-#footer .footer-newsletter form input[type="submit"] {
+#footer .footer-newsletter form input[type=""] {
   position: absolute;
   top: 0;
   right: -2px;
@@ -1370,7 +1370,7 @@ section {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#footer .footer-newsletter form input[type="submit"]:hover {
+#footer .footer-newsletter form input[type=""]:hover {
   background: #57aae1;
 }
 
