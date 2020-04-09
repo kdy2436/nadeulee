@@ -18,15 +18,12 @@
 	rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="../../assets/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
 <link href="../../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
 <link href="../../assets/vendor/boxicons/css/boxicons.min.css"
 	rel="stylesheet">
 <link href="../../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
 <link href="../../assets/vendor/venobox/venobox.css" rel="stylesheet">
-<link href="../../assets/vendor/owl.carousel/../../assets/owl.carousel.min.css"
-	rel="stylesheet">
+
 
 <!-- Template Main CSS File -->
 <link href="../../assets/css/style.css" rel="stylesheet">
@@ -51,46 +48,17 @@
   	width : 80px;
   	height: 40px;
   }
+  
+  .section-title h2 {
+  	padding-bottom:10px;
+  	margin-bottom:10px;
+  }
+
+  #check{
+      font-size: 15px;
+      color: red;
+  }
   </style>
-  <script type="text/javascript">
-  //이메일 등록가능 DB 확인
-  /* function dupCheck() {
-		  var xhttp = new XMLHttpRequest();
-		
-		  xhttp.onreadystatechange = function() {			
-		    if (this.readyState == 4) {		
-		    	if(this.status == 200) {		
-		     document.getElementById("result").innerHTML = this.responseText; 
-		    	} else {
-		    		document.getElementById("result").innerHTML = this.statusText;
-		    	}
-		    }	 
-		  };	
-		  
-		  ////////url 수정
-		  var param ="id=" + frm.id.value;		
-		  xhttp.open("post", "URL?", true);		
-		  
-		  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		  xhttp.send(param);	
-		} */
-		function searchEmp() {
-			$.ajax({
-				type: "post",
-				url: "../server/findName.jsp",
-				data: { id : $("#empNo").val() },
-				success: function(datas) {
-					 if($.trim(data) == 0) {
-						$("#result").html("<p style='color:blue'>사용 가능</p>");
-					} else {
-						$("#result").html("<p style='color:red'>사용 불가능</p>");
-					}
-//					$("#result").html(datas);
-//					$("#result").html(data.first_name + " : " + data.last_name);
-				}
-			});
-		};
-  </script>
   
 </head>
 <body>
@@ -101,16 +69,15 @@
         	
         <div class="section-title">
           <h2>회원가입</h2>
-          <p>환영합니다</p>
         </div>
           <div class="col-lg-10" id="centerDiv">
           <!-- 폼양식 액션추가 -->
-            <form id="frm" name="frm" action="memberInsert.do" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+            <form id="frm" name="frm" action="../../memberInsert.do" method="post" role="form" class="php-email-form">
             	 <!--  이메일e mail 시작 -->
               <div class="form-group">
                         <label for="name">이메일<font color="red"> &nbsp;*</font></label>
-                        <input type=email class="form-control" id="email" name="email" placeholder="이메일을 입력해 주세요" onchange="dupCheck()" required>
-                        <span id="result"></span>
+                        <input type=email class="form-control" id="email" name="email" placeholder="이메일을 입력해 주세요" required>
+                        <div id="check"></div>
                     </div>
                     <div class="form-group">
                         <label for="pw">비밀번호<font color="red"> &nbsp;*</font></label>
@@ -119,6 +86,11 @@
                     <div class="form-group">
                         <label for="pwc">비밀번호 확인<font color="red"> &nbsp;*</font></label>
                         <input type="password" class="form-control" id="pwc" name="pwc" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nickName">닉네임<font color="red"> &nbsp;*</font></label>
+                        <input type="text" class="form-control" id="nickName" name="nickName" placeholder="닉네임을 입력해주세요" required>
+                        <div id="nickCheck"></div>
                     </div>
                     <!--  성별gender  시작 -->
                     <div class="form-group">
@@ -144,10 +116,80 @@
           </div>
 
         </div>
-       
-       
+          
   </section>
 
+<script>
+	//비밀번호 중복확인을 위한 함수
+	document.getElementById('pwc').addEventListener('change',(event)=>{
+
+        //비밀번호 값을 가져온다
+        var pw = document.frm.pwc.value;
+        var pwc = document.frm.pw.value;
+
+        //유효성 체크
+        if(pw != pwc){
+            alert('비밀번호가 틀립니다. \n비밀번호를 다시 확인해주세요.')
+            event.target.focus();
+        }
+
+    })
+
+    //닉네임 중복체크
+    document.getElementById('nickName').addEventListener('change',()=>{
+        //XMLHttpRequest객체를 가져온다.
+        var xhp = new XMLHttpRequest();
+
+        var nickName = document.frm.nickName.value;
+
+        xhp.open('post','../../nameCheck.do',true);
+        //데이터를 id=id형식으로 넘겨줌.
+        xhp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhp.onreadystatechange = function(){
+        	
+        	if(xhp.readyState == 4 && xhp.status == 200){
+  			  var result = JSON.parse(xhp.responseText);
+  			  
+  			  document.getElementById('nickCheck').innerHTML=result.msg;
+  			  
+  			  //아이디가 중복되면 버튼을 disabled한다.
+  			  if(result.able =='disabled'){
+  				  document.getElementById('btnSave').disabled=false;
+  			  }
+  		  }
+        };
+        
+        xhp.send("name="+nickName);
+    })
+    
+    //아이디 중복체크
+    document.getElementById('email').addEventListener('change',()=>{
+        //XMLHttpRequest객체를 가져온다.
+        var xhp = new XMLHttpRequest();
+
+        var email = document.frm.email.value;
+
+        xhp.open('post','../../idCheck.do',true);
+        //데이터를 id=id형식으로 넘겨줌.
+        xhp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhp.onreadystatechange = function(){
+        	
+        	if(xhp.readyState == 4 && xhp.status == 200){
+  			  var result = JSON.parse(xhp.responseText);
+  			  
+  			  document.getElementById('check').innerHTML=result.msg;
+  			  
+  			  //아이디가 중복되면 버튼을 disabled한다.
+  			  if(result.able =='disabled'){
+  				  document.getElementById('btnSave').disabled=false;
+  			  }
+  		  }
+        };
+        
+        xhp.send("email="+email);
+    })
+	
+</script>
 
 </body>
 </html>

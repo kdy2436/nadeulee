@@ -10,7 +10,7 @@ import co.nadeulee.pjt.DTO.MemberDTO;
 
 public class MemberDAO {
  
-	Connection conn =GetConnection.getConn();
+	
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	
@@ -19,7 +19,7 @@ public class MemberDAO {
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 		MemberDTO member = null;
 		String sql = "";
-			
+		Connection conn =GetConnection.getConn();
 			try {
 				psmt = conn.prepareStatement(sql);
 				rs = psmt.executeQuery();
@@ -42,8 +42,8 @@ public class MemberDAO {
 	
 	public int memberInsert(MemberDTO member) {
 		int n = 0;
-		String sql ="insert into member (email, nickname, pw, gender, profile) values (?,?,?,?,?)";
-		
+		String sql ="INSERT INTO MEMBER (EMAIL, NICKNAME, PW, GENDER, PROFILE) VALUES (?,?,?,?,?)";
+		Connection conn =GetConnection.getConn();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, member.getEmail());
@@ -51,6 +51,7 @@ public class MemberDAO {
 			psmt.setString(3,  member.getPw());
 			psmt.setString(4,  member.getGender());
 			psmt.setString(5, member.getProfile());
+			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -60,6 +61,7 @@ public class MemberDAO {
 	}
 	
 	public int memberEmailCheck(String email) {
+		Connection conn =GetConnection.getConn();
 		int n = 0;
 		String sql = "select email from member where email=?";
 		try {
@@ -71,6 +73,27 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			GetConnection.close(rs, psmt, conn);
+		}
+		return n;
+	}
+	
+	public int memberNameCheck(String nickName) {
+		Connection conn =GetConnection.getConn();
+		int n = 0;
+		String sql = "select email from member where nickname=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, nickName);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				n=1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			GetConnection.close(rs, psmt, conn);
 		}
 		return n;
 	}

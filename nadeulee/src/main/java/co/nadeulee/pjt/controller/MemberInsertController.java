@@ -17,73 +17,61 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import co.nadeulee.pjt.DAO.MemberDAO;
 import co.nadeulee.pjt.DTO.MemberDTO;
 
-/**
- * Servlet implementation class MemberInsertController
- */
+
 @WebServlet("/memberInsert.do")
 public class MemberInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MemberInsertController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doAction(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doAction(request, response);
 	}
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//utf-8인코딩
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
+		
+		//필요객체를 불러옴
 		MemberDAO dao = new MemberDAO();
 		MemberDTO member = new MemberDTO();
-		String filepath = request.getSession().getServletContext().getRealPath("uploadFile");
-		int filesize = 1024 * 1024 * 10;
 		
-		MultipartRequest multi = new MultipartRequest(request, filepath, filesize, "utf-8", new DefaultFileRenamePolicy());
+		String email = request.getParameter("email");
+		String pw = request.getParameter("pw");
+		String gender = request.getParameter("gender");
+		String auth = request.getParameter("auth");
+		String nickName = request.getParameter("nickName");
 		
-		Enumeration <?> files = multi.getFileNames();
-		String str = (String)files.nextElement();
+		String profile = "null"; //파일 업로드 기능은 후에 추가.
 		
-		member.setEmail(multi.getParameter("email"));
-		member.setNickname(multi.getParameter("nickname"));
-		member.setPw(multi.getParameter("pw"));
-		member.setGender(multi.getParameter("gender"));
-		member.setProfile(multi.getParameter("profile"));
+		//DTO를 초기화 한다.
+		member.setEmail(email);
+		member.setGender(gender);
+		member.setNickname(nickName);
+		member.setProfile(profile);
+		member.setPw(pw);
 		
-		String origFile = multi.getOriginalFileName(str);
-		member.setProfile(origFile);
 		int n = dao.memberInsert(member);
+		if(n != 0) {
+			request.setAttribute("msg", "가입에 성공하셨습니다 축하드립니다");
+		}else 
+			request.setAttribute("msg", "가입에 실패하셨습니다 정보를 올바르게 입력해주세요");
+		System.out.println(n);
 		
-		 String view = null;
-		 if( n != 0) {
-			 String file = multi.getFilesystemName(str);
-			 out.println(	 "<script>"
-			 				+ " alert('회원가입이 완료 되었습니다'); "
-			 				+ "location.href='home.do'; "
-			 				+ "</script>");
-			 out.flush();
-		 } else 
-			 view = "views/member/JoinFail.jsp";
-		 
-		 RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+		 RequestDispatcher dispatcher = request.getRequestDispatcher("views/member/insertResult.jsp");
 		 dispatcher.forward(request, response);
+		
+		}
+		
+		 
+		
 	}
 
-}
+
