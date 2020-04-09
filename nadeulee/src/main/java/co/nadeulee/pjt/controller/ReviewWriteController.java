@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/home.do")
-public class HomeController extends HttpServlet {
+@WebServlet("/reviewwrite.do")
+public class ReviewWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public HomeController() {
+	public ReviewWriteController() {
 		super();
 	}
 
@@ -25,17 +25,14 @@ public class HomeController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doAction(request, response);
-
 	}
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-
-		String path = "/nadeulee.home.tiles";
+		String path = "/reviewBoard/ReviewWriteForm.tiles";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
-
 	}
 
 }

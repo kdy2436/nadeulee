@@ -8,8 +8,6 @@
 			<h1>
 				<a href="home.do">나들이 갈까요</a>
 			</h1>
-			<!-- Uncomment below if you prefer to use an image logo -->
-			<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 		</div>
 
 		<nav class="nav-menu d-none d-lg-block">
@@ -30,7 +28,7 @@
 					</ul></li>
 				<!-- 		<li><a href="#services">Services</a></li> -->
 				<li><a href="infoList.do">여행지</a></li>
-				<li><a href="#testimonials">후기</a></li>
+				<li><a href="reviewwrite.do">후기</a></li>
 				<li><a href="#contact">가입하기</a></li>
 
 			</ul>
