@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Lumia Bootstrap Template - Index</title>
+<title>후기 작성</title>
 <meta content="" name="descriptison">
 <meta content="" name="keywords">
 
@@ -39,9 +39,19 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
   <style>
   #centerDiv {
   	margin: 0 auto;
+  }
+  #btnSave, #btnCancel {
+  	width : 80px;
+  	height: 40px;
   }
   </style>
 </head>
@@ -56,33 +66,45 @@
           <p>여러분의 소중한 추억을 공유해 주세요</p>
         </div>
           <div class="col-lg-10" id="centerDiv">
+          <!--  폼양식 액션 추가 -->
             <form id="frm" name="frm" action="" method="post" role="form" class="php-email-form">
               <div class="form-row">
+              <!--  닉네임 시작 -->
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your NickName" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your NickName" data-rule="minlen:4"  required/>
                   <div class="validate"></div>
                 </div>
+                <!--  닉네임 끝 -->
+                <!--  이메일 시작 -->
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email"  required/>
                   <div class="validate"></div>
                 </div>
-              </div>
+                <!--  이메일 끝 -->
+              </div>	
+              <!--  가로 두칸 끝 -->
+              <!--  제목 시작 -->
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4"  required/>
                 <div class="validate"></div>
               </div>
+              <!--  제목 끝 -->
+              <!--  컨텐츠 시작 -->
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea class="form-control" id="contents" name="contents" rows="10" data-rule="required"  placeholder="contents" required></textarea>
               </div>
+              <!--  컨텐츠 끝 -->
               <!--  첨부파일 시작 -->
               <div class="form-group">
-                <input type="file" class="form-control" name="addFile" id="addFile" placeholder="파일첨부" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="file" class="form-control" name="addFile" id="addFile" placeholder="파일첨부" data-rule="minlen:4" />
                 <div class="validate"></div>
               </div>
               <!--  첨부파일 끝 -->
-              <div class="mb-3">
+              <!--   버튼 button submit  -->
+              <div class="text-center">
+              	<button type="submit" id="btnSave" class="btn btn-danger">저장</button>
+              	<button type="button" id="btnCancel" class="btn btn-dark" onclick="location.href=' # ' ">취소</button>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
 
