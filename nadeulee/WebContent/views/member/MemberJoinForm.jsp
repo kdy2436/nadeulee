@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <section id="contact" class="contact section-bg">
 	<div class="container">
-
 		<div class="section-title">
 			<h2>회원가입</h2>
 			<p>환영합니다</p>

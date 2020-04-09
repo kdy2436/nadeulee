@@ -40,9 +40,28 @@ public class MemberDAO {
 			return list;
 	}
 	
+	public int memberInsert(MemberDTO member) {
+		int n = 0;
+		String sql ="insert into member (email, nickname, pw, gender, profile) values (?,?,?,?,?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member.getEmail());
+			psmt.setString(2, member.getNickname());
+			psmt.setString(3,  member.getPw());
+			psmt.setString(4,  member.getGender());
+			psmt.setString(5, member.getProfile());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			GetConnection.close(conn);
+		}
+		return n;
+	}
+	
 	public int memberEmailCheck(String email) {
 		int n = 0;
-		String sql = "";
+		String sql = "select email from member where email=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, email);
