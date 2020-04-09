@@ -45,14 +45,10 @@
 
 				</ul>
 			</nav>
-			<!-- .nav-menu -->
 
-			<div class="header-social-links">
-				<a href="#" class="twitter"><i class="icofont-twitter"></i></a> <a
-					href="#" class="facebook"><i class="icofont-facebook"></i></a> <a
-					href="#" class="instagram"><i class="icofont-instagram"></i></a> <a
-					href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
-			</div>
+			<!-- login -->
+			<button type="button" class="btn btn-outline-primary">로그인</button>
+
 		</div>
 	</header>
 </div>

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!-- ======= Portfolio Section ======= -->
 <div>
-<br><br><br>
+	<br> <br> <br>
 	<section id="portfolio" class="portfolio">
 		<div class="container">
 			<div class="section-title">
@@ -13,10 +13,23 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<ul id="portfolio-flters">
-						<li data-filter="*" class="filter-active">관광지</li>
-						<li data-filter=".filter-app">테마</li>
-						<li data-filter=".filter-card">Card</li>
-						<li data-filter=".filter-web">Web</li>
+						<li data-filter="*" class="filter-active" data-toggle="collapse"
+							data-target="#demo">지역</li>
+						<li data-filter=".filter-app" data-target="#de"
+							data-toggle="collapse">테마</li>
+						<div id="demo" class="collapse">
+							<li class="filter-active">전체</li>
+							<li data-filter=".filter-card">중구</li>
+							<li data-filter=".filter-card">동구</li>
+							<li data-filter=".filter-card">서구</li>
+						</div>
+
+						<div id="de" class="collapse">
+							<li data-filter=".filter-card">가족과함께</li>
+							<li data-filter=".filter-card">야경</li>
+							<li data-filter=".filter-card">역사속으로</li>
+							<li data-filter=".filter-card">인생샷</li>
+						</div>
 					</ul>
 				</div>
 			</div>
