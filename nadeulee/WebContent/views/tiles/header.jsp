@@ -47,7 +47,7 @@
 			</nav>
 
 			<!-- login -->
-			<button type="button" class="btn btn-outline-primary">로그인</button>
+			<button type="button" class="btn btn-outline-primary" onclick="location.href='login.do'">로그인</button>
 
 		</div>
 	</header>

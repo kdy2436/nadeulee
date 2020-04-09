@@ -90,6 +90,7 @@
 				}
 			});
 		};
+		
   </script>
   
 </head>
@@ -98,7 +99,7 @@
   
   <section id="contact" class="contact section-bg">
       <div class="container">
-        	
+        <div><br/></div>	
         <div class="section-title">
           <h2>회원가입</h2>
           <p>환영합니다</p>
@@ -108,38 +109,39 @@
             <form id="frm" name="frm" action="memberInsert.do" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
             	 <!--  이메일e mail 시작 -->
               <div class="form-group">
-                        <label for="name">이메일<font color="red"> &nbsp;*</font></label>
-                        <input type=email class="form-control" id="email" name="email" placeholder="이메일을 입력해 주세요" onchange="dupCheck()" required>
-                        <span id="result"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="pw">비밀번호<font color="red"> &nbsp;*</font></label>
-                        <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력해주세요" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwc">비밀번호 확인<font color="red"> &nbsp;*</font></label>
-                        <input type="password" class="form-control" id="pwc" name="pwc" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요" required>
-                    </div>
-                    <!--  성별gender  시작 -->
-                    <div class="form-group">
-                        <label for="gender">성별<font color="red"> &nbsp;*</font></label><br/>
-	                        <label><input type="radio" id="male" name="gender" value="남자" >남자</label>&nbsp;
-							<label><input type="radio" id="female" name="gender" value="여자" checked>여자</label>
-                    </div>
-                    <!--  성별 끝 -->
-                    <!--  프로필 사진 -->
-              		<div class="form-group">
-                        <label for="profile">프로필</label>
-                        <input type="file" class="form-control" id="profile" name="profile" >
-                    </div>
-                    <!--  프로필 사진 끝-->
-                    <!--  버튼메뉴 -->
-					<div class="text-center">
-		              	<button type="submit" id="btnSave" class="btn btn-danger">가입</button>
-		              	<button type="reset" id="btnCancel" class="btn btn-info" onclick="location.href=' # ' ">초기화</button>
-		              	<button type="button" id="btnHome" class="btn btn-success" onClick="location.href='home.do' ">홈</button>
-          		    </div>
-					<!--  버튼메뉴 끝 -->
+                <label for="name">이메일<font color="red"> &nbsp;*</font></label>
+                <input type=email class="form-control" id="email" name="email" placeholder="이메일을 입력해 주세요" onchange="dupCheck()" required>
+                <span id="result"></span>
+              </div>
+               <div class="form-group">
+                 <label for="pw">비밀번호<font color="red"> &nbsp;*</font></label>
+                 <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력해주세요" required>
+               </div>
+               <div class="form-group">
+                 <label for="pwc">비밀번호 확인<font color="red"> &nbsp;*</font></label>
+                 <input type="password" class="form-control" id="pwc" name="pwc" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요" required>
+               </div>
+               <!--  성별gender  시작 -->
+               <div class="form-group">
+                 <label for="gender">성별<font color="red"> &nbsp;*</font></label><br/>
+                 <label><input type="radio" id="male" name="gender" value="남자" >남자</label>&nbsp;
+				<label><input type="radio" id="female" name="gender" value="여자" checked>여자</label>
+               </div>
+               
+               <!--  성별 끝 -->
+               <!--  프로필 사진 -->
+         		<div class="form-group">
+                 <label for="profile">프로필</label>
+                 <input type="file" class="form-control" id="profile" name="profile" >
+               </div>
+               <!--  프로필 사진 끝-->
+               <!--  버튼메뉴 -->
+				<div class="text-center">
+		           	<button type="submit" id="btnSave" class="btn btn-outline-danger">가입</button>
+		           	<button type="reset" id="btnCancel" class="btn btn-outline-info" onclick="location.href=' # ' ">초기화</button>
+		           	<button type="button" id="btnHome" class="btn btn-outline-success" onClick="location.href='home.do' ">홈</button>
+     		    </div>
+<!--  버튼메뉴 끝 -->
             </form>
           </div>
 

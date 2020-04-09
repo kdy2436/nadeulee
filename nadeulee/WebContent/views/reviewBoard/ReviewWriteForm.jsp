@@ -58,7 +58,7 @@
   
   <section id="contact" class="contact section-bg">
       <div class="container">
-        	
+        <div><br /></div>	
         <div class="section-title">
           <h2>후기작성</h2>
           <p>여러분의 소중한 추억을 공유해 주세요</p>
