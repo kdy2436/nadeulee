@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +55,6 @@
   </style>
 </head>
 <body>
-
   
   <section id="contact" class="contact section-bg">
       <div class="container">
@@ -65,6 +63,7 @@
           <h2>후기작성</h2>
           <p>여러분의 소중한 추억을 공유해 주세요</p>
         </div>
+        <!-- 폼양식 바로 바깥 큰 박스시작 -->
           <div class="col-lg-10" id="centerDiv">
           <!--  폼양식 액션 추가 -->
             <form id="frm" name="frm" action="" method="post" role="form" class="php-email-form">
@@ -106,13 +105,9 @@
               	<button type="button" id="btnCancel" class="btn btn-dark" onclick="location.href=' # ' ">취소</button>
               </div>
             </form>
-          </div>
-
-        </div>
-       
-       
+          </div>  <!--  폼 바깥 박스 -->
+        </div>	<!--  전체 컨테이너 -->
   </section>
-
 
 </body>
 </html>

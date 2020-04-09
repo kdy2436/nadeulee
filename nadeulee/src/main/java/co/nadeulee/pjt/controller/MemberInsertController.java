@@ -1,8 +1,10 @@
 package co.nadeulee.pjt.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,6 +49,8 @@ public class MemberInsertController extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		MemberDAO dao = new MemberDAO();
 		MemberDTO member = new MemberDTO();
 		String filepath = request.getSession().getServletContext().getRealPath("uploadFile");
@@ -62,6 +66,24 @@ public class MemberInsertController extends HttpServlet {
 		member.setPw(multi.getParameter("pw"));
 		member.setGender(multi.getParameter("gender"));
 		member.setProfile(multi.getParameter("profile"));
+		
+		String origFile = multi.getOriginalFileName(str);
+		member.setProfile(origFile);
+		int n = dao.memberInsert(member);
+		
+		 String view = null;
+		 if( n != 0) {
+			 String file = multi.getFilesystemName(str);
+			 out.println(	 "<script>"
+			 				+ " alert('회원가입이 완료 되었습니다'); "
+			 				+ "location.href='home.do'; "
+			 				+ "</script>");
+			 out.flush();
+		 } else 
+			 view = "views/member/JoinFail.jsp";
+		 
+		 RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+		 dispatcher.forward(request, response);
 	}
 
 }
