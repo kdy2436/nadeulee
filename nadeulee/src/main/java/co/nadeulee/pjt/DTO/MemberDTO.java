@@ -2,11 +2,11 @@ package co.nadeulee.pjt.DTO;
 
 public class MemberDTO {
 	private String email;
+	private String nickname;
 	private String pw;
 	private String gender;
 	private String profile;
 	private String auth;
-	private String nickname;
 	
 	public MemberDTO() {
 		// TODO Auto-generated constructor stub
