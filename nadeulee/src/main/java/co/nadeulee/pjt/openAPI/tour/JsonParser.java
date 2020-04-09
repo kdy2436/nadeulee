@@ -21,6 +21,7 @@ public class JsonParser {
 			jobj = (JSONObject) jobj.get("body");
 			jobj = (JSONObject) jobj.get("items");
 			array = (JSONArray)jobj.get("item");
+			System.out.println(array);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

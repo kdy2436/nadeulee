@@ -10,29 +10,40 @@ import co.nadeulee.pjt.DAO.ApiTourDAO;
 import co.nadeulee.pjt.DTO.TourDTO2;
 
 public class OverViewSIgunCode {
-	
+
 	public static void main(String[] args) {
 		
 		//필요한 객체들을 얻어온다.
 		ApiTourDAO dao = new ApiTourDAO();
-		
-		List<TourDTO2> list = dao.getId();
-		JSONArray array = null;
+		List<TourDTO2> list = dao.selectId();
 		JSONObject obj = null;
+
 		
 		for(TourDTO2 dto : list) {
+			
+			
+			String typeId = dto.getTypeid(); // 타입코드를 가져온다.
+			
 			//url과 parameter를 정의하고 공공데이터 db로 보낸다.
-			String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon";
-			String parameter = "&contentId="+dto.getContent_id()+"&defaultYN=Y&MobileOS=ETC&MobileApp=nadeulee&firstImageYN=N&areacodeYN=N&catcodeYN=N&"
-					+ "addrinfoYN=N&mapinfoYN=Y&overviewYN=Y";
 			
+			String url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro";
+			String parameter = "&MobileOS=ETC&MobileApp=nadeulee&contentTypeId="+dto.getTypeid() +"&contentId="+dto.getContent_id();
 			
-			GetData data = new GetData(url,parameter);
+			//json데이터를 가져와 파싱한다.
+			GetData data = new GetData(url,parameter); 
 			String result = data.GetTourData();
-			//메소드를 이용해 파싱한 JSON데이터를 얻는다.
 			obj = data.outJobj(result);
 			System.out.println(obj);
-			//update(obj,dto);
+			dto = getKeyword(typeId, dto, obj);
+			
+			update(obj,dto);
+			
+			try {
+				Thread.sleep(800);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 		
@@ -41,29 +52,70 @@ public class OverViewSIgunCode {
 
 	/**************************
 	 * 
-	 * 시군구코드, 개요를 가져오는 함수
+	 * 저장하는 함수
 	 * 
 	 */
 	static void update(JSONObject obj, TourDTO2 dto) {
 		
 		ApiTourDAO dao = new ApiTourDAO();
 		
-		
-		Object[] ary = obj.keySet().toArray();
-		for(int i =0; i<ary.length; i++) {
-			dto = new TourDTO2();
-			dto.setContent_id(obj.get("contentid").toString());
-			dto.setOverView(obj.get("overview").toString());
-			
-			if(obj.get("contentTypeId") == null) {
-				dto.setSigungucode(0);
-			}else{
-				dto.setSigungucode(Integer.parseInt(obj.get("contentTypeId").toString()));
-			}
-			dao.update(dto);
+			dao.updateParking(dto);
 		}
 		
 		
+	
+	/******************
+	 * 
+	 * 타입코드별로 나타나는 결과가 다르다.
+	 * 다른 값을 dto에 저장해서 반환해주는 함수
+	 * 
+	 */
+	static TourDTO2 getKeyword(String typeid, TourDTO2 dto,JSONObject obj) {
+		
+		try {
+		if(typeid.equals("12")) {
+			dto.setParking((String)obj.get("parking"));
+			dto.setTime((String)obj.get("usetime"));
+			return dto;
+		}
+		
+
+		if(typeid.equals("14")) {
+			dto.setParking((String)obj.get("parkingculture"));
+			System.out.println((String)obj.get("parkingculture"));
+			dto.setPay(obj.get("usefee").toString());
+			return dto;
+		}
+		
+
+		if(typeid.equals("14")) {
+			dto.setParking((String)obj.get("parkingculture"));
+			dto.setPay((String)obj.get("usefee"));
+			return dto;
+		}
+		
+		if(typeid.equals("28")) {
+			dto.setParking((String)obj.get("parkingleports"));
+			System.out.println((String)obj.get("parkingleports"));
+			dto.setPay((String)obj.get("usefeeleports"));
+			dto.setTime((String)obj.get("usetimeleports"));
+			return dto;
+		}
+		
+		if(typeid.equals("39")) {
+			dto.setParking((String)obj.get("parkingfood"));
+			dto.setTime((String)obj.get("opentimefood"));
+			return dto;
+		}
+		}catch(Exception e) {
+			System.out.println("에러러러러발생");
+		}
+		
+		return dto;
+		
 	}
+	
+	
+	
 
 }
