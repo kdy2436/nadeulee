@@ -16,6 +16,7 @@
 	</definition>
 	<!-- end layout.jsp -->
 
+	<!-- change body -->
 	<definition name="*/*" extends="nadeulee.home">
 		<put-attribute name="body" value="/views/{1}/{2}.jsp" />
 	</definition>

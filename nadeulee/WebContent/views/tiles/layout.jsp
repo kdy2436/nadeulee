@@ -9,42 +9,23 @@
 <meta content="" name="descriptison">
 <meta content="" name="keywords">
 <!-- Favicons -->
-<link href="${pageContext.request.contextPath}/assets/img/favicon.png"
-	rel="icon">
-<link
-	href="${pageContext.request.contextPath}/assets/img/apple-touch-icon.png"
-	rel="apple-touch-icon">
+<link href="${pageContext.request.contextPath}/assets/img/favicon.png" rel="icon">
+<link href="${pageContext.request.contextPath}/assets/img/apple-touch-icon.png"	rel="apple-touch-icon">
 <!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 <!-- Vendor CSS Files -->
-<link
-	href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/assets/vendor/icofont/icofont.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/assets/vendor/boxicons/css/boxicons.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/assets/vendor/animate.css/animate.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/assets/vendor/venobox/venobox.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/assets/vendor/owl.carousel/assets/owl.carousel.min.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/vendor/venobox/venobox.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 <!-- Template Main CSS File -->
-<link href="${pageContext.request.contextPath}/assets/css/style.css"
-	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet">
 <title>Layout</title>
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
-	<tiles:insertAttribute name="main" />
 	<tiles:insertAttribute name="body" />
 	<tiles:insertAttribute name="footer" />
 
@@ -52,24 +33,15 @@
 	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 	<!-- Vendor JS Files -->
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/php-email-form/validate.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/counterup/counterup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/venobox/venobox.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/php-email-form/validate.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/counterup/counterup.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/venobox/venobox.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 
 	<!-- Template Main JS File -->
 	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>

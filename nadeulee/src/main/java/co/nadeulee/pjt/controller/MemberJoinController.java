@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/infoList.do")
-public class InfoListController extends HttpServlet {
+@WebServlet("/memberjoin.do")
+public class MemberJoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public InfoListController() {
+	public MemberJoinController() {
 		super();
 	}
 
@@ -25,14 +25,12 @@ public class InfoListController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doAction(request, response);
-
 	}
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setCharacterEncoding("utf-8");
-		String path = "/info/infoList.tiles";
+		String path = "/member/MemberJoinForm.tiles";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 
