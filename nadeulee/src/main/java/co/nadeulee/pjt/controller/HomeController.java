@@ -31,7 +31,7 @@ public class HomeController extends HttpServlet {
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String path = "jsp/home/home.jsp";
+		String path = "/views/home.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 

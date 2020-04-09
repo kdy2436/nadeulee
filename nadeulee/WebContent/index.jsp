@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>start
+<body>
+<jsp:forward page="home.do"></jsp:forward>
 </body>
 </html>
