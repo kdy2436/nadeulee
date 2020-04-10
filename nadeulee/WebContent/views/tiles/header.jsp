@@ -13,10 +13,10 @@
 
 			<nav class="nav-menu d-none d-lg-block">
 				<ul>
-					<li class="drop-down"><a href="">공지사항</a>
+					<li class="drop-down"><a href="noticelist.do">공지사항</a>
 						<ul>
 							<li><a href="#about">이벤트</a></li>
-							<li><a href="#team">공지사항</a></li>
+							<li><a href="noticelist.do">공지사항</a></li>
 						</ul></li>
 					<li class="drop-down"><a href="infoList.do">여행지</a>
 						<ul>
@@ -47,7 +47,8 @@
 			</nav>
 
 			<!-- login -->
-			<button type="button" class="btn btn-outline-primary" onclick="location.href='login.do' ">로그인</button>
+			<button type="button" class="btn btn-outline-primary"
+				onclick="location.href='login.do' ">로그인</button>
 
 		</div>
 	</header>

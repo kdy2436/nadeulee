@@ -33,7 +33,7 @@
 						</div>
 					</ul>
 				</div>
-			</div>
+			</div> 
 			${infoList[1]}
 			<div class="row portfolio-container">
 				<div

@@ -5,10 +5,11 @@ import java.sql.Date;
 public class N_BoardVO {
 	private int n_no;
 	private String content;
-	private Date date;
+	private Date ndate;
 	private String n_photo;
 	private String nickname;
 	private String email;
+	private String title;
 
 	public N_BoardVO() {
 	}
@@ -19,10 +20,6 @@ public class N_BoardVO {
 
 	public String getContent() {
 		return content;
-	}
-
-	public Date getDate() {
-		return date;
 	}
 
 	public String getN_photo() {
@@ -45,10 +42,6 @@ public class N_BoardVO {
 		this.content = content;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	public void setN_photo(String n_photo) {
 		this.n_photo = n_photo;
 	}
@@ -59,6 +52,22 @@ public class N_BoardVO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Date getNdate() {
+		return ndate;
+	}
+
+	public void setNdate(Date ndate) {
+		this.ndate = ndate;
 	}
 
 }
