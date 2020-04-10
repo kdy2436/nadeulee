@@ -63,7 +63,7 @@
 </head>
 <body>
 
-  
+  <div><br /></div>
   <section id="contact" class="contact section-bg">
       <div class="container">
         	
@@ -107,9 +107,9 @@
                     <!--  프로필 사진 끝-->
                     <!--  버튼메뉴 -->
 					<div class="text-center">
-		              	<button type="submit" id="btnSave" class="btn btn-danger">가입</button>
-		              	<button type="reset" id="btnCancel" class="btn btn-info" onclick="location.href=' # ' ">초기화</button>
-		              	<button type="button" id="btnHome" class="btn btn-success" onClick="location.href='home.do' ">홈</button>
+		              	<button type="submit" id="btnSave" class="btn btn-outline-danger">가입</button>
+		              	<button type="reset" id="btnCancel" class="btn btn-outline-info" onclick="location.href=' # ' ">초기화</button>
+		              	<button type="button" id="btnHome" class="btn btn-outline-success" onClick="location.href='home.do' ">홈</button>
           		    </div>
 					<!--  버튼메뉴 끝 -->
             </form>
