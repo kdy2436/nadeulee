@@ -7,10 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.nadeulee.pjt.VO.TourVO;
+import co.nadeulee.pjt.VO.TourVO2;
+import co.nadeulee.pjt.VO.TourVO;
 import co.nadeulee.pjt.VO.TourVO2;
 
 public class ApiTourDAO {
-
+ 
 	// 각 관광지의 아이디와 타입을 불러오기 위한 함수
 	public List<TourVO2> selectId() {
 
@@ -124,5 +127,32 @@ public class ApiTourDAO {
 		GetConnection.close(conn, psmt);
 
 	}
+	
+	//googleMap에 필요한 위도 경도 받아오는 함수
+	public TourVO getLatLng(TourVO dto) {
+		Connection conn = GetConnection.getConn();
+		PreparedStatement psmt;
+		ResultSet rs;
+		String sql = "select map_x, map_y, title from tour where content_id=?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getContent_id());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				dto.setMap_x(rs.getString("map_x"));
+				dto.setMap_y(rs.getString("map_y"));
+				dto.setTitle(rs.getString("title"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			GetConnection.close(conn);
+		}
+		
+		
+		return dto;
+	}
+	
 
 }
