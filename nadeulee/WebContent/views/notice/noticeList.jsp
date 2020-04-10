@@ -33,8 +33,7 @@
 						</c:when>
 						<c:otherwise>
 							<c:forEach var="notice" items="${noticeList}">
-								<tr
-									onclick="location.href='#?n_no=${notice.n_no}'"
+								<tr onclick="location.href='#?n_no=${notice.n_no}'"
 									style="cursor: pointer">
 									<td>${notice.n_no}</td>
 									<td>${notice.title}</td>
@@ -52,6 +51,6 @@
 		<br>
 		<button type="button"
 			style="color: white; background: steelblue; font-size: 1em; border-radius: 0.5em; padding: 5px 20px;"
-			onclick="location.href='   '">WRITE</button>
+			onclick="location.href='/notice/noticeWrite.tiles'">WRITE</button>
 	</div>
 </div>
