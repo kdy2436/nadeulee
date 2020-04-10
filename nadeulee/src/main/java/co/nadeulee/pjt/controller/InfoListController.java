@@ -1,6 +1,7 @@
 package co.nadeulee.pjt.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import co.nadeulee.pjt.DAO.TourDAO;
+import co.nadeulee.pjt.VO.TourVO;
 
 @WebServlet("/infoList.do")
 public class InfoListController extends HttpServlet {
@@ -30,8 +34,13 @@ public class InfoListController extends HttpServlet {
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setCharacterEncoding("utf-8");
+
+		TourDAO dao = new TourDAO();
+		ArrayList<TourVO> list = new ArrayList<TourVO>();
+		list = dao.infoList();
+
+		request.setAttribute("infoList", list);
 		String path = "/info/infoList.tiles";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);

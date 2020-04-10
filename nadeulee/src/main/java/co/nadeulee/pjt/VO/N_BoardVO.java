@@ -1,8 +1,8 @@
-package co.nadeulee.pjt.DTO;
+package co.nadeulee.pjt.VO;
 
 import java.sql.Date;
 
-public class N_BoardDTO {
+public class N_BoardVO {
 	private int n_no;
 	private String content;
 	private Date date;
@@ -10,7 +10,7 @@ public class N_BoardDTO {
 	private String nickname;
 	private String email;
 
-	public N_BoardDTO() {
+	public N_BoardVO() {
 	}
 
 	public int getN_no() {

@@ -1,6 +1,6 @@
-package co.nadeulee.pjt.DTO;
+package co.nadeulee.pjt.VO;
 
-public class TourDTO {
+public class TourVO {
 	private String content_id;
 	private String title;
 	private String overview;
@@ -19,7 +19,7 @@ public class TourDTO {
 	private String cat1;
 	private String typeid;
 
-	public TourDTO() {
+	public TourVO() {
 
 	}
 
@@ -158,5 +158,15 @@ public class TourDTO {
 	public void setTypeid(String typeid) {
 		this.typeid = typeid;
 	}
+
+	@Override
+	public String toString() {
+		return "TourVO [content_id=" + content_id + ", title=" + title + ", overview=" + overview + ", addr=" + addr
+				+ ", parking=" + parking + ", pay=" + pay + ", time=" + time + ", age=" + age + ", image=" + image
+				+ ", tel=" + tel + ", map_x=" + map_x + ", map_y=" + map_y + ", tourtypecode=" + tourtypecode
+				+ ", sigungucode=" + sigungucode + ", cat2=" + cat2 + ", cat1=" + cat1 + ", typeid=" + typeid + "]";
+	}
+	
+	
 
 }

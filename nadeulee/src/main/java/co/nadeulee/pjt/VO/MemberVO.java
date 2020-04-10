@@ -1,6 +1,6 @@
-package co.nadeulee.pjt.DTO;
+package co.nadeulee.pjt.VO;
 
-public class MemberDTO {
+public class MemberVO {
 	private String email;
 	private String nickname;
 	private String pw;
@@ -8,7 +8,7 @@ public class MemberDTO {
 	private String profile;
 	private String auth;
 	
-	public MemberDTO() {
+	public MemberVO() {
 		// TODO Auto-generated constructor stub
 	}
 

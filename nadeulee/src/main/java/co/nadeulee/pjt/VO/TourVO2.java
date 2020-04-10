@@ -1,6 +1,6 @@
-package co.nadeulee.pjt.DTO;
+package co.nadeulee.pjt.VO;
 
-public class TourDTO2 {
+public class TourVO2 {
 
 	private String overView;
 	private int sigungucode;
@@ -11,7 +11,7 @@ public class TourDTO2 {
 	private String time;
 	private String pay;
 
-	public TourDTO2() {
+	public TourVO2() {
 
 	}
 

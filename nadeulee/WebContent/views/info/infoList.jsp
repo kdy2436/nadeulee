@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- ======= Portfolio Section ======= -->
 <div>
 	<br> <br> <br>
@@ -33,27 +34,25 @@
 					</ul>
 				</div>
 			</div>
-
+			${infoList[1]}
 			<div class="row portfolio-container">
-
 				<div
 					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
 					<div class="portfolio-wrap">
 						<figure>
-							<img src="../../assets/img/portfolio/portfolio-1.jpg"
-								class="img-fluid" alt="">
-							<a href="../../assets/img/portfolio/portfolio-1.jpg"
-								data-gall="portfolioGallery" class="link-preview venobox"
-								title="Preview"><i class="bx bx-plus"></i></a>
+							<img src="${infoList[1].image}" class="img-fluid" alt="">
+							<a href="${infoList[1].image}" data-gall="portfolioGallery"
+								class="link-preview venobox" title="Preview"><i
+								class="bx bx-plus"></i></a>
 							<a href="portfolio-details.html" class="link-details"
 								title="More Details"><i class="bx bx-link"></i></a>
 						</figure>
 
 						<div class="portfolio-info">
 							<h4>
-								<a href="portfolio-details.html">App 1</a>
+								<a href="portfolio-details.html">${tour[1].title}</a>
 							</h4>
-							<p>App</p>
+							<p>App = ${tour[1].title}</p>
 						</div>
 					</div>
 				</div>
@@ -236,14 +235,34 @@
 								<a href="portfolio-details.html">Web 1</a>
 							</h4>
 							<p>Web</p>
+
 						</div>
 					</div>
 				</div>
-
 			</div>
-
 		</div>
+
 	</section>
 </div>
+<table>
+	<c:choose>
+		<c:when test="${empty infoList}">
+							데이터가 없습니다.
+												</c:when>
+		<c:otherwise>
+			<c:forEach var="tour" items="${infoList}">
+				<tr>
+					<td><img src="${tour.image}"></td>
+					<td>${tour.title}</td>
+					<td>${tour.overview}</td>
+				</tr>
+
+
+			</c:forEach>
+
+
+		</c:otherwise>
+	</c:choose>
+</table>
 
 <!-- End Portfolio Section -->

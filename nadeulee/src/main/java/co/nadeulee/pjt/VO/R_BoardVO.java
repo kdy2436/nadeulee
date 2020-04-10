@@ -1,8 +1,8 @@
-package co.nadeulee.pjt.DTO;
+package co.nadeulee.pjt.VO;
 
 import java.sql.Date;
 
-public class R_BoardDTO {
+public class R_BoardVO {
 	private int r_no;
 	private String content;
 	private Date rdate;
@@ -10,7 +10,7 @@ public class R_BoardDTO {
 	private int like;
 	private String content_id;
 
-	public R_BoardDTO() {
+	public R_BoardVO() {
 	}
 
 	public int getR_no() {

@@ -1,10 +1,10 @@
-package co.nadeulee.pjt.DTO;
+package co.nadeulee.pjt.VO;
 
-public class SigunguDTO {
+public class SigunguVO {
 	private int sigungucode;
 	private String sigungucode_name;
 
-	public SigunguDTO() {
+	public SigunguVO() {
 	}
 
 	public int getSigungucode() {
