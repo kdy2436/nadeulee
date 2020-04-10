@@ -40,7 +40,7 @@
 									<li><a href="">5</a></li>
 								</ul></li>
 						</ul></li>
-					<li><a href="reviewwrite.do">여행후기</a></li>
+					<li><a href="reviewList.do">여행후기</a></li>
 					<li><a href="memberjoin.do">회원가입</a></li>
 
 				</ul>
