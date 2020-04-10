@@ -1,123 +1,71 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
-<meta content="" name="descriptison">
-<meta content="" name="keywords">
+	pageEncoding="UTF-8"%>
+<div>
+	<br />
+</div>
+<section id="contact" class="contact section-bg">
+	<div class="container">
 
-<!-- Favicons -->
-<link href="../../assets/img/favicon.png" rel="icon">
-<link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+		<div class="section-title">
+			<h2>회원가입</h2>
+		</div>
+		<div class="col-lg-8" id="centerDiv">
+			<!-- 폼양식 액션추가 -->
+			<form id="frm" name="frm" action="memberInsert.do" method="post"
+				role="form" class="php-email-form">
+				<!--  이메일e mail 시작 -->
+				<div class="form-group">
+					<label for="name">이메일<font color="red"> &nbsp;*</font></label> <input
+						type=email class="form-control" id="email" name="email"
+						placeholder="이메일을 입력해 주세요" required>
+					<div id="check"></div>
+				</div>
+				<div class="form-group">
+					<label for="pw">비밀번호<font color="red"> &nbsp;*</font></label> <input
+						type="password" class="form-control" id="pw" name="pw"
+						placeholder="비밀번호를 입력해주세요" required>
+				</div>
+				<div class="form-group">
+					<label for="pwc">비밀번호 확인<font color="red"> &nbsp;*</font></label> <input
+						type="password" class="form-control" id="pwc" name="pwc"
+						placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요" required>
+				</div>
+				<div class="form-group">
+					<label for="nickName">닉네임<font color="red"> &nbsp;*</font></label>
+					<input type="text" class="form-control" id="nickName"
+						name="nickName" placeholder="닉네임을 입력해주세요" required>
+					<div id="nickCheck"></div>
+				</div>
+				<!--  성별gender  시작 -->
+				<div class="form-group">
+					<label for="gender">성별<font color="red"> &nbsp;*</font></label><br />
+					<label><input type="radio" id="male" name="gender"
+						value="남자">남자</label>&nbsp; <label><input type="radio"
+						id="female" name="gender" value="여자" checked>여자</label>
+				</div>
+				<!--  성별 끝 -->
+				<!--  프로필 사진 -->
+				<div class="form-group">
+					<label for="profile">프로필</label> <input type="file"
+						class="form-control" id="profile" name="profile">
+				</div>
+				<!--  프로필 사진 끝-->
+				<!--  버튼메뉴 -->
+				<div class="text-center">
+					<button type="submit" id="btnSave" class="btn btn-outline-danger"
+						onclick="memberInsert.do">가입</button>
+					<button type="reset" id="btnCancel" class="btn btn-outline-info"
+						onclick="location.href=' # ' ">초기화</button>
+					<button type="button" id="btnHome" class="btn btn-outline-success"
+						onClick="location.href='home.do' ">홈</button>
+				</div>
+				<!--  버튼메뉴 끝 -->
+			</form>
+		</div>
 
-<!-- Google Fonts -->
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-	rel="stylesheet">
+	</div>
 
-<!-- Vendor CSS Files -->
-<link href="../../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-<link href="../../assets/vendor/boxicons/css/boxicons.min.css"
-	rel="stylesheet">
-<link href="../../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-<link href="../../assets/vendor/venobox/venobox.css" rel="stylesheet">
-
-
-<!-- Template Main CSS File -->
-<link href="../../assets/css/style.css" rel="stylesheet">
-
-<!-- =======================================================
-  * Template Name: Lumia - v2.0.0
-  * Template URL: https://bootstrapmade.com/lumia-bootstrap-business-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  
-  <style>
-  #centerDiv {
-  	margin: 0 auto;
-  }
-   #btnSave, #btnCancel, #btnHome {
-  	width : 80px;
-  	height: 40px;
-  }
-  
-  .section-title h2 {
-  	padding-bottom:10px;
-  	margin-bottom:10px;
-  }
-
-  #check{
-      font-size: 15px;
-      color: red;
-  }
-  </style>
-  
-</head>
-<body>
-
-  <div><br /></div>
-  <section id="contact" class="contact section-bg">
-      <div class="container">
-        	
-        <div class="section-title">
-          <h2>회원가입</h2>
-        </div>
-          <div class="col-lg-10" id="centerDiv">
-          <!-- 폼양식 액션추가 -->
-            <form id="frm" name="frm" action="../../memberInsert.do" method="post" role="form" class="php-email-form">
-            	 <!--  이메일e mail 시작 -->
-              <div class="form-group">
-                        <label for="name">이메일<font color="red"> &nbsp;*</font></label>
-                        <input type=email class="form-control" id="email" name="email" placeholder="이메일을 입력해 주세요" required>
-                        <div id="check"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pw">비밀번호<font color="red"> &nbsp;*</font></label>
-                        <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호를 입력해주세요" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="pwc">비밀번호 확인<font color="red"> &nbsp;*</font></label>
-                        <input type="password" class="form-control" id="pwc" name="pwc" placeholder="비밀번호 확인을 위해 다시한번 입력 해 주세요" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="nickName">닉네임<font color="red"> &nbsp;*</font></label>
-                        <input type="text" class="form-control" id="nickName" name="nickName" placeholder="닉네임을 입력해주세요" required>
-                        <div id="nickCheck"></div>
-                    </div>
-                    <!--  성별gender  시작 -->
-                    <div class="form-group">
-                        <label for="gender">성별<font color="red"> &nbsp;*</font></label><br/>
-	                        <label><input type="radio" id="male" name="gender" value="남자" >남자</label>&nbsp;
-							<label><input type="radio" id="female" name="gender" value="여자" checked>여자</label>
-                    </div>
-                    <!--  성별 끝 -->
-                    <!--  프로필 사진 -->
-              		<div class="form-group">
-                        <label for="profile">프로필</label>
-                        <input type="file" class="form-control" id="profile" name="profile" >
-                    </div>
-                    <!--  프로필 사진 끝-->
-                    <!--  버튼메뉴 -->
-					<div class="text-center">
-		              	<button type="submit" id="btnSave" class="btn btn-outline-danger">가입</button>
-		              	<button type="reset" id="btnCancel" class="btn btn-outline-info" onclick="location.href=' # ' ">초기화</button>
-		              	<button type="button" id="btnHome" class="btn btn-outline-success" onClick="location.href='home.do' ">홈</button>
-          		    </div>
-					<!--  버튼메뉴 끝 -->
-            </form>
-          </div>
-
-        </div>
-          
-  </section>
+</section>
 
 <script>
 	//비밀번호 중복확인을 위한 함수
@@ -142,7 +90,7 @@
 
         var nickName = document.frm.nickName.value;
 
-        xhp.open('post','../../nameCheck.do',true);
+        xhp.open('post','nameCheck.do',true);
         //데이터를 id=id형식으로 넘겨줌.
         xhp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
         xhp.onreadystatechange = function(){
@@ -169,7 +117,7 @@
 
         var email = document.frm.email.value;
 
-        xhp.open('post','../../idCheck.do',true);
+        xhp.open('post','idCheck.do',true);
         //데이터를 id=id형식으로 넘겨줌.
         xhp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
         xhp.onreadystatechange = function(){
