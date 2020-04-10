@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.nadeulee.pjt.DTO.TourDTO;
 import co.nadeulee.pjt.DTO.TourDTO2;
 
 public class ApiTourDAO {
@@ -123,6 +124,32 @@ public class ApiTourDAO {
 		
 		GetConnection.close(conn, psmt);
 		
+	}
+	
+	//googleMap에 필요한 위도 경도 받아오는 함수
+	public TourDTO getLatLng(TourDTO dto) {
+		Connection conn = GetConnection.getConn();
+		PreparedStatement psmt;
+		ResultSet rs;
+		String sql = "select map_x, map_y, title from tour where content_id=?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getContent_id());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				dto.setMap_x(rs.getString("map_x"));
+				dto.setMap_y(rs.getString("map_y"));
+				dto.setTitle(rs.getString("title"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			GetConnection.close(conn);
+		}
+		
+		
+		return dto;
 	}
 	
 
