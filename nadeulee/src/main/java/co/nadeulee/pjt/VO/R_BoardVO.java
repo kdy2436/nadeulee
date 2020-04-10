@@ -61,4 +61,12 @@ public class R_BoardVO {
 		this.content_id = content_id;
 	}
 
+	@Override
+	public String toString() {
+		return "R_BoardDTO [r_no=" + r_no + ", content=" + content + ", rdate=" + rdate + ", r_photo=" + r_photo
+				+ ", like=" + like + ", content_id=" + content_id + "]";
+	}
+	
+	
+
 }

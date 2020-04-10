@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  
 	
 	<!-- fontawesome 댓글,좋아요 모양 구현-->
@@ -274,6 +274,10 @@
          <!-- end timeline-icon -->
          <!-- begin timeline-body -->
          <div class="timeline-body">
+         	<div class="timeline-header">
+         		<input placeholder="Where have you been?">
+         		<a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fas fa-search fa-fw fa-lg m-r-3"></i></a>
+         	</div>
             <div class="timeline-content">
                <textarea class="form-control" id="message" rows="6" placeholder="What are you thinking?"></textarea>
             <div class="timeline-likes">
@@ -289,11 +293,16 @@
       </li>
       
       
-      
+<c:choose>
+	<c:when test="${empty boards }">
+		<h2>데이터(후기)가 없습니다.</h2>
+	</c:when>
+	<c:otherwise>
+		<c:forEach var="board" items="${boards }">	
       <li>
          <!-- begin timeline-time -->
          <div class="timeline-time">
-            <span class="date">today</span>
+            <span class="date">${board.rdate }</span>
             <span class="time">04:20</span>
          </div>
          <!-- end timeline-time -->
@@ -310,13 +319,14 @@
                <span class="pull-right text-muted">123 Views</span>
             </div>
             <div class="timeline-content">
-               <p class="lead">첫번째 글내용</p>
+               <p class="lead">${board.content }</p>
                <p class="m-t-20"><img src="" alt=""></p>
             </div>
             <div class="timeline-likes">
                <div class="stats-right">
-                  <span class="stats-text">123 Likes</span>
-                  <span class="stats-text">123 Comments</span>
+				<span class="stats-text">${board.content_id }</span>
+				<span class="stats-text">${board.like } likes</span>
+                <span class="stats-text">123 Comments</span>
                </div>
             </div>
             <div class="timeline-footer">
@@ -349,21 +359,29 @@
          </div>
          <!-- end timeline-body -->
       </li>
+         </c:forEach>
+		</c:otherwise>
+		</c:choose>
+  </ul>
+</div>         
+         
+         
+   <!--    
       
       
 	<li>
-         <!-- begin timeline-time -->
+         begin timeline-time
          <div class="timeline-time">
             <span class="date">today</span>
             <span class="time">03:00</span>
          </div>
-         <!-- end timeline-time -->
-         <!-- begin timeline-icon -->
+         end timeline-time
+         begin timeline-icon
          <div class="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
          </div>
-         <!-- end timeline-icon -->
-         <!-- begin timeline-body -->
+         end timeline-icon
+         begin timeline-body
          <div class="timeline-body">
             <div class="timeline-header">
                <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt=""></span>
@@ -375,10 +393,11 @@
                <p class="m-t-20"><img src="" alt=""></p>
             </div>
             <div class="timeline-likes">
-               <div class="stats-right">
-                  <span class="stats-text">456 Likes</span>
-                  <span class="stats-text">456 Comments</span>
-               </div>
+				<div class="stats-right">
+					<span class="stats-text">#대구 약령시</span>
+                 	<span class="stats-text">456 Likes</span>
+                 	<span class="stats-text">456 Comments</span>
+				</div>
             </div>
             <div class="timeline-footer">
                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
@@ -405,23 +424,23 @@
             </div>
          </div>
          </div>
-         <!-- end timeline-body -->
+         end timeline-body
      </li>
      
      
      <li>
-         <!-- begin timeline-time -->
+         begin timeline-time
          <div class="timeline-time">
             <span class="date">lastday</span>
             <span class="time">05:00</span>
          </div>
-         <!-- end timeline-time -->
-         <!-- begin timeline-icon -->
+         end timeline-time
+         begin timeline-icon
          <div class="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
          </div>
-         <!-- end timeline-icon -->
-         <!-- begin timeline-body -->
+         end timeline-icon
+         begin timeline-body
          <div class="timeline-body">
             <div class="timeline-header">
                <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
@@ -433,9 +452,10 @@
                <p class="m-t-20"><img src="assets/img/3.jpg" alt=""></p>
             </div>
             <div class="timeline-likes">
-               <div class="stats-right">
-                  <span class="stats-text">789 Likes</span>
-                  <span class="stats-text">789 Comments</span>
+				<div class="stats-right">
+					<span class="stats-text">#여자친구 은하</span>
+                	<span class="stats-text">789 Likes</span>
+                	<span class="stats-text">789 Comments</span>
                </div>
             </div>
             <div class="timeline-footer">
@@ -463,23 +483,24 @@
             </div>
          </div>
          </div>
-         <!-- end timeline-body -->
+         end timeline-body
      </li>
      
 
       <li>
-         <!-- begin timeline-icon -->
+         begin timeline-icon
          <div class="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
          </div>
-         <!-- end timeline-icon -->
-         <!-- begin timeline-body -->
+         end timeline-icon
+         begin timeline-body
          <div class="timeline-body"></div>
-         <!-- begin timeline-body -->
+         begin timeline-body
       </li>
    </ul>
 </div>
 
+ -->
 
 
 
@@ -524,16 +545,15 @@
 
 
 
+<!-- 
 
 
 
-
-
-	<!-- details 펑션 구현  -->
+	details 펑션 구현 
 	<script>
 		function cDetails() {
 			document.getElementById("cDetails").open = true
 		}
 	</script>
 
-	
+	 -->
