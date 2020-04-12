@@ -36,4 +36,24 @@ public class N_BoardDAO {
 		return list;
 	}
 
+	public int noticeInsert(N_BoardVO notice) {
+		int n = 0;
+		String sql = "insert into n_board (n_no, title, content) values (NB_SEQ.nextval,?,?)";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, notice.getTitle());
+				psmt.setString(2, notice.getContent());
+				n = psmt.executeUpdate();
+			}
+			rs.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+
 }

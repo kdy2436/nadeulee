@@ -26,8 +26,8 @@ div>h2 {
 		<!-- 폼양식 바로 바깥 큰 박스시작 -->
 		<div class="col-lg-10" id="centerDiv">
 			<!--  폼양식 액션 추가 -->
-			<form id="frm" name="frm" action="" method="post" role="form"
-				class="php-email-form">
+			<form id="frm" name="frm" action="noticeinsert.do" method="post"
+				role="form" class="php-email-form">
 				<div class="form-row"></div>
 				<!--  제목 시작 -->
 				<div class="form-group">
