@@ -34,7 +34,7 @@ public class HealingController implements Controller {
 		vo.setCat2("C0114");
 		
 		//전체 레코드수를 가지고 옴.
-		int count = dao.count();
+		int count = dao.courseCount(vo);
 		paging.setTotalRecord(count);
 		
 		//리스트를 얻음.

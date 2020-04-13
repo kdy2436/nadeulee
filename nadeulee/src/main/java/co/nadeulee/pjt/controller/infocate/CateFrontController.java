@@ -53,7 +53,6 @@ public class CateFrontController extends HttpServlet {
 		String url = request.getRequestURI();
 		String context = request.getContextPath();
 		String path = url.substring(context.length());
-		System.out.println(path);
 		Controller subCon = map.get(path);
 		subCon.execute(request, response);
 		

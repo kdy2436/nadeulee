@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.nadeulee.pjt.VO.TourListVO;
-import co.nadeulee.pjt.VO.TourVO;
 
 public class TourListCateDAO {
 	
@@ -22,13 +21,11 @@ public class TourListCateDAO {
 		
 	}
 
+	//전체 리스트를 가져오는 쿼리
 	public List<TourListVO> allList(TourListVO vo) {
 		
 		List<TourListVO> list = new ArrayList<TourListVO>(); 
 		
-		
-		System.out.println(vo.getFirst());
-		System.out.println(vo.getLast());
 		String sql = "select rownum,b.* from " 
 				 +"(select rownum rn, a.* from(select * from tour "
 				 + "order by content_id)a) b "
@@ -49,28 +46,24 @@ public class TourListCateDAO {
 				vo.setContent_id(rs.getString("content_id"));
 				vo.setTitle(rs.getString("title"));
 				vo.setImage(rs.getString("image"));
+				vo.setContent_id(rs.getString("content_id"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			GetConnection.close(rs, psmt, conn);
 		}
 		
-		
-
-		
 		return list;
 	}
 	
+	//대구 지역별 관광리스트를 조회하는 기능
 	public List<TourListVO> SigunguList(TourListVO vo) {
 		
 		List<TourListVO> list = new ArrayList<TourListVO>(); 
 		String sigungu = "where sigungucode=?";
 		
-		System.out.println(vo.getFirst());
-		System.out.println(vo.getLast());
 		String sql = "select rownum,b.* from " 
 				 +"(select rownum rn, a.* from(select * from tour "+sigungu 
 				 + " order by content_id)a) b "
@@ -92,10 +85,10 @@ public class TourListCateDAO {
 				vo.setContent_id(rs.getString("content_id"));
 				vo.setTitle(rs.getString("title"));
 				vo.setImage(rs.getString("image"));
+				vo.setContent_id(rs.getString("content_id"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			GetConnection.close(rs, psmt, conn);
@@ -103,13 +96,13 @@ public class TourListCateDAO {
 		return list;
 	}
 	
+	
+	//여러가지 테마별로 관광지를 조회하는 기능
 	public List<TourListVO> courseList(TourListVO vo) {
 		
 		List<TourListVO> list = new ArrayList<TourListVO>(); 
 		String course = "where cat2=?";
 		
-		System.out.println(vo.getFirst());
-		System.out.println(vo.getLast());
 		String sql = "select rownum,b.* from " 
 				 +"(select rownum rn, a.* from(select * from tour "+ course 
 				 + " order by content_id)a) b "
@@ -131,10 +124,10 @@ public class TourListCateDAO {
 				vo.setContent_id(rs.getString("content_id"));
 				vo.setTitle(rs.getString("title"));
 				vo.setImage(rs.getString("image"));
+				vo.setContent_id(rs.getString("content_id"));
 				list.add(vo);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			GetConnection.close(rs, psmt, conn);
@@ -159,7 +152,6 @@ public class TourListCateDAO {
 			rs.next();
 			count = rs.getInt("count");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -184,7 +176,6 @@ public class TourListCateDAO {
 			rs.next();
 			count = rs.getInt("count");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -209,7 +200,6 @@ public class TourListCateDAO {
 			rs.next();
 			count = rs.getInt("count");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

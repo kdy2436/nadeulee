@@ -19,26 +19,26 @@
 							<li><a href="#about">이벤트</a></li>
 							<li><a href="noticelist.do">공지사항</a></li>
 						</ul></li>
-					<li class="drop-down"><a href="infoList.do">여행지</a>
+					<li class="drop-down"><a href="allList.cate">여행지</a>
 						<ul>
 							<li class="drop-down"><a href="">지역</a>
 								<ul>
-									<li><a href="">전체</a></li>
-									<li><a href="">중구</a></li>
-									<li><a href="">동구</a></li>
-									<li><a href="">서구</a></li>
-									<li><a href="">남구</a></li>
-									<li><a href="">수성구</a></li>
-									<li><a href="">달서구</a></li>
-									<li><a href="">달성군</a></li>
+							<li><a href ="allList.cate">전체</a></li>
+							<li><a href ="jungu.cate">중구</a></li>
+							<li><a href="suseonggu.cate">수성구</a></li>
+							<li><a href="seogu.cate">서구</a></li>
+							<li><a href="namgu.cate">남구</a></li>
+							<li><a href="bukgu.cate">북구</a></li>
+							<li><a href="dalseogu.cate">달서구</a></li>
+							<li><a href="dalseonggun.cate">달성군</a></li>
 								</ul></li>
 							<li class="drop-down"><a href="">테마</a>
 								<ul>
-									<li><a href="">가족과 함께</a></li>
-									<li><a href="">야경</a></li>
-									<li><a href="">역사속으로</a></li>
-									<li><a href="">4</a></li>
-									<li><a href="">5</a></li>
+									<li><a href ="alone.cate">나홀로</a></li>
+							<li><a href ="family.cate">가족끼리</a></li>
+							<li><a href ="healing.cate">힐링</a></li>
+							<li><a href ="festival.cate">축제</a></li>
+							<li><a href ="history.cate">역사</a></li>
 								</ul></li>
 						</ul></li>
 					<li><a href="reviewList.do">여행후기</a></li>
