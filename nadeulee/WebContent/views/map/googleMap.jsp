@@ -41,45 +41,27 @@
        		center: place,
        		zoom: 14
         }); 
-    	  
- 		//현위치 정보 구현      	
-    	  /* infoWindow = new google.maps.InfoWindow;
-       	// Try HTML5 geolocation.
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude
-                };
-
-                infoWindow.setPosition(pos);
-                infoWindow.setContent('Location found.');
-                infoWindow.open(map);
-                map.setCenter(pos);
-              }, function() {
-                handleLocationError(true, infoWindow, map.getCenter());
+       		
+       	// 해당 장소 마크표시
+    	  marker = new google.maps.Marker({
+           		position : place,
+           		map : map,
+           		title : loc,
+           	 	animation:google.maps.Animation.BOUNCE		//마크 애니메이션 
               });
-            } else {
-              // Browser doesn't support Geolocation
-              handleLocationError(false, infoWindow, map.getCenter());
-            }
-          }
-      	
-	      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-	          infoWindow.setPosition(pos);
-	          infoWindow.setContent(browserHasGeolocation ?
-	                                'Error: The Geolocation service failed.' :
-	                                'Error: Your browser doesn\'t support geolocation.');
-	          infoWindow.open(map);
-	        } */
-    	  
-    	  // 해당 장소 마크표시
-       		marker = new google.maps.Marker({
-       		position : place,
-       		map : map,
-       		title : loc
-          });
-	        marker.setMap(map);
+    	        marker.setMap(map);
+    	   
+    	   //마커 타이틀 표시
+          infowindow = new google.maps.InfoWindow({
+        	  content: loc
+	       	});
+ 	      	 infowindow.open(map,marker);
+ 	      	 
+ 	      	//마커 클릭시 링크
+ 	      /*marker.addListener('click', function() {
+ 	      		location.href = 'http://map.daum.net';
+ 	         }); */
+    	        
       }
     </script>
     
