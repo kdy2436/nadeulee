@@ -34,13 +34,11 @@ public class FestivalController implements Controller {
 		vo.setCat2("A0207");
 		
 		//전체 레코드수를 가지고 옴.
-		int count = dao.count();
+		int count = dao.courseCount(vo);
 		paging.setTotalRecord(count);
 		
 		//리스트를 얻음.
 		List<TourListVO> list = dao.courseList(vo);		
-	
-		
 		
 		request.setAttribute("list", list);
 		request.setAttribute("page", paging);

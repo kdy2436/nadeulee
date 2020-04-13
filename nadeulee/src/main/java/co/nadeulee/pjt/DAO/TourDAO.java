@@ -14,25 +14,39 @@ public class TourDAO {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
-	public ArrayList<TourVO> infoList() {
-		ArrayList<TourVO> list = new ArrayList<TourVO>();
-		TourVO tour = null;
-		String sql = "select image,title, overview from tour where typeid=12";
+	public TourVO select(String id) {
+		
+		String sql = "select * from tour where content_id=?";
+		TourVO vo = null;
+		
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
 			rs = psmt.executeQuery();
-			while (rs.next()) {
-				tour = new TourVO();
-				tour.setImage(rs.getString("image"));
-				tour.setTitle(rs.getString("title"));
-				tour.setOverview(rs.getString("overview"));
-				list.add(tour);
+			while(rs.next()) {
+				vo = new TourVO();
+				vo.setContent_id(rs.getString("content_id"));
+				vo.setAddr(rs.getString("addr"));
+				vo.setAge(rs.getString("age"));
+				vo.setCat1(rs.getString("cat1"));
+				vo.setCat2(rs.getString("cat2"));
+				vo.setImage(rs.getString("image"));
+				vo.setMap_x(rs.getString("map_x"));
+				vo.setMap_y(rs.getString("map_y"));
+				vo.setOverview(rs.getString("overview"));
+				vo.setParking(rs.getString("parking"));
+				vo.setPay(rs.getString("pay"));
+				vo.setSigungucode(rs.getInt("sigungucode"));
+				vo.setTel(rs.getString("tel"));
+				vo.setTypeid(rs.getString("typeid"));
 			}
-			rs.close();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
+		
+		
+		return vo;
 
 	}
 }
