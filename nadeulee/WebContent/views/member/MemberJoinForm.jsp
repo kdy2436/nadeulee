@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<style>
+	#centerDiv {
+		margin : 0 auto;
+	}
+</style>
+	
 <div>
 	<br />
 </div>
@@ -9,10 +16,10 @@
 		<div class="section-title">
 			<h2>회원가입</h2>
 		</div>
-		<div class="col-lg-8" id="centerDiv">
+		<div class="col-lg-8" id="centerDiv" >
 			<!-- 폼양식 액션추가 -->
 			<form id="frm" name="frm" action="memberInsert.do" method="post"
-				role="form" class="php-email-form">
+				role="form" class="php-email-form" >
 				<!--  이메일e mail 시작 -->
 				<div class="form-group">
 					<label for="name">이메일<font color="red"> &nbsp;*</font></label> <input

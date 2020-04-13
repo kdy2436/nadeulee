@@ -12,8 +12,11 @@
 	</div>
 </section>
 <!-- End Hero -->
-
+<br/>
 <div class="col-lg-12 col-md-12">
+	<div class="col-6" >
+		<jsp:include page="../map/mainMap5.jsp"></jsp:include>
+	</div>
 	<a href="/notice/news_list.do" class="tit_atc">공지사항<span
 		class="btn_more">더보기</span></a>
 

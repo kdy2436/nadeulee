@@ -25,41 +25,61 @@
   </head>
   <body>
     <div id="map"></div>
-    
-  <script>
-  var map; //map을 담을 변수 선언
-  function initMap() {
-                                 //div id가 map인 영역에 지도를 초기화
-      map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 2, //지도의 zoom은 2로 설정.
-          center: new google.maps.LatLng(2.8,-187.3), //지도가 초기화 될 때 중심 위치
-          mapTypeId: 'terrain' //지도의 타입 : 육지, 위성 등이 있음
-      });
+   
+   <script> 
+   function initMap() {
 
-      // 여러개의 위치 데이터를 가져오는 json 파일.
-      var script = document.createElement('script');
-      // This example uses a local copy of the GeoJSON stored at
-      // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-      script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-      document.getElementsByTagName('head')[0].appendChild(script);
-  }
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: -28.024, lng: 140.887}
+        });
 
-  // 리스트 정보를 for문을 돌려 각각의 위치에 마커를 표시한다.
-  // set of coordinates.
-  window.eqfeed_callback = function(results) {
-      for (var i = 0; i < results.features.length; i++) {
-    	  console.log(results);
-          var coords = results.features[i].geometry.coordinates;
-          console.log(coords);
-          var latLng = new google.maps.LatLng(coords[1],coords[0]); //위도 경도 변수
-          var marker = new google.maps.Marker({
-              position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
-              map: map
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
           });
-      }
-  }
+        });
 
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      var locations = [
+        {lat: -31.563910, lng: 147.154312},
+        {lat: -33.718234, lng: 150.363181},
+        {lat: -33.727111, lng: 150.371124},
+        {lat: -33.848588, lng: 151.209834},
+        {lat: -33.851702, lng: 151.216968},
+        {lat: -34.671264, lng: 150.863657},
+        {lat: -35.304724, lng: 148.662905},
+        {lat: -36.817685, lng: 175.699196},
+        {lat: -36.828611, lng: 175.790222},
+        {lat: -37.750000, lng: 145.116667},
+        {lat: -37.759859, lng: 145.128708},
+        {lat: -37.765015, lng: 145.133858},
+        {lat: -37.770104, lng: 145.143299},
+        {lat: -37.773700, lng: 145.145187},
+        {lat: -37.774785, lng: 145.137978},
+        {lat: -37.819616, lng: 144.968119},
+        {lat: -38.330766, lng: 144.695692},
+        {lat: -39.927193, lng: 175.053218},
+        {lat: -41.330162, lng: 174.865694},
+        {lat: -42.734358, lng: 147.439506},
+        {lat: -42.734358, lng: 147.501315},
+        {lat: -42.735258, lng: 147.438000},
+        {lat: -43.999792, lng: 170.463352}
+      ]
     </script>
+    <!-- Replace following script src -->
+    <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
     
     <script  async defer
   			    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHbC7NopLG_Ivy9mNugiG_LMcP4X0m2cU&callback=initMap">
