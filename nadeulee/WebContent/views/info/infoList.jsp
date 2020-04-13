@@ -15,10 +15,10 @@
 				<div class="col-lg-12">
 					<ul id="portfolio-flters">
 						<li data-filter="*" class="filter-active" data-toggle="collapse"
-							data-target="#demo">지역</li>
-						<li data-filter=".filter-app" data-target="#de"
+							data-target="#area">지역</li>
+						<li data-filter="*" class="filter-active" data-target="#thema"
 							data-toggle="collapse">테마</li>
-						<div id="demo" class="collapse">
+						<div id="area" class="collapse">
 							<li class="filter-active">전체</li>
 							<li data-filter=".filter-card">중구</li>
 							<li data-filter=".filter-card">동구</li>
@@ -33,7 +33,7 @@
 						</div>
 					</ul>
 				</div>
-			</div> 
+			</div>
 			${infoList[1]}
 			<div class="row portfolio-container">
 				<div
