@@ -14,7 +14,7 @@ public class N_BoardDAO {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
-	public ArrayList<N_BoardVO> noticeList() {
+	public ArrayList<N_BoardVO> noticeList() { // 공지사항 목록
 		ArrayList<N_BoardVO> list = new ArrayList<N_BoardVO>();
 		N_BoardVO notice = null;
 		String sql = "select n_no, title, nickname, ndate from n_board";
@@ -36,19 +36,14 @@ public class N_BoardDAO {
 		return list;
 	}
 
-	public int noticeInsert(N_BoardVO notice) {
+	public int noticeInsert(N_BoardVO notice) { // 공지사항 등록
 		int n = 0;
 		String sql = "insert into n_board (n_no, title, content) values (NB_SEQ.nextval,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			while (rs.next()) {
-				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, notice.getTitle());
-				psmt.setString(2, notice.getContent());
-				n = psmt.executeUpdate();
-			}
-			rs.close();
+			psmt.setString(1, notice.getTitle());
+			psmt.setString(2, notice.getContent());
+			n = psmt.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,4 +51,23 @@ public class N_BoardDAO {
 		return n;
 	}
 
+	public N_BoardVO select(N_BoardVO vo) { // 글보기
+		try {
+			String sql = "select * from n_board where n_no=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getN_no());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				vo.setTitle(rs.getString("title"));
+				vo.setNdate(rs.getDate("ndate"));
+				vo.setNickname(rs.getString("nickname"));
+				vo.setContent(rs.getString("content"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return vo;
+	}
 }

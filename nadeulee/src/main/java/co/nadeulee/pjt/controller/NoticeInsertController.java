@@ -21,17 +21,6 @@ public class NoticeInsertController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doAction(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doAction(request, response);
-	}
-
-	private void doAction(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 
 		N_BoardVO vo = new N_BoardVO();
@@ -45,7 +34,14 @@ public class NoticeInsertController extends HttpServlet {
 		if (n != 0) {
 			path = "noticelist.do";
 		} else {
-			path = "view/notice/noticeInsertFail.tiles";
+			path = "noticewrite.do";
 		}
+
+		response.sendRedirect(path);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
 	}
 }

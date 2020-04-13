@@ -96,4 +96,22 @@ public class MemberDAO {
 		return n;
 	}
 
+	public MemberVO login(MemberVO member) {
+		Connection conn = GetConnection.getConn();
+		String sql = "select email , auth from member where email = ? and pw =?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member.getEmail());
+			psmt.setString(2, member.getPw());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				member.setAuth(rs.getString("auth"));
+				return member;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

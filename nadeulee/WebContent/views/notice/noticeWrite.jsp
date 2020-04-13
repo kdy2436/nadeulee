@@ -19,26 +19,24 @@ div>h2 {
 </style>
 <section id="contact" class="contact section-bg">
 	<div class="container">
-
 		<div class="text-center" style="border-bottom: 1px #6495ED;">
 			<h2>공지사항</h2>
 		</div>
 		<!-- 폼양식 바로 바깥 큰 박스시작 -->
 		<div class="col-lg-10" id="centerDiv">
 			<!--  폼양식 액션 추가 -->
-			<form id="frm" name="frm" action="noticeinsert.do" method="post"
-				role="form" class="php-email-form">
+			<form id="frm" name="frm" action="noticeinsert.do" method="post">
 				<div class="form-row"></div>
 				<!--  제목 시작 -->
 				<div class="form-group">
-					<input type="text" class="form-control" name="subject" id="subject"
-						placeholder="Subject" data-rule="minlen:4" required />
+					<input type="text" class="form-control" name="title" id="title"
+						placeholder="title" data-rule="minlen:4" required />
 					<div class="validate"></div>
 				</div>
 				<!--  제목 끝 -->
 				<!--  컨텐츠 시작 -->
 				<div class="form-group">
-					<textarea class="form-control" id="contents" name="contents"
+					<textarea class="form-control" id="content" name="content"
 						rows="25" data-rule="required" placeholder="contents" required></textarea>
 				</div>
 				<!--  컨텐츠 끝 -->
@@ -47,7 +45,7 @@ div>h2 {
 				<div class="text-center">
 					<button type="submit" id="btnSave" class="btn btn-danger">저장</button>
 					<button type="button" id="btnCancel" class="btn btn-dark"
-						onclick="location.href=' # ' ">취소</button>
+						onclick="location.href='noticelist.do'">취소</button>
 				</div>
 			</form>
 		</div>

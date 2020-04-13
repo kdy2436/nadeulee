@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- ======= Header ======= -->
 <div>
 	<header id="header" class="fixed-top d-flex align-items-center">
@@ -46,10 +47,24 @@
 				</ul>
 			</nav>
 
-			<!-- login -->
-			<button type="button" class="btn btn-outline-primary"
-				onclick="location.href='login.do' ">로그인</button>
+			<c:choose>
+				<c:when test="${not empty auth}">
+					<c:if test="${auth == 'M' }">
 
+						<li><a href="#">마이페이지</a></li>
+						<button type="button" class="btn btn-outline-primary"
+							onclick="location.href='home.do' ">로그아웃</button>
+					</c:if>
+				</c:when>
+
+
+
+				<c:otherwise>
+					<!-- login -->
+					<button type="button" class="btn btn-outline-primary"
+						onclick="location.href='login.do' ">로그인</button>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</header>
 </div>

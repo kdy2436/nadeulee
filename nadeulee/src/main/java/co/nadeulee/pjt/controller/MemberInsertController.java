@@ -66,7 +66,7 @@ public class MemberInsertController extends HttpServlet {
 			request.setAttribute("msg", "가입에 실패하셨습니다 정보를 올바르게 입력해주세요");
 		System.out.println(n);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/insertResult.tiles");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("view/member/insertResult.tiles");
 		dispatcher.forward(request, response);
 
 	}
