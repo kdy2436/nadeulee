@@ -1,9 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
+
+<style>
+#portfolio{
+margin-top:3rem
+}
+#paging{
+	position:relative;
+	left:25%;
+
+}
+</style>
 <!-- ======= Portfolio Section ======= -->
-<div>
-	<br> <br> <br>
 	<section id="portfolio" class="portfolio">
 		<div class="container">
 			<div class="section-title">
@@ -19,250 +29,68 @@
 						<li data-filter="*" class="filter-active" data-target="#thema"
 							data-toggle="collapse">테마</li>
 						<div id="area" class="collapse">
-							<li class="filter-active">전체</li>
-							<li data-filter=".filter-card">중구</li>
-							<li data-filter=".filter-card">동구</li>
-							<li data-filter=".filter-card">서구</li>
+							<li><a href ="allList.cate">전체</a></li>
+							<li><a href ="jungu.cate">중구</a></li>
+							<li><a href="suseonggu.cate">수성구</a></li>
+							<li><a href="seogu.cate">서구</a></li>
+							<li><a href="namgu.cate">남구</a></li>
+							<li><a href="bukgu.cate">북구</a></li>
+							<li><a href="dalseogu.cate">달서구</a></li>
+							<li><a href="dalseonggun.cate">달성군</a></li>
 						</div>
 
-						<div id="de" class="collapse">
-							<li data-filter=".filter-card">가족과함께</li>
-							<li data-filter=".filter-card">야경</li>
-							<li data-filter=".filter-card">역사속으로</li>
-							<li data-filter=".filter-card">인생샷</li>
+						<div id="thema" class="collapse">
+							<li><a href ="alone.cate">나홀로</a></li>
+							<li><a href ="family.cate">가족끼리</a></li>
+							<li><a href ="healing.cate">힐링</a></li>
+							<li><a href ="festival.cate">축제</a></li>
+							<li><a href ="history.cate">역사</a></li>
 						</div>
 					</ul>
 				</div>
 			</div>
-			${infoList[1]}
-			<div class="row portfolio-container">
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="${infoList[1].image}" class="img-fluid" alt="">
-							<a href="${infoList[1].image}" data-gall="portfolioGallery"
-								class="link-preview venobox" title="Preview"><i
-								class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
 
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">${tour[1].title}</a>
-							</h4>
-							<p>App = ${tour[1].title}</p>
+			
+				<div class="row portfolio-container">
+				<!-- 리스트 폼 시작 -->
+			<c:forEach items="${list}" var="infoList">
+					<div
+						class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+						<div class="portfolio-wrap">
+							<figure>
+								<c:if test="${empty infoList.image}">
+								<a href="#">노이미지</a>
+								</c:if>
+								<c:if test="${!empty infoList.image}">
+								<a href="#"><img src="${infoList.image}" class="img-fluid"alt=""></a>
+								</c:if>
+								
+							</figure>
+
+							<div class="portfolio-info">
+								<h4>
+									<a class="h5" href="portfolio-details.html">${infoList.title}</a>
+								</h4>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="../../assets/img/portfolio/portfolio-2.jpg"
-								class="img-fluid" alt="">
-							<a href="../../assets/img/portfolio/portfolio-2.jpg"
-								class="link-preview venobox" data-gall="portfolioGallery"
-								title="Preview"><i class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">Web 3</a>
-							</h4>
-							<p>Web</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="../../assets/img/portfolio/portfolio-3.jpg"
-								class="img-fluid" alt="">
-							<a href="../../assets/img/portfolio/portfolio-3.jpg"
-								class="link-preview venobox" data-gall="portfolioGallery"
-								title="Preview"><i class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">App 2</a>
-							</h4>
-							<p>App</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="../../assets/img/portfolio/portfolio-4.jpg"
-								class="img-fluid" alt="">
-							<a href="../../assets/img/portfolio/portfolio-4.jpg"
-								class="link-preview venobox" data-gall="portfolioGallery"
-								title="Preview"><i class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">Card 2</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="../../assets/img/portfolio/portfolio-5.jpg"
-								class="img-fluid" alt="">
-							<a href="../../assets/img/portfolio/portfolio-5.jpg"
-								class="link-preview venobox" data-gall="portfolioGallery"
-								title="Preview"><i class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">Web 2</a>
-							</h4>
-							<p>Web</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="../../assets/img/portfolio/portfolio-6.jpg"
-								class="img-fluid" alt="">
-							<a href="../../assets/img/portfolio/portfolio-6.jpg"
-								class="link-preview venobox" data-gall="portfolioGallery"
-								title="Preview"><i class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">App 3</a>
-							</h4>
-							<p>App</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="../../assets/img/portfolio/portfolio-7.jpg"
-								class="img-fluid" alt="">
-							<a href="../../assets/img/portfolio/portfolio-7.jpg"
-								class="link-preview venobox" data-gall="portfolioGallery"
-								title="Preview"><i class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">Card 1</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp"
-					data-wow-delay="0.1s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="../../assets/img/portfolio/portfolio-8.jpg"
-								class="img-fluid" alt="">
-							<a href="../../assets/img/portfolio/portfolio-8.jpg"
-								class="link-preview venobox" data-gall="portfolioGallery"
-								title="Preview"><i class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">Card 3</a>
-							</h4>
-							<p>Card</p>
-						</div>
-					</div>
-				</div>
-
-				<div
-					class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp"
-					data-wow-delay="0.2s">
-					<div class="portfolio-wrap">
-						<figure>
-							<img src="../assets/img/portfolio/portfolio-9.jpg"
-								class="img-fluid" alt="">
-							<a href="../assets/img/portfolio/portfolio-9.jpg"
-								class="link-preview venobox" data-gall="portfolioGallery"
-								title="Preview"><i class="bx bx-plus"></i></a>
-							<a href="portfolio-details.html" class="link-details"
-								title="More Details"><i class="bx bx-link"></i></a>
-						</figure>
-
-						<div class="portfolio-info">
-							<h4>
-								<a href="portfolio-details.html">Web 1</a>
-							</h4>
-							<p>Web</p>
-
-						</div>
-					</div>
-				</div>
-			</div>
+					<!-- 리스트 폼 끝 -->
+			</c:forEach>	
 		</div>
+		
 
-	</section>
+<my:paging paging="${requestScope.page}" jsfunc="gopage"/>
 </div>
-<table>
-	<c:choose>
-		<c:when test="${empty infoList}">
-							데이터가 없습니다.
-												</c:when>
-		<c:otherwise>
-			<c:forEach var="tour" items="${infoList}">
-				<tr>
-					<td><img src="${tour.image}"></td>
-					<td>${tour.title}</td>
-					<td>${tour.overview}</td>
-				</tr>
 
+</section>
 
-			</c:forEach>
+<script>
 
+function gopage(p){
+	location.href="allList.cate?page=" + p;
+	
+}
 
-		</c:otherwise>
-	</c:choose>
-</table>
+</script>
 
 <!-- End Portfolio Section -->

@@ -29,16 +29,30 @@ public class CateFrontController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		
+		
+		map.put("/allList.cate", new AllListController());
+		map.put("/jungu.cate", new JunguController());
+		map.put("/suseonggu.cate", new SuseongguController());
+		map.put("/bukgu.cate", new BukguController());
+		map.put("/namgu.cate", new NamguController());
+		map.put("/seogu.cate", new SeoguController());
+		map.put("/dalseogu.cate", new DalseoguController());
+		map.put("/dalseonggun.cate", new DalseonggunController());
+		map.put("/family.cate", new FamilyController());
+		map.put("/festival.cate",new FestivalController());
 		map.put("/history.cate", new historyController());
+		map.put("/healing.cate", new HealingController());
+		map.put("/alone.cate", new AloneController());
 	}
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");
 
 		String url = request.getRequestURI();
 		String context = request.getContextPath();
-		String path = url.substring(context.length()+5);
+		String path = url.substring(context.length());
 		System.out.println(path);
 		Controller subCon = map.get(path);
 		subCon.execute(request, response);
@@ -52,7 +66,7 @@ public class CateFrontController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		service(request, response);
 	}
 
