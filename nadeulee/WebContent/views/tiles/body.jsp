@@ -13,7 +13,7 @@
 </section>
 <!-- End Hero -->
 <br/>
-<div class="col-lg-12 col-md-12">
+<div class="col-lg-12 col-md-12 col-sm-6">
 	<div class="col-6" >
 		<jsp:include page="../map/mainMap5.jsp"></jsp:include>
 	</div>

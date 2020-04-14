@@ -12,7 +12,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height:  600px;
+        height:  550px;
         width: 500px;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -28,9 +28,9 @@
     
   <script>
       var map, infoWindow, place;
-      var x = ${placeMap.map_x};
-      var y = ${placeMap.map_y};
-      var loc ="${placeMap.title}";
+      var x = ${vo.map_x};
+      var y = ${vo.map_y};
+      var loc ="${vo.title}";
 //		 var x = 128.5874297180;
 //		 var y = 35.8818101670;
       function initMap() {
@@ -39,7 +39,7 @@
     	  //지도 구현
        		map = new google.maps.Map(document.getElementById('map'), {
        		center: place,
-       		zoom: 14
+       		zoom: 17
         }); 
        		
        	// 해당 장소 마크표시
@@ -47,7 +47,7 @@
            		position : place,
            		map : map,
            		title : loc,
-           	 	animation:google.maps.Animation.BOUNCE		//마크 애니메이션 
+        		animation : google.maps.Animation.BOUNCE 	//마크 애니메이션 
               });
     	        marker.setMap(map);
     	   

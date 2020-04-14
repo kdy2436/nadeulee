@@ -14,7 +14,7 @@
 	<!-- ======= Breadcrumbs ======= -->
 	<section id="breadcrumbs" class="breadcrumbs ">
 		<div class="container">
-
+			
 			<div class="d-flex justify-content-between align-items-center" style="margin-top:10rem;">
 				<h2>${vo.title}</h2>
 				<ol>
@@ -64,12 +64,13 @@
 
 </main>
 <!-- End #main -->
-
-
+<div class="row align-items-center" >
+<div class="col-xl-6 col-md-12 col-sm-12" align="right">
+<jsp:include page="../map/googleMap.jsp"></jsp:include>
+</div>
 
 <!-- 날씨 위젯 -->
-
-
+<div class="col-xl-6 col-md-12 col-sm-12"  align="left">
 <!-- weather widget start -->
 <div id="m-booked-weather-bl250-3123">
 	<div class="booked-wzs-250-175 weather-customize"
@@ -148,6 +149,8 @@
 			</a>
 		</div>
 	</div>
+</div>
+</div>
 </div>
 <!-- 날씨 위젯 관련 스크립트문 -->
 <script type="text/javascript">

@@ -14,6 +14,7 @@
 
 			<nav class="nav-menu d-none d-lg-block">
 				<ul>
+					<li><a href="memberInfo.do">내정보test</a></li>
 					<li class="drop-down"><a href="noticelist.do">공지사항</a>
 						<ul>
 							<li><a href="#about">이벤트</a></li>
