@@ -34,19 +34,19 @@ public class ReviewListController extends HttpServlet {
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		request.setCharacterEncoding("utf-8");
-//		response.setContentType("text/html; charset=UTF-8");
-//		ReviewBoardDAO dao = new ReviewBoardDAO();
-//		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
-//		list = dao.selectAll();
-//		
-//		
-//		
-//		
-//		request.setAttribute("boards", list);
-//		
-//	
-		String path = "/reviewBoard/ReviewListOriginal.tiles";
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");
+		ReviewBoardDAO dao = new ReviewBoardDAO();
+		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
+		list = dao.selectAll();
+		
+		
+		
+		
+		request.setAttribute("boards", list);
+		
+	
+		String path = "/reviewBoard/ReviewList.tiles";
 		 RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		 dispatcher.forward(request, response);
 		 
