@@ -64,7 +64,7 @@
     {lat: 35.83, lng: 128.53},
     {lat: 35.77, lng: 128.43}
   ]
-
+ 
   </script>
   <!-- Replace following script src -->
   <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
