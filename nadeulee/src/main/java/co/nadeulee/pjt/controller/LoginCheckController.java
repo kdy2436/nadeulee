@@ -42,9 +42,9 @@ public class LoginCheckController extends HttpServlet {
 
 		if (vo != null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.do");
-			session.setAttribute("nickname", vo.getNickname());
-			session.setAttribute("email", vo.getEmail());
-			session.setAttribute("auth", vo.getAuth());
+			session.setAttribute("nickname", vo.getNickname()); // 이름담고
+			session.setAttribute("email", vo.getEmail()); // 이메일담고
+			session.setAttribute("auth", vo.getAuth());// 권한담고
 			dispatcher.forward(request, response);
 
 		} else {

@@ -98,7 +98,7 @@ public class MemberDAO {
 
 	public MemberVO login(MemberVO member) {
 		Connection conn = GetConnection.getConn();
-		String sql = "select email , auth from member where email = ? and pw =?";
+		String sql = "select email , auth, nickname from member where email = ? and pw =?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, member.getEmail());
@@ -106,6 +106,7 @@ public class MemberDAO {
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				member.setAuth(rs.getString("auth"));
+				member.setNickname(rs.getString("nickname"));
 				return member;
 			}
 
