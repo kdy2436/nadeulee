@@ -12,9 +12,15 @@
 	</div>
 </section>
 <!-- End Hero -->
+<<<<<<< HEAD
+<br/>
+<div class="col-lg-12 col-md-12 col-sm-6">
+	<div class="col-6" >
+=======
 <br />
 <div class="col-lg-12 col-md-12">
 	<div class="col-6">
+>>>>>>> branch 'master' of https://github.com/kdy2436/nadeulee.git
 		<jsp:include page="../map/mainMap5.jsp"></jsp:include>
 	</div>
 	<a href="/notice/news_list.do" class="tit_atc">공지사항<span
