@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
-	.reviewImg{
-		width:80%;
-		height:200px;
-	}
+.reviewImg {
+	width: 80%;
+	height: 200px;
+}
 </style>
 
 <main id="main">
@@ -14,8 +14,9 @@
 	<!-- ======= Breadcrumbs ======= -->
 	<section id="breadcrumbs" class="breadcrumbs ">
 		<div class="container">
-			
-			<div class="d-flex justify-content-between align-items-center" style="margin-top:10rem;">
+
+			<div class="d-flex justify-content-between align-items-center"
+				style="margin-top: 10rem;">
 				<h2>${vo.title}</h2>
 				<ol>
 					<li><a href="home.do">Home</a></li>
@@ -64,93 +65,94 @@
 
 </main>
 <!-- End #main -->
-<div class="row align-items-center" >
-<div class="col-xl-6 col-md-12 col-sm-12" align="right">
-<jsp:include page="../map/googleMap.jsp"></jsp:include>
-</div>
+<div class="row align-items-center">
+	<div class="col-xl-6 col-md-12 col-sm-12" align="right">
+		<jsp:include page="../map/googleMap.jsp"></jsp:include>
+	</div>
 
-<!-- 날씨 위젯 -->
-<div class="col-xl-6 col-md-12 col-sm-12"  align="left">
-<!-- weather widget start -->
-<div id="m-booked-weather-bl250-3123">
-	<div class="booked-wzs-250-175 weather-customize"
-		style="background-color: #2c88eb; width: 430px;" id="width3">
-		<div class="booked-wzs-250-175_in">
-			<div class="booked-wzs-250-175-data">
-				<div class="booked-wzs-250-175-left-img wrz-03">
-					<a target="_blank" href="https://www.booked.net/"> <img
-						src="//s.bookcdn.com/images/letter/logo.gif" alt="booked.net" />
+	<!-- 날씨 위젯 -->
+	<div class="col-xl-6 col-md-12 col-sm-12" align="left">
+		<!-- weather widget start -->
+		<div id="m-booked-weather-bl250-3123">
+			<div class="booked-wzs-250-175 weather-customize"
+				style="background-color: #2c88eb; width: 430px;" id="width3">
+				<div class="booked-wzs-250-175_in">
+					<div class="booked-wzs-250-175-data">
+						<div class="booked-wzs-250-175-left-img wrz-03">
+							<a target="_blank" href="https://www.booked.net/"> <img
+								src="//s.bookcdn.com/images/letter/logo.gif" alt="booked.net" />
+							</a>
+						</div>
+						<div class="booked-wzs-250-175-right">
+							<div class="booked-wzs-day-deck">
+								<div class="booked-wzs-day-val">
+									<div class="booked-wzs-day-number">
+										<span class="plus">+</span>10
+									</div>
+									<div class="booked-wzs-day-dergee">
+										<div class="booked-wzs-day-dergee-val">&deg;</div>
+										<div class="booked-wzs-day-dergee-name">C</div>
+									</div>
+								</div>
+								<div class="booked-wzs-day">
+									<div class="booked-wzs-day-d">
+										H: <span class="plus">+</span>14&deg;
+									</div>
+									<div class="booked-wzs-day-n">
+										L: <span class="plus">+</span>6&deg;
+									</div>
+								</div>
+							</div>
+							<div class="booked-wzs-250-175-info">
+								<div class="booked-wzs-250-175-city">대구광역시</div>
+								<div class="booked-wzs-250-175-date">금요일, 10 4월</div>
+								<div class="booked-wzs-left">
+									<span class="booked-wzs-bottom-l">7일 예보 보기</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a target="_blank" href="https://booked.kr/weather/daegu-17943">
+						<table cellpadding="0" cellspacing="0"
+							class="booked-wzs-table-250">
+							<tr>
+								<td>목</td>
+								<td>토</td>
+								<td>일</td>
+								<td>월</td>
+								<td>화</td>
+								<td>수</td>
+							</tr>
+							<tr>
+								<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
+								<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
+								<td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td>
+								<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
+								<td class="week-day-ico"><div class="wrz-sml wrzs-01"></div></td>
+								<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
+							</tr>
+							<tr>
+								<td class="week-day-val"><span class="plus">+</span>10&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>17&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>15&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>15&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>22&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>23&deg;</td>
+							</tr>
+							<tr>
+								<td class="week-day-val"><span class="plus">+</span>8&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>7&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>6&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>5&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>6&deg;</td>
+								<td class="week-day-val"><span class="plus">+</span>9&deg;</td>
+							</tr>
+						</table>
 					</a>
 				</div>
-				<div class="booked-wzs-250-175-right">
-					<div class="booked-wzs-day-deck">
-						<div class="booked-wzs-day-val">
-							<div class="booked-wzs-day-number">
-								<span class="plus">+</span>10
-							</div>
-							<div class="booked-wzs-day-dergee">
-								<div class="booked-wzs-day-dergee-val">&deg;</div>
-								<div class="booked-wzs-day-dergee-name">C</div>
-							</div>
-						</div>
-						<div class="booked-wzs-day">
-							<div class="booked-wzs-day-d">
-								H: <span class="plus">+</span>14&deg;
-							</div>
-							<div class="booked-wzs-day-n">
-								L: <span class="plus">+</span>6&deg;
-							</div>
-						</div>
-					</div>
-					<div class="booked-wzs-250-175-info">
-						<div class="booked-wzs-250-175-city">대구광역시</div>
-						<div class="booked-wzs-250-175-date">금요일, 10 4월</div>
-						<div class="booked-wzs-left">
-							<span class="booked-wzs-bottom-l">7일 예보 보기</span>
-						</div>
-					</div>
-				</div>
 			</div>
-			<a target="_blank" href="https://booked.kr/weather/daegu-17943">
-				<table cellpadding="0" cellspacing="0" class="booked-wzs-table-250">
-					<tr>
-						<td>목</td>
-						<td>토</td>
-						<td>일</td>
-						<td>월</td>
-						<td>화</td>
-						<td>수</td>
-					</tr>
-					<tr>
-						<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-						<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-						<td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td>
-						<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-						<td class="week-day-ico"><div class="wrz-sml wrzs-01"></div></td>
-						<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-					</tr>
-					<tr>
-						<td class="week-day-val"><span class="plus">+</span>10&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>17&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>15&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>15&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>22&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>23&deg;</td>
-					</tr>
-					<tr>
-						<td class="week-day-val"><span class="plus">+</span>8&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>7&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>6&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>5&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>6&deg;</td>
-						<td class="week-day-val"><span class="plus">+</span>9&deg;</td>
-					</tr>
-				</table>
-			</a>
 		</div>
 	</div>
-</div>
-</div>
 </div>
 <!-- 날씨 위젯 관련 스크립트문 -->
 <script type="text/javascript">
