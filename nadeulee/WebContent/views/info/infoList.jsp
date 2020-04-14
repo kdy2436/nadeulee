@@ -13,7 +13,7 @@
 	left: 25%;
 }
 </style>
-<!-- ======= Portfolio Section ======= -->
+<!-- ======= infoList Section ======= -->
 <section id="portfolio" class="portfolio">
 	<div class="container">
 		<div class="section-title">
@@ -88,8 +88,7 @@
 <script>
 	function gopage(p) {
 		location.href = window.location.pathname + "?page=" + p;
-
 	}
 </script>
 
-<!-- End Portfolio Section -->
+<!-- End infoList Section -->
