@@ -26,13 +26,18 @@
 		document.getElementById("regional_map").src = "./img/DAEGU_Map.png";
 	}
 
-	$(document).ready(function() {
-		$("#loc_ul").hover(function() {
-			$('#regional_map').attr("src", 'views/mainmap/img/DAEGU_Buk-gu.png')
-		}, function() {
-			$('#regional_map').attr("src", 'views/mainmap/img/DAEGU_Map.png')
-		});
-	});
+	$(document).ready(
+			function() {
+				$("#loc_ul").hover(
+						function() {
+							$('#regional_map').attr("src",
+									'views/mainmap/img/DAEGU_Buk-gu.png')
+						},
+						function() {
+							$('#regional_map').attr("src",
+									'views/mainmap/img/DAEGU_Map.png')
+						});
+			});
 </script>
 <!-- map -->
 <img src="views/mainmap/img/DAEGU_Map.png" width="289" height="359"
@@ -41,7 +46,7 @@
 
 	<area shape="poly"
 		coords="123,32,123,48,126,69,108,95,109,106,125,110,137,104,154,110,164,125,179,120,188,107,194,108,192,96,192,78,192,62,189,57,189,49,182,28"
-		href="#" target="북구" id="loc_ul" onclick="infoList.do" />
+		href="bukgu.cate" target="북구" id="loc_ul" />
 
 </map>
 <!--// map -->

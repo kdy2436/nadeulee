@@ -14,11 +14,7 @@
 
 			<nav class="nav-menu d-none d-lg-block">
 				<ul>
-					<li class="drop-down"><a href="noticelist.do">공지사항</a>
-						<ul>
-							<li><a href="#about">이벤트</a></li>
-							<li><a href="noticelist.do">공지사항</a></li>
-						</ul></li>
+					<li><a href="noticelist.do">공지사항</a></li>
 					<li class="drop-down"><a href="allList.cate">여행지</a>
 						<ul>
 							<li class="drop-down"><a href="">지역</a>
