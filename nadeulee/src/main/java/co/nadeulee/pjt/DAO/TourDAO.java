@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import co.nadeulee.pjt.VO.TourVO;
 
@@ -49,4 +50,33 @@ public class TourDAO {
 		return vo;
 
 	}
+	
+	public List<TourVO> selectTitle(String title) {
+		
+		String sql = "select * from tour where title like '%' || ? || '%'";
+		List<TourVO> list = new ArrayList<TourVO>();
+		
+		
+		TourVO vo = null;
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, title);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo = new TourVO();
+				vo.setContent_id(rs.getString("content_id"));
+				vo.setTitle(rs.getString("title"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+
+	}
+	
 }

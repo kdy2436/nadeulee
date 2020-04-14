@@ -1,13 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- 
-	
-	<!-- fontawesome 댓글,좋아요 모양 구현-->
+
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- fontawesome 댓글,좋아요 모양 구현-->
 	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
 	
 	<!-- 타임라인 CSS 목록 -->
 	<style>
+	.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+	}
+	
+
+	
+	
 	body{
 	    margin-top:20px;
 	    background:#eee;
@@ -254,7 +273,8 @@
 	    color: #ff5b57!important;
 	}
 	</style>
-
+</head>
+<body>
 <br/><br/><br/>
 
 
@@ -264,49 +284,66 @@
 
 <div class="container">
    <ul class="timeline">
-      <li>
-         <!-- begin timeline-time -->
-       	 <!-- end timeline-time -->
-         <!-- begin timeline-icon -->
+     <li><!-- 리뷰를 작성하는 영역 -->
          <div class="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
          </div>
-         <!-- end timeline-icon -->
-         <!-- begin timeline-body -->
+       
+         <form id="frm" name="frm" enctype="multipart/form-data" method="post" action="reviewWrite.do">
          <div class="timeline-body">
-         	<div class="timeline-header">
-         		<input placeholder="Where have you been?">
-         		<a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fas fa-search fa-fw fa-lg m-r-3"></i></a>
+         	<div class="timeline-header d-flex">
+         	
+         		<input id="searchText" placeholder="Where have you been?">
+         		<a id="searchBtn" href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fas fa-search fa-fw fa-lg m-r-3"></i></a>
+         		<select class="form-control ml-1 " id="searchResult" name="searchResult">
+         			<option>여행지를 선택해주세요</option>
+         		</select>
          	</div>
             <div class="timeline-content">
-               <textarea class="form-control" id="message" rows="6" placeholder="What are you thinking?"></textarea>
+               <textarea class="form-control" id="message" name ="message" rows="6" placeholder="What are you thinking?"></textarea>
             <div class="timeline-likes">
-               <div class="stats-right">
-                  <label><input type="file" class="custom-file-input" id="customFile"><i class="far fa-image fa-fw fa-lg m-r-3"></i>image</label>
+               <div class="stats-right d-flex">
+                  <label>
+	                  <input type="file" class="custom-file-input" id="customFile1" name="customFile1">
+	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
+	                  image
+                  </label>
+                    <label>
+	                  <input type="file" class="custom-file-input" id="customFile1" name="customFile1">
+	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
+	                  image
+                  </label>
+                    <label>
+	                  <input type="file" class="custom-file-input" id="customFile1" name="customFile1">
+	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
+	                  image
+                  </label>
                   &nbsp;
-                  <button class="btn btn-primary f-s-12 rounded-corner" type="button">Submit</button>
+                  
                </div>
+               <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Submit</button>
             </div>
             </div>
          </div>
-         <!-- end timeline-body -->
+         </form>
       </li>
+      <!-- 리뷰를 작성하는 영역 -->
       
       
-<c:choose>
+<%-- <c:choose>
 	<c:when test="${empty boards }">
 		<h2>데이터(후기)가 없습니다.</h2>
 	</c:when>
-	<c:otherwise>
-		<c:forEach var="board" items="${boards }">	
-      <li>
+	<c:otherwise> --%>
+		<c:forEach var="board" items="${boards }">
+		
+      <li>	
          <!-- begin timeline-time -->
          <div class="timeline-time">
             <span class="date">${board.rdate }</span>
-            <span class="time">04:20</span>
+            <span class="time">No. ${board.rno}</span>
          </div>
-         <!-- end timeline-time -->
-         <!-- begin timeline-icon -->
+         
          <div class="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
          </div>
@@ -315,33 +352,41 @@
          <div class="timeline-body">
             <div class="timeline-header">
                <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></span>
-               <span class="username"><a href="javascript:;">이기자</a> <small></small></span>
+               <span class="username"><a href="javascript:;">${board.rnickname }</a> <small></small></span>
                <span class="pull-right text-muted">123 Views</span>
             </div>
+            
             <div class="timeline-content">
-               <p class="lead">${board.content }</p>
+               <p class="lead">${board.rcontent }</p>
                <p class="m-t-20"><img src="" alt=""></p>
             </div>
             <div class="timeline-likes">
                <div class="stats-right">
-				<span class="stats-text">${board.content_id }</span>
-				<span class="stats-text">${board.like } likes</span>
-                <span class="stats-text">123 Comments</span>
+				<span class="stats-text">${board.title}</span>
+				<span class="stats-text">${board.likes } likes</span>
+                <span class="stats-text">Comments</span>
                </div>
             </div>
             <div class="timeline-footer">
                <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-               <a href="javascript:cDetails();" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a>
+               <a href="javascript:;" class="m-r-15 text-inverse-lighter" onclick="kjh()"><i class="fa fa-comments fa-fw fa-lg m-r-3" ></i> Comment</a>
             </div>
-           <details id="cDetails">
-           <summary></summary>
-            <div class="timeline-comment-box">
+            
+   			<c:forEach var="comment" items="${comments }">
+            <c:if test="${board.rno eq comment.crno}">
+     		
+     		<div class="timeline-comment-box" style="">
+            	
             	<div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-            	 <div><span class="username">홍길동</span>
-         		 <span class="pull-right text-muted">8:03 PM Today</span>
-         		 <p>첫번째 글의 댓글내용</p>
+            	 <div><span class="username">${comment.nickname }</span>
+         		 <span class="pull-right text-muted">${comment.cdate }</span>
+         		 <p>${comment.ccontent }</p>
             	</div>
-           	<div class="timeline-comment-box">
+         		</div> 
+            </c:if>
+            	</c:forEach>
+            	
+            	 <div class="timeline-comment-box">
                <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
                <div class="input">
                   <form action="">
@@ -354,206 +399,56 @@
                   </form>
                </div>
             </div>
-         </div>
-        </details>
-         </div>
-         <!-- end timeline-body -->
-      </li>
-         </c:forEach>
-		</c:otherwise>
-		</c:choose>
-  </ul>
-</div>         
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	
+            	</div>
+          </c:forEach></ul>
          
-         
-   <!--    
-      
-      
-	<li>
-         begin timeline-time
-         <div class="timeline-time">
-            <span class="date">today</span>
-            <span class="time">03:00</span>
-         </div>
-         end timeline-time
-         begin timeline-icon
-         <div class="timeline-icon">
-            <a href="javascript:;">&nbsp;</a>
-         </div>
-         end timeline-icon
-         begin timeline-body
-         <div class="timeline-body">
-            <div class="timeline-header">
-               <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt=""></span>
-               <span class="username"><a href="javascript:;">김치국</a> <small></small></span>
-               <span class="pull-right text-muted">456 Views</span>
-            </div>
-            <div class="timeline-content">
-               <p class="lead">두번째 글내용</p>
-               <p class="m-t-20"><img src="" alt=""></p>
-            </div>
-            <div class="timeline-likes">
-				<div class="stats-right">
-					<span class="stats-text">#대구 약령시</span>
-                 	<span class="stats-text">456 Likes</span>
-                 	<span class="stats-text">456 Comments</span>
-				</div>
-            </div>
-            <div class="timeline-footer">
-               <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-               <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a> 
-            </div>
-            <div class="timeline-comment-box">
-            	<div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-            	 <div><span class="username">홍길동</span>
-         		 <span class="pull-right text-muted">8:03 PM Today</span>
-         		 <p>두번째 글의 댓글내용</p>
-            	</div>
-           	<div class="timeline-comment-box">
-               <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-               <div class="input">
-                  <form action="">
-                     <div class="input-group">
-                        <input type="text" class="form-control rounded-corner" placeholder="Write a comment...">
-                        <span class="input-group-btn p-l-10">
-                        <button class="btn btn-primary f-s-12 rounded-corner" type="button">Comment</button>
-                        </span>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-         </div>
-         end timeline-body
-     </li>
-     
-     
-     <li>
-         begin timeline-time
-         <div class="timeline-time">
-            <span class="date">lastday</span>
-            <span class="time">05:00</span>
-         </div>
-         end timeline-time
-         begin timeline-icon
-         <div class="timeline-icon">
-            <a href="javascript:;">&nbsp;</a>
-         </div>
-         end timeline-icon
-         begin timeline-body
-         <div class="timeline-body">
-            <div class="timeline-header">
-               <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
-               <span class="username"><a href="javascript:;">박승리</a> <small></small></span>
-               <span class="pull-right text-muted">789 Views</span>
-            </div>
-            <div class="timeline-content">
-               <p class="lead">세번째 글내용</p>
-               <p class="m-t-20"><img src="assets/img/3.jpg" alt=""></p>
-            </div>
-            <div class="timeline-likes">
-				<div class="stats-right">
-					<span class="stats-text">#여자친구 은하</span>
-                	<span class="stats-text">789 Likes</span>
-                	<span class="stats-text">789 Comments</span>
-               </div>
-            </div>
-            <div class="timeline-footer">
-               <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-               <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i> Comment</a> 
-            </div>
-            <div class="timeline-comment-box">
-            	<div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-            	 <div><span class="username">홍길동</span>
-         		 <span class="pull-right text-muted">8:03 PM Today</span>
-         		 <p>세번째 글의 댓글내용</p>
-            	</div>
-           	<div class="timeline-comment-box">
-               <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-               <div class="input">
-                  <form action="">
-                     <div class="input-group">
-                        <input type="text" class="form-control rounded-corner" placeholder="Write a comment...">
-                        <span class="input-group-btn p-l-10">
-                        <button class="btn btn-primary f-s-12 rounded-corner" type="button">Comment</button>
-                        </span>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-         </div>
-         end timeline-body
-     </li>
-     
+        
+          
+          
+          
+          
+          </div>
+          
+          <script>
 
-      <li>
-         begin timeline-icon
-         <div class="timeline-icon">
-            <a href="javascript:;">&nbsp;</a>
-         </div>
-         end timeline-icon
-         begin timeline-body
-         <div class="timeline-body"></div>
-         begin timeline-body
-      </li>
-   </ul>
-</div>
-
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-
-
-	details 펑션 구현 
-	<script>
-		function cDetails() {
-			document.getElementById("cDetails").open = true
+//리뷰작성시 이름으로 다녀온 관광지를 검색하는 기능
+document.getElementById("searchBtn").addEventListener('click',function(){
+	
+	// 필요한 변수들을 정희해준다.
+	var val = document.getElementById("searchText").value;
+	var xhp = new XMLHttpRequest();
+	var select = document.getElementById('searchResult');
+	
+	xhp.open('get','searchTour.do?title='+val,true);
+	xhp.onreadystatechange = function(){
+		if(xhp.readyState == 4 && xhp.status == 200){
+			var result = JSON.parse(xhp.responseText); //제이슨으로 받아온다.
+			
+			var option = "";
+			for(i in result){
+				
+				//옵션태그를 만든다.
+				option += '<option id=' + '"'+ result[i].title+ '" ' +' value=' + '"'+ result[i].content_id +'"'+'>'
+							+result[i].title+'</option>'
+				
+			}
+			//옵션태그를 추가하는 영역.
+			select.innerHTML=option;
 		}
-	</script>
+	}
+	xhp.send(null);
+	
+});
 
-	 -->
+</script>        
+          
+            </body>
+</html>
