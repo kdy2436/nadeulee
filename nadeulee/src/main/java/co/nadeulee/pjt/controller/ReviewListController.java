@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.nadeulee.pjt.DAO.ReviewBoardDAO;
+import co.nadeulee.pjt.DAO.R_BoardDAO;
 import co.nadeulee.pjt.VO.R_BoardVO;
 
 @WebServlet("/reviewList.do")
@@ -34,28 +34,38 @@ public class ReviewListController extends HttpServlet {
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String path = "/reviewBoard/ReviewList.tiles";
+		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
-		ReviewBoardDAO dao = new ReviewBoardDAO();
+		R_BoardDAO dao = new R_BoardDAO();
+		
+		
+
 		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
-		list = dao.selectAll();
-		
-		
-		
-		
+		list = dao.selectReview();
 		request.setAttribute("boards", list);
 		
+		
+		 dao = new R_BoardDAO(); // dao를 초기화안하면 밤을새서 염병해도 오류를 해결할수없음 주의
+		 ArrayList<R_BoardVO> list2 = new ArrayList<R_BoardVO>(); 
+		 list2 = dao.selectComment();
+		 request.setAttribute("comments", list2);
+		 System.out.println(list2);
 	
-		String path = "/reviewBoard/ReviewList.tiles";
-		 RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		 dispatcher.forward(request, response);
-		 
+
+
+		// String path = "/ReviewListReal.jsp";
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
+
 		/*
 		 * String path = "/reviewBoard/ReviewWriteForm.tiles"; RequestDispatcher
 		 * dispatcher = request.getRequestDispatcher(path); dispatcher.forward(request,
 		 * response);
 		 */
-		 
+
 	}
 
 }
