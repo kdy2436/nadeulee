@@ -38,7 +38,7 @@ public class InfoListController extends HttpServlet {
 
 		TourDAO dao = new TourDAO();
 		ArrayList<TourVO> list = new ArrayList<TourVO>();
-		list = dao.infoList();
+		//list = dao.infoList();
 
 		request.setAttribute("infoList", list);
 		String path = "/info/infoList.tiles";
