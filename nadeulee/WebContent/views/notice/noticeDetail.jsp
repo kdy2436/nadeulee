@@ -24,7 +24,8 @@
 		</div>
 		<div class="card-body">
 			<a href="#" class="btn btn-outline-secondary btn-sm" role="button">수정</a>
-			<a href="#" class="btn btn-outline-secondary btn-sm " role="button">삭제</a>
+			<a href="noticedelete.do?n_no=${detail.n_no}"
+				class="btn btn-outline-secondary btn-sm " role="button">삭제</a>
 		</div>
 		<div class="card-body">
 			<button type="button" class="btn btn-info"

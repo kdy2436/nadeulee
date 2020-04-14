@@ -1,7 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
+<style>
+#portfolio {
+	margin-top: 3rem
+}
 
+#paging {
+	position: relative;
+	left: 25%;
+}
+</style>
 <br>
 <br>
 <br>
@@ -59,4 +69,10 @@
 			</c:when>
 		</c:choose>
 	</div>
+	<my:paging paging="${requestScope.page}" jsfunc="gopage" />
 </div>
+<script>
+	function gopage(p) {
+		location.href = window.location.pathname + "?page=" + p;
+	}
+</script>

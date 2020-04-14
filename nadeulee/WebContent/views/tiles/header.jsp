@@ -13,6 +13,7 @@
 
 
 			<nav class="nav-menu d-none d-lg-block">
+
 				<ul>
 					<li><a href="noticelist.do">공지사항</a></li>
 					<li class="drop-down"><a href="allList.cate">여행지</a>
@@ -42,9 +43,14 @@
 
 					<c:choose>
 						<c:when test="${not empty auth}">
-							<li><a href="memberInfo.do">${nickname}님<font color=red>♥</font></a></li>
-							<button type="button" class="btn btn-outline-primary"
-								onclick="location.href='logout.do'">로그아웃</button>
+							<li class="drop-down"><a href="#">${nickname}님<font
+									color=red>♥</font></a>
+								<ul>
+									<li><a href="memberInfo.do">마이페이지</a></li>
+								</ul>
+
+								<button type="button" class="btn btn-outline-primary"
+									onclick="location.href='logout.do'">로그아웃</button>
 						</c:when>
 
 

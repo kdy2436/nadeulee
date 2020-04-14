@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.nadeulee.pjt.DAO.N_BoardDAO;
 import co.nadeulee.pjt.VO.N_BoardVO;
+import co.nadeulee.pjt.common.Paging;
 
 @WebServlet("/noticelist.do")
 public class NoticeListController extends HttpServlet {
@@ -35,11 +36,29 @@ public class NoticeListController extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 
+		Paging paging = new Paging();
+
 		N_BoardDAO dao = new N_BoardDAO();
-		ArrayList<N_BoardVO> list = new ArrayList<N_BoardVO>();
-		list = dao.noticeList();
+
+		paging.setPageUnit(10);
+		String page = request.getParameter("page");
+		int p = 1;
+		if (page != null)
+			p = Integer.parseInt(page);
+		paging.setPage(p);
+
+		N_BoardVO vo = new N_BoardVO();
+
+		vo.setFirst(paging.getFirst());
+		vo.setLast(paging.getLast());
+
+		ArrayList<N_BoardVO> list = dao.noticeList(vo);
+
+		int count = dao.count();
+		paging.setTotalRecord(count);
 
 		request.setAttribute("noticeList", list);
+		request.setAttribute("page", paging);
 		String path = "/notice/noticeList.tiles";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);

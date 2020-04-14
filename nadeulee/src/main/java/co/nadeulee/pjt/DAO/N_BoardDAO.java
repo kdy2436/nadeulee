@@ -14,13 +14,17 @@ public class N_BoardDAO {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
-	public ArrayList<N_BoardVO> noticeList() { // 공지사항 목록
+	public ArrayList<N_BoardVO> noticeList(N_BoardVO notice) { // 공지사항 목록
 		ArrayList<N_BoardVO> list = new ArrayList<N_BoardVO>();
-		N_BoardVO notice = null;
-		String sql = "select n_no, title, nickname, ndate from n_board";
+
+		String sql = "select rownum, b.* from (select rownum rn, a.* from(select n_no, title, nickname, ndate from n_board order by n_no desc)a) b where rn between ? and ?";
+
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, notice.getFirst());
+			psmt.setInt(2, notice.getLast());
 			rs = psmt.executeQuery();
+
 			while (rs.next()) {
 				notice = new N_BoardVO();
 				notice.setN_no(rs.getInt("n_no"));
@@ -70,4 +74,39 @@ public class N_BoardDAO {
 
 		return vo;
 	}
+
+	public int noticeDelete(int n_no) {
+		int n = 0;
+		try {
+			String sql = "DELETE FROM N_BOARD WHERE n_no=? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, n_no);
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+
+	public int count() {
+		int count = 0;
+
+		psmt = null;
+		rs = null;
+
+		String sql = "SELECT COUNT(*) count FROM n_board";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			rs.next();
+			count = rs.getInt("count");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return count;
+
+	}
+
 }
