@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.management.Query;
+import javax.servlet.jsp.tagext.TryCatchFinally;
+
 import co.nadeulee.pjt.VO.N_BoardVO;
 
 public class N_BoardDAO {
@@ -82,6 +85,25 @@ public class N_BoardDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, n_no);
 			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+
+	public int noticeUpdate(N_BoardVO vo) {
+		int n = 0;
+		StringBuffer query = new StringBuffer();
+		query.append("update n_board set title =?, ");
+		query.append("content = ?");
+		query.append("where n_no = ?");
+
+		try {
+			psmt = conn.prepareStatement(query.toString());
+			psmt.setString(1, vo.getTitle());
+			psmt.setString(2, vo.getContent());
+			psmt.setInt(3, vo.getN_no());
+			rs = psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

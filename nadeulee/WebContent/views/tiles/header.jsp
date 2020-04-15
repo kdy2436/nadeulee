@@ -47,17 +47,19 @@
 									color=red>♥</font></a>
 								<ul>
 									<li><a href="memberInfo.do">마이페이지</a></li>
-								</ul>
+								</ul></li>
 
-								<button type="button" class="btn btn-outline-primary"
-									onclick="location.href='logout.do'">로그아웃</button>
+							<button type="button" id="buttonbtn"
+								class="btn btn-outline-primary"
+								onclick="location.href='logout.do'">로그아웃</button>
 						</c:when>
 
 
 						<c:otherwise>
 							<!-- login -->
 							<li><a href="memberjoin.do">회원가입</a></li>
-							<button type="button" class="btn btn-outline-primary"
+							<button type="button" id="buttonbtn"
+								class="btn btn-outline-primary"
 								onclick="location.href='login.do'">로그인</button>
 
 						</c:otherwise>

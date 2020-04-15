@@ -10,7 +10,12 @@
 
 #paging {
 	position: relative;
-	left: 25%;
+}
+
+#paging .pagination {
+	position: absolute;
+	transform: translateX(-50%);
+	left: 50%;
 }
 </style>
 <!-- ======= infoList Section ======= -->

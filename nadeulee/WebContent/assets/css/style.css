@@ -1,9 +1,61 @@
+/* font */
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 700;
+	src:
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.eot);
+	src:
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.eot?#iefix)
+		format('embedded-opentype'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.woff2)
+		format('woff2'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.woff)
+		format('woff'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Bold.ttf)
+		format('truetype');
+}
+
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.eot);
+	src:
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.eot?#iefix)
+		format('embedded-opentype'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.woff2)
+		format('woff2'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.woff)
+		format('woff'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-Regular.ttf)
+		format('truetype');
+}
+
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 800;
+	src:
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.eot);
+	src:
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.eot?#iefix)
+		format('embedded-opentype'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.woff2)
+		format('woff2'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.woff)
+		format('woff'),
+		url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v3/NanumGothic-ExtraBold.ttf)
+		format('truetype');
+}
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
-	font-family: "Open Sans", sans-serif;
+	font-family: Nanum Gothic, "Open Sans", sans-serif;
+	font-weight: 400;
 	color: #444444;
 }
 
@@ -17,7 +69,8 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Raleway", sans-serif;
+	font-family: Nanum Gothic, "Open Sans", sans-serif;
+	font-weight: 400;
 }
 
 /*--------------------------------------------------------------
@@ -103,7 +156,8 @@ h1, h2, h3, h4, h5, h6 {
 	transition: 0.3s;
 	font-size: 16px;
 	font-weight: 500;
-	font-family: "Poppins", sans-serif;
+	font-family: Nanum Gothic, "Open Sans", sans-serif;
+	font-weight: 400;
 }
 
 .nav-menu a:hover, .nav-menu .active>a, .nav-menu li:hover>a {
@@ -132,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu .drop-down li {
-	min-width: 180px;
+	min-width: 110px;
 	position: relative;
 }
 
@@ -187,6 +241,11 @@ h1, h2, h3, h4, h5, h6 {
 	.nav-menu .drop-down .drop-down>a:after {
 		content: "\ea9d";
 	}
+}
+
+#buttonbtn {
+	padding: .375rem .75rem;
+	margin: 5px 0;
 }
 
 /* Mobile Navigation */
@@ -342,7 +401,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-get-started {
-	font-family: "Poppins", sans-serif;
+	font-family: " Poppins ", sans-serif;
 	font-weight: 400;
 	font-size: 13px;
 	letter-spacing: 2px;
@@ -375,6 +434,30 @@ h1, h2, h3, h4, h5, h6 {
 		line-height: 24px;
 		margin-bottom: 30px;
 	}
+}
+
+#contents {
+	width: 1140px;
+	margin: 0 auto;
+	padding: 50px 0;
+	overflow: hidden;
+}
+
+#contents .card_box {
+	float: right;
+	overflow: hidden;
+	width: 50%;
+}
+
+#contents .card_box div {
+	width: -webkit-calc(50% - 10px); /* for Chrome, Safari */
+	width: -moz-calc(50% - 10px); /* for Firefox */
+	width: calc(50% - 10px); /* for IE */
+	height: 160px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+	background-color: #333;
 }
 
 /*--------------------------------------------------------------
@@ -1057,12 +1140,66 @@ section {
 100%
 {
 transform
-:
- 
-rotate
-(360deg);
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+rotate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(360
+deg
+
+
+
+
+
+
+
+
+
+
+
+
+);
 }
 }
 @
@@ -1073,12 +1210,66 @@ keyframes animate-loading { 0% {
 100%
 {
 transform
-:
- 
-rotate
-(360deg);
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+rotate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(360
+deg
+
+
+
+
+
+
+
+
+
+
+
+
+);
 }
 }
 
@@ -1369,4 +1560,9 @@ rotate
 	background: #5faee3;
 	color: #fff;
 	text-decoration: none;
+}
+
+#frm.loginform {
+	width: 426px;
+	margin: 0 auto;
 }

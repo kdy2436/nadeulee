@@ -27,7 +27,8 @@
 			<div class="section-title">
 				<h2>로그인</h2>
 			</div>
-			<form id="frm" name="frm" action="logincheck.do" method="post">
+			<form id="frm" name="frm" action="logincheck.do" method="post"
+				class="loginform">
 				<div class="form-group">
 					<label for="email">ID:</label> <input type="text"
 						class="form-control" id="email" placeholder="Enter ID"
