@@ -277,11 +277,6 @@
 <body>
 <br/><br/><br/>
 
-
-
-
-
-
 <div class="container">
    <ul class="timeline">
      <li><!-- 리뷰를 작성하는 영역 -->
@@ -304,17 +299,17 @@
             <div class="timeline-likes">
                <div class="stats-right d-flex">
                   <label>
-	                  <input type="file" class="custom-file-input" id="customFile1" name="customFile1">
+	                  <input type="file" class="custom-file-input" id="file1" name="File1">
 	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
 	                  image
                   </label>
                     <label>
-	                  <input type="file" class="custom-file-input" id="customFile1" name="customFile1">
+	                  <input type="file" class="custom-file-input" id="file2" name="File2">
 	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
 	                  image
                   </label>
                     <label>
-	                  <input type="file" class="custom-file-input" id="customFile1" name="customFile1">
+	                  <input type="file" class="custom-file-input" id="file3" name="File3">
 	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
 	                  image
                   </label>
@@ -329,13 +324,8 @@
       </li>
       <!-- 리뷰를 작성하는 영역 -->
       
-      
-<%-- <c:choose>
-	<c:when test="${empty boards }">
-		<h2>데이터(후기)가 없습니다.</h2>
-	</c:when>
-	<c:otherwise> --%>
-		<c:forEach var="board" items="${boards }">
+      <!-- 리스트-->
+      	<c:forEach var="board" items="${boards }">
 		
       <li>	
          <!-- begin timeline-time -->
@@ -372,52 +362,69 @@
                <a href="javascript:;" class="m-r-15 text-inverse-lighter" onclick="kjh()"><i class="fa fa-comments fa-fw fa-lg m-r-3" ></i> Comment</a>
             </div>
             
-   			<c:forEach var="comment" items="${comments }">
-            <c:if test="${board.rno eq comment.crno}">
+   			
+   			<c:choose>
+   			<c:when test="${not empty board.commentlist}">
+            <%-- <c:if test="${board.rno eq comment.crno}"> --%>
      		
+   			<c:forEach var="comment" items="${board.commentlist }">
      		<div class="timeline-comment-box" style="">
-            	
             	<div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
             	 <div><span class="username">${comment.nickname }</span>
          		 <span class="pull-right text-muted">${comment.cdate }</span>
          		 <p>${comment.ccontent }</p>
             	</div>
          		</div> 
-            </c:if>
-            	</c:forEach>
-            	
-            	 <div class="timeline-comment-box">
+            </c:forEach>
+            <div class="timeline-comment-box">
                <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
                <div class="input">
-                  <form action="">
+                  <form id="frm" name="frm" action="commentWrite.do" method="post">
                      <div class="input-group">
-                        <input type="text" class="form-control rounded-corner" placeholder="Write a comment...">
-                        <span class="input-group-btn p-l-10">
-                        <button class="btn btn-primary f-s-12 rounded-corner" type="button">Comment</button>
+                     	<input type="hidden" id="email" name="email" value="admin@admin.com">
+                     	<input type="hidden" id="rno" name="rno" value="${board.rno }">
+                        <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
+                        <span class="input-group-btn p-l-10">	
+                        <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
                         </span>
                      </div>
                   </form>
                </div>
             </div>
-            	
-            	
-            	
-            	
-            	
-            	
-            	
-            	
+            </c:when>
+            <c:otherwise>
+            	<div class="timeline-likes">
+            	<div class="stats-left">
+            		<span class="stats-text">아직 댓글이 없습니다.</span>
             	</div>
-          </c:forEach></ul>
-         
-        
+            	</div>
+            	<div class="timeline-comment-box">
+               <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
+               <div class="input">
+                  <%-- <form action="commentWrite.do?r_no=${board.rno }"> --%>
+                  <form id="frm" name="frm" action="commentWrite.do" method="post">
+                     <div class="input-group">
+                     	<input type="hidden" id="email" name="email" value="admin@admin.com">
+                     	<input type="hidden" id="rno" name="rno" value="${board.rno }">
+                        <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
+                        <span class="input-group-btn p-l-10">	
+                        <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
+                        </span>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            </c:otherwise>
+            </c:choose>
+     	</div>
+          </c:forEach>
+          </ul>
+      </div>
+       <!-- 리스트-->
+      
+
           
-          
-          
-          
-          </div>
-          
-          <script>
+<script>
 
 //리뷰작성시 이름으로 다녀온 관광지를 검색하는 기능
 document.getElementById("searchBtn").addEventListener('click',function(){

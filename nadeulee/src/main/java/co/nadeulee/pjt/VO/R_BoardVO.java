@@ -1,6 +1,7 @@
 package co.nadeulee.pjt.VO;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class R_BoardVO {
 	private int rno;
@@ -50,7 +51,20 @@ public class R_BoardVO {
 	private String cat1;
 	private String typeid;
 	
+	private ArrayList<R_BoardVO> commentlist;
 	
+	
+	
+	public ArrayList<R_BoardVO> getCommentlist() {
+		return commentlist;
+	}
+
+
+	public void setCommentlist(ArrayList<R_BoardVO> commentlist) {
+		this.commentlist = commentlist;
+	}
+
+
 	public R_BoardVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -448,16 +462,11 @@ public class R_BoardVO {
 
 	@Override
 	public String toString() {
-		return "R_BoardVO [rno=" + rno + ", rcontent_id=" + rcontent_id + ", remail=" + remail + ", rcontent="
-				+ rcontent + ", rdate=" + rdate + ", likes=" + likes + ", img1=" + img1 + ", img2=" + img2 + ", img3="
-				+ img3 + ", rnickname=" + rnickname + ", email=" + email + ", pw=" + pw + ", gender=" + gender
-				+ ", profile=" + profile + ", auth=" + auth + ", nickname=" + nickname + ", cno=" + cno + ", ccontent="
-				+ ccontent + ", cdate=" + cdate + ", crno=" + crno + ", cemail=" + cemail + ", cnickname=" + cnickname
-				+ ", tcontent_id=" + tcontent_id + ", title=" + title + ", overview=" + overview + ", addr=" + addr
-				+ ", parking=" + parking + ", pay=" + pay + ", time=" + time + ", age=" + age + ", image=" + image
-				+ ", tel=" + tel + ", map_x=" + map_x + ", map_y=" + map_y + ", tourtypecode=" + tourtypecode
-				+ ", sigungucode=" + sigungucode + ", cat2=" + cat2 + ", cat1=" + cat1 + ", typeid=" + typeid + "]";
+		return "R_BoardVO [rno=" + rno + ", commentlist=" + commentlist + "]";
 	}
+
+
+	
 
 
 	

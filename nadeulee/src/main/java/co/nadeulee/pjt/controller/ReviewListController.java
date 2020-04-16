@@ -42,18 +42,17 @@ public class ReviewListController extends HttpServlet {
 		
 		
 
-		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
-		list = dao.selectReview();
+		ArrayList<R_BoardVO> list = dao.selectReview();
 		request.setAttribute("boards", list);
 		
 		
-		 dao = new R_BoardDAO(); // dao를 초기화안하면 밤을새서 염병해도 오류를 해결할수없음 주의
-		 ArrayList<R_BoardVO> list2 = new ArrayList<R_BoardVO>(); 
-		 list2 = dao.selectComment();
-		 request.setAttribute("comments", list2);
-		 System.out.println(list2);
-	
-
+		/*
+		 * dao = new R_BoardDAO(); // dao를 초기화안하면 밤을새서 염병해도 오류를 해결할수없음 주의
+		 * ArrayList<R_BoardVO> list2 = new ArrayList<R_BoardVO>(); list2 =
+		 * dao.selectComment(); request.setAttribute("comments", list2);
+		 * System.out.println(list2);
+		 * 
+		 */
 
 		// String path = "/ReviewListReal.jsp";
 
