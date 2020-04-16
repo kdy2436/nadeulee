@@ -86,17 +86,28 @@ public class ReviewWriteController extends HttpServlet {
 				uploadFile = savePath + File.separator + fileName;
 				File f = new FileRenamePolicy().rename(new File(uploadFile));
 				String uploadFileName = f.getParent() + ":" + f.getName();
-				part.write(uploadFileName);
+				part.write(uploadFile);
 				
+				System.out.println(part.getName());
 				//파일 순서에 따라 다른 컬럼에 저장한다.
-				if(!part.getName().equals("file1"))
-				rvo.setImg1(uploadFileName);
+				if(part.getName().equals("File1")) {
+					rvo.setImg1(uploadFile);
+				System.out.println(uploadFile);
+				}
 				
-				if(!part.getName().equals("file2"))
-					rvo.setImg2(uploadFileName);
 				
-				if(!part.getName().equals("file3"))
-					rvo.setImg3(uploadFileName);
+				
+				if(part.getName().equals("File2")) {
+					rvo.setImg2(uploadFile);
+					System.out.println(uploadFile);
+				}
+				
+				
+				if(part.getName().equals("File3")) {
+					rvo.setImg3(uploadFile);
+					System.out.println(uploadFile);
+				}
+				
 			}
 		}
 		
