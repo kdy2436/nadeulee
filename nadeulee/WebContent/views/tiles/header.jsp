@@ -46,7 +46,7 @@
 							<li class="drop-down"><a href="#">${nickname}님<font
 									color=red>♥</font></a>
 								<ul>
-									<li><a href="memberInfo.do">마이페이지</a></li>
+									<li><a href="memberInfoView.do">마이페이지</a></li>
 								</ul></li>
 
 							<button type="button" id="buttonbtn"
