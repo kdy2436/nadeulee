@@ -37,6 +37,66 @@ public class MemberDAO {
 		}
 		return list;
 	}
+	
+	public MemberVO select(MemberVO vo) {
+		String sql = "select * from member where email=?";
+		Connection conn = GetConnection.getConn();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getEmail());
+			rs =psmt.executeQuery();
+			if(rs.next()) {
+				vo.setEmail(rs.getString("email"));
+				vo.setNickname(rs.getString("nickname"));
+				vo.setPw(rs.getString("pw"));
+				vo.setGender(rs.getString("gender"));
+				vo.setProfile(rs.getString("profile"));
+				vo.setAuth(rs.getString("auth"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			GetConnection.close(conn);
+		}
+		
+		return vo;
+	}
+	
+	public int update(MemberVO vo) {
+		int n=0;
+		String sql = "update member set nickname=?, pw=?, profile=? where email=?";
+		Connection conn = GetConnection.getConn();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getNickname());
+			psmt.setString(2, vo.getPw());
+			psmt.setString(3, vo.getProfile());
+			psmt.setString(4, vo.getEmail());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			GetConnection.close(conn);
+		}
+		return n;
+	}
+	
+	public int delete (MemberVO vo) {
+		int n=0;
+		String sql = "delete from member where email=?";
+		Connection conn = GetConnection.getConn();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getEmail());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			GetConnection.close(conn);
+		}
+		
+		return n;
+	}
 
 	public int memberInsert(MemberVO member) {
 		int n = 0;

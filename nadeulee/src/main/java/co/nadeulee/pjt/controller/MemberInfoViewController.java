@@ -8,12 +8,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/memberInfo.do")
-public class MemberInfoController extends HttpServlet {
+import co.nadeulee.pjt.DAO.MemberDAO;
+import co.nadeulee.pjt.VO.MemberVO;
+
+@WebServlet("/memberInfoView.do")
+public class MemberInfoViewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public MemberInfoController() {
+	public MemberInfoViewController() {
 		super();
 	}
 
@@ -30,6 +34,16 @@ public class MemberInfoController extends HttpServlet {
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		
+		MemberDAO dao = new MemberDAO();
+		MemberVO vo = new MemberVO();
+		HttpSession session = request.getSession();
+		
+		String email = (String)session.getAttribute("email");
+		vo.setEmail(email);
+		vo = dao.select(vo);
+		request.setAttribute("view", vo);
+		
 		String path = "/member/memberInfo.tiles";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);

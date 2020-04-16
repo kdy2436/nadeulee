@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 	
 <style>
 	#centerDiv {
 		/* margin : 0 auto; */
 	}
-	#btnJoin, #btnCancel, #btnHome, #btnDelete {
+	#btnSave, #btnCancel, #btnHome, #btnDelete {
 		width: 90px;
 		height: 40px;
 	}
@@ -24,22 +25,21 @@
 		<div class="row align-items-center" >
 		<div class="col-xl-4 col-md-12 col-sm-12" align="center">
 			<h2>프로필 사진</h2><br>
-			*프로필 사진 뷰
+			<img src="${view.profile }" id="">
 		</div>
 		<div class="col-xl-6 col-md-12 col-sm-12" id="centerDiv" >
 			<!-- 폼양식 액션추가 -->
-			<form id="frm" name="frm" action="memberInsert.do" method="post"
-				role="form" class="php-email-form" >
+			<form id="frm" name="frm" action="memberInfoUpdate.do" method="post"  >
 				<!--  이메일e mail 시작 -->
 				<div class="form-group">
-					<label for="name">이메일<font color="red"> </font></label> <input
-						type=email class="form-control" id="email" name="email"  value="" readonly>
+					<label for="name">이메일<font color="red"> &nbsp;*변경불가 </font></label> <input
+						type=email class="form-control" id="email" name="email"  value="${view.email }" readonly>
 					<div id="check"></div>
 				</div>
 				<div class="form-group">
 					<label for="pw">비밀번호<font color="red"> </font></label> <input
 						type="password" class="form-control" id="pw" name="pw"
-						placeholder="변경을 원할 시 비밀번호를 입력해주세요" >
+						placeholder="변경 할 비밀번호를 입력 해 주세요" >
 				</div>
 				<div class="form-group">
 					<label for="pwc">비밀번호 확인<font color="red"> </font></label> <input
@@ -49,14 +49,24 @@
 				<div class="form-group">
 					<label for="nickName">닉네임<font color="red"> </font></label>
 					<input type="text" class="form-control" id="nickName"
-						name="nickName" placeholder="변경을 원할 시 닉네임을 입력해주세요" >
+						name="nickName" value="${view.nickname }" placeholder="" >
 					<div id="nickCheck"></div>
 				</div>
 				<!--  성별gender  시작 -->
 				<div class="form-group">
-					<label for="gender">성별<font color="red"></font></label><br />
-					<label><input type="radio" id="male" name="gender" value="남자" onclick="return(false);">남자</label>&nbsp; 
-					<label><input type="radio" id="female" name="gender" value="여자" checked onclick="return(false);">여자</label>
+					<label for="gender">성별<font color="red"> &nbsp;*변경불가</font></label><br />
+					
+					<c:choose>
+						<c:when test="${view.gender == '여자'}">
+								<label><input type="radio" id="male" name="gender" value="남자" onclick="return(false);">남자</label>&nbsp; 
+								<label><input type="radio" id="female" name="gender" value="여자" checked onclick="return(false);">여자</label>
+						</c:when>
+						<c:otherwise>
+								<label><input type="radio" id="male" name="gender" value="남자" checked onclick ="return(false);">남자</label>&nbsp; 
+								<label><input type="radio" id="female" name="gender" value="여자" onclick="return(false);">여자</label>
+						</c:otherwise>
+					</c:choose>
+					
 				</div>
 				<!--  성별 끝 -->
 				<!--  프로필 사진 -->
@@ -67,12 +77,12 @@
 				<!--  프로필 사진 끝-->
 				<!--  버튼메뉴 -->
 				<div class="text-center">
-					<button type="submit" id="btnJoin" class="btn btn-outline-danger"
-						onclick=" # ">수정하기</button>&nbsp;&nbsp;
+					<button type="submit" id="btnSave" class="btn btn-outline-danger">
+						수정하기</button>&nbsp;&nbsp;
 					<button type="reset" id="btnCancel" class="btn btn-outline-info"
 						onclick="location.href=' # ' ">다시작성</button>&nbsp;&nbsp;
 					<button type="button" id="btnDelete" class="btn btn-outline-dark"
-						onclick="location.href=' # ' ">회원탈퇴</button>&nbsp;&nbsp;
+						onclick="location.href='memberDelete.do' ">회원탈퇴</button>&nbsp;&nbsp;
 					<button type="button" id="btnHome" class="btn btn-outline-success"
 						onClick="location.href='home.do' ">홈</button>
 				</div>
@@ -136,7 +146,7 @@
   			  
   			  //아이디가 중복되면 버튼을 disabled한다.
   			  if(result.able =='disabled'){
-  				  document.getElementById('btnJoin').disabled=false;
+  				  document.getElementById('btnSave').disabled=false;
   			  }
   		  }
         };
@@ -163,7 +173,7 @@
   			  
   			  //아이디가 중복되면 버튼을 disabled한다.
   			  if(result.able =='disabled'){
-  				  document.getElementById('btnJoin').disabled=false;
+  				  document.getElementById('btnSave').disabled=false;
   			  }
   		  }
         };
