@@ -381,7 +381,6 @@
                <div class="input">
                   <form id="frm" name="frm" action="commentWrite.do" method="post">
                      <div class="input-group">
-                     	<input type="hidden" id="email" name="email" value="admin@admin.com">
                      	<input type="hidden" id="rno" name="rno" value="${board.rno }">
                         <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
                         <span class="input-group-btn p-l-10">	
@@ -404,7 +403,6 @@
                   <%-- <form action="commentWrite.do?r_no=${board.rno }"> --%>
                   <form id="frm" name="frm" action="commentWrite.do" method="post">
                      <div class="input-group">
-                     	<input type="hidden" id="email" name="email" value="admin@admin.com">
                      	<input type="hidden" id="rno" name="rno" value="${board.rno }">
                         <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
                         <span class="input-group-btn p-l-10">	
