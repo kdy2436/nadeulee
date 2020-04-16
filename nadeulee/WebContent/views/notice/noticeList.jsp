@@ -10,10 +10,11 @@
 #paging {
 	position: relative;
 }
-#paging .pagination{
+
+#paging .pagination {
 	position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
+	transform: translateX(-50%);
+	left: 50%;
 }
 </style>
 <br>
@@ -66,9 +67,9 @@
 		<c:choose>
 			<c:when test="${not empty email}">
 				<c:if test="${auth == 'A' }">
-					<button type="button"
-						style="color: white; background: steelblue; font-size: 1em; border-radius: 0.5em; padding: 5px 20px;"
-						onclick="location.href='noticewrite.do'">WRITE</button>
+					<button type="button" id="buttonbtn"
+						class="btn btn-outline-primary"
+						onclick="location.href='noticewrite.do'">글등록</button>
 				</c:if>
 			</c:when>
 		</c:choose>
