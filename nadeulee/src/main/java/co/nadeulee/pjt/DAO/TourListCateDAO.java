@@ -28,7 +28,7 @@ public class TourListCateDAO {
 		
 		String sql = "select rownum,b.* from " 
 				 +"(select rownum rn, a.* from(select * from tour "
-				 + "order by content_id)a) b "
+				 + "where cat1 not in ('A05','B02') order by content_id)a) b "
 				 + "where rn between ? and ?";
 		
 		Connection conn = GetConnection.getConn();
@@ -66,7 +66,7 @@ public class TourListCateDAO {
 		
 		String sql = "select rownum,b.* from " 
 				 +"(select rownum rn, a.* from(select * from tour "+sigungu 
-				 + " order by content_id)a) b "
+				 + " and cat1 not in ('A05','B02')  order by content_id)a) b "
 				 + "where rn between ? and ?";
 		
 		Connection conn = GetConnection.getConn();
@@ -105,7 +105,7 @@ public class TourListCateDAO {
 		
 		String sql = "select rownum,b.* from " 
 				 +"(select rownum rn, a.* from(select * from tour "+ course 
-				 + " order by content_id)a) b "
+				 + " and cat1 not in ('A05','B02') order by content_id)a) b "
 				 + "where rn between ? and ?";
 		
 		Connection conn = GetConnection.getConn();
@@ -167,7 +167,7 @@ public class TourListCateDAO {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT COUNT(*) count FROM TOUR where sigungucode=?";
+		String sql = "SELECT COUNT(*) count FROM TOUR where cat1 not in ('A05','B02') and sigungucode=?";
 		
 		try {
 			psmt=conn.prepareStatement(sql);
@@ -191,7 +191,7 @@ public class TourListCateDAO {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT COUNT(*) count FROM TOUR where cat2=?";
+		String sql = "SELECT COUNT(*) count FROM TOUR where cat1 not in ('A05','B02') and cat2=?";
 		
 		try {
 			psmt=conn.prepareStatement(sql);

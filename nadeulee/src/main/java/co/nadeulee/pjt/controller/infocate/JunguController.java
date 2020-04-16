@@ -36,6 +36,7 @@ public class JunguController implements Controller {
 
 		// 전체 레코드수를 가지고 옴.
 		int count = dao.sigunguCount(vo);
+		System.out.println(count);
 		paging.setTotalRecord(count);
 
 		// 리스트를 얻음.
