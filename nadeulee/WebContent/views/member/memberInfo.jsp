@@ -6,7 +6,7 @@
 	#centerDiv {
 		/* margin : 0 auto; */
 	}
-	#btnJoin, #btnCancel, #btnHome, #btnDelete {
+	#btnSave, #btnCancel, #btnHome, #btnDelete {
 		width: 90px;
 		height: 40px;
 	}
@@ -25,7 +25,7 @@
 		<div class="row align-items-center" >
 		<div class="col-xl-4 col-md-12 col-sm-12" align="center">
 			<h2>프로필 사진</h2><br>
-			*프로필 사진 뷰
+			<img src="${view.profile }" id="">
 		</div>
 		<div class="col-xl-6 col-md-12 col-sm-12" id="centerDiv" >
 			<!-- 폼양식 액션추가 -->
@@ -77,7 +77,7 @@
 				<!--  프로필 사진 끝-->
 				<!--  버튼메뉴 -->
 				<div class="text-center">
-					<button type="submit" id="btnJoin" class="btn btn-outline-danger">
+					<button type="submit" id="btnSave" class="btn btn-outline-danger">
 						수정하기</button>&nbsp;&nbsp;
 					<button type="reset" id="btnCancel" class="btn btn-outline-info"
 						onclick="location.href=' # ' ">다시작성</button>&nbsp;&nbsp;
@@ -146,7 +146,7 @@
   			  
   			  //아이디가 중복되면 버튼을 disabled한다.
   			  if(result.able =='disabled'){
-  				  document.getElementById('btnJoin').disabled=false;
+  				  document.getElementById('btnSave').disabled=false;
   			  }
   		  }
         };
@@ -173,7 +173,7 @@
   			  
   			  //아이디가 중복되면 버튼을 disabled한다.
   			  if(result.able =='disabled'){
-  				  document.getElementById('btnJoin').disabled=false;
+  				  document.getElementById('btnSave').disabled=false;
   			  }
   		  }
         };
