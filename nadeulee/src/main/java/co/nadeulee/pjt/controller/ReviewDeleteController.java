@@ -1,7 +1,6 @@
 package co.nadeulee.pjt.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.nadeulee.pjt.DAO.R_BoardDAO;
-import co.nadeulee.pjt.VO.R_BoardVO;
 
-@WebServlet("/home.do")
-public class HomeController extends HttpServlet {
+import co.nadeulee.pjt.DAO.R_BoardDAO;
+
+@WebServlet("/reviewDelete.do")
+public class ReviewDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public HomeController() {
+	public ReviewDeleteController() {
 		super();
 	}
 
@@ -29,20 +28,19 @@ public class HomeController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doAction(request, response);
-
 	}
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
-		
+		String r_no = request.getParameter("r_no");
+
 		R_BoardDAO dao = new R_BoardDAO();
-		ArrayList<R_BoardVO> list = dao.selectBestReview();
-		request.setAttribute("boards", list);
+		dao.commentDelete(Integer.parseInt(r_no));
+		dao.reviewDelete(Integer.parseInt(r_no));
 		
-		String path = "/nadeulee.home.tiles";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+
+		request.setAttribute("delete", dao);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("memberInfoView.do");
 		dispatcher.forward(request, response);
 
 	}

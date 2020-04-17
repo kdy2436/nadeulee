@@ -121,7 +121,7 @@ public class R_BoardDAO {
 
 	}
 	
-	public int commentWrite(R_BoardVO rboard) { // 공지사항 등록
+	public int commentWrite(R_BoardVO rboard) {
 		int n = 0;
 		String sql = "insert into c_board values (CNO_SEQ.nextval,?,sysdate,?,?)";
 		
@@ -139,5 +139,109 @@ public class R_BoardDAO {
 		}
 		return n;
 	}
+	
+	public int reviewDelete(int rno) {
+		int n = 0;
+		try {
+			Connection conn = GetConnection.getConn();
+			String sql = "DELETE FROM R_BOARD WHERE rno=? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1,rno);
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	
+	public int commentDelete(int rno) {
+		int n = 0;
+		try {
+			Connection conn = GetConnection.getConn();
+			String sql = "DELETE FROM C_BOARD WHERE rno=? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1,rno);
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	
+	
+	public ArrayList<R_BoardVO> selectMyReview(String email) {
+		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
+		R_BoardVO rboard;
+		String sql = "select rno, content_id, email, rcontent, rdate, likes, img1, img2, img3, nickname from r_board where email=? order by 1 desc";
+		Connection conn = GetConnection.getConn();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			ResultSet rs = psmt.executeQuery();
+			while (rs.next()) {
+				rboard = new R_BoardVO();
+				rboard.setRno(rs.getInt(1));
+				rboard.setRcontent_id(rs.getString(2));
+				rboard.setEmail(rs.getString(3));
+				rboard.setRcontent(rs.getString(4));
+				rboard.setRdate(rs.getDate(5));
+				rboard.setLikes(rs.getInt(6));
+				rboard.setImg1(rs.getString(7));
+				rboard.setImg2(rs.getString(8));
+				rboard.setImg3(rs.getString(9));
+				rboard.setNickname(rs.getString(10));
+				list.add(rboard);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 
+	}
+	
+	public ArrayList<R_BoardVO> selectBestReview() {
+		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
+		R_BoardVO rboard;
+		String sql = "select * from\r\n" + 
+				"(select rownum rn, b.* from\r\n" + 
+				"(select rno, r.content_id, title, r.email, r.nickname, profile, rcontent, rdate, likes, img1, img2, img3\r\n" + 
+				"from r_board r, tour t, member m\r\n" + 
+				"where r.content_id = t.content_id and r.email = m.email order by likes desc)b)a\r\n" + 
+				"where rn between 1 and 6";
+		Connection conn = GetConnection.getConn();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				rboard = new R_BoardVO();
+				rboard.setRno(rs.getInt(2));
+				rboard.setRcontent_id(rs.getString(3));
+				rboard.setTitle(rs.getString(4));
+				rboard.setRemail(rs.getString(5));
+				rboard.setRnickname(rs.getString(6));
+				rboard.setProfile(rs.getString(7));
+				rboard.setRcontent(rs.getString(8));
+				rboard.setRdate(rs.getDate(9));
+				rboard.setLikes(rs.getInt(10));
+				rboard.setImg1(rs.getString(11));
+				rboard.setImg2(rs.getString(12));
+				rboard.setImg3(rs.getString(13));
+				rboard.setCommentlist(selectComment(rboard.getRno()));
+				
+				
+				
+				
+				list.add(rboard);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		GetConnection.close(rs, psmt, conn);
+		return list;
+
+	}
+	
+	
 }

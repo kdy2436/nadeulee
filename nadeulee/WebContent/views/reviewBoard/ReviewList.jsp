@@ -341,14 +341,16 @@
          <!-- begin timeline-body -->
          <div class="timeline-body">
             <div class="timeline-header">
-               <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></span>
-               <span class="username"><a href="javascript:;">${board.rnickname }</a> <small></small></span>
-               <span class="pull-right text-muted">123 Views</span>
+            	<span class="userimage"><img src="/nadeulee/uploadProfile/${board.profile }" alt=""></span>
+               <span class="username"><a href="javascript:;">${board.rnickname }</a><small></small></span>
+               	<span class="pull-right text-muted"><!-- 123 Views --></span>
             </div>
             
             <div class="timeline-content">
                <p class="lead">${board.rcontent }</p>
-               <p class="m-t-20"><img src="" alt=""></p>
+               <p class="m-t-20"><img src="/nadeulee/Image/${board.img1 }" alt=""></p>
+               <p class="m-t-20"><img src="/nadeulee/Image/${board.img2 }" alt=""></p>
+               <p class="m-t-20"><img src="/nadeulee/Image/${board.img3 }" alt=""></p>
             </div>
             <div class="timeline-likes">
                <div class="stats-right">
@@ -369,19 +371,19 @@
      		
    			<c:forEach var="comment" items="${board.commentlist }">
      		<div class="timeline-comment-box" style="">
-            	<div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
+            	<div class="user"><img src="/nadeulee/uploadProfile/${board.profile }"></div>
             	 <div><span class="username">${comment.nickname }</span>
          		 <span class="pull-right text-muted">${comment.cdate }</span>
          		 <p>${comment.ccontent }</p>
             	</div>
          		</div> 
             </c:forEach>
-            <div class="timeline-comment-box">
+           <%--  <div class="timeline-comment-box">
                <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
                <div class="input">
                   <form id="frm" name="frm" action="commentWrite.do" method="post">
                      <div class="input-group">
-                     	<input type="hidden" id="rno" name="rno" value="${board.rno }">
+                     	<input type="hidden" id="rno2" name="rno2" value="${board.rno }">
                         <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
                         <span class="input-group-btn p-l-10">	
                         <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
@@ -389,9 +391,9 @@
                      </div>
                   </form>
                </div>
-            </div>
+            </div> --%>
             </c:when>
-            <c:otherwise>
+            <%-- <c:otherwise>
             	<div class="timeline-likes">
             	<div class="stats-left">
             		<span class="stats-text">아직 댓글이 없습니다.</span>
@@ -400,10 +402,10 @@
             	<div class="timeline-comment-box">
                <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
                <div class="input">
-                  <%-- <form action="commentWrite.do?r_no=${board.rno }"> --%>
+                  <form action="commentWrite.do?r_no=${board.rno }">
                   <form id="frm" name="frm" action="commentWrite.do" method="post">
                      <div class="input-group">
-                     	<input type="hidden" id="rno" name="rno" value="${board.rno }">
+                     	<input type="hidden" id="rno2" name="rno2" value="${board.rno }">
                         <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
                         <span class="input-group-btn p-l-10">	
                         <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
@@ -412,8 +414,24 @@
                   </form>
                </div>
             </div>
-            </c:otherwise>
+            </c:otherwise> --%>
             </c:choose>
+             <div class="timeline-comment-box">
+               <div class="user"><img src="/nadeulee/uploadProfile/${board.profile }"></div>
+               <div class="input">
+                  <form id="frm" name="frm" action="commentWrite.do" method="post">
+                     <div class="input-group">
+                     	<input type="hidden" id="rno" name="rno" value="${board.rno }">
+                     	<!-- <input type="hidden" id="email" name="email" value="admin@admin.com"> -->
+                     	
+                        <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
+                        <span class="input-group-btn p-l-10">	
+                        <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
+                        </span>
+                     </div>
+                  </form>
+               </div>
+            </div>
      	</div>
           </c:forEach>
           </ul>

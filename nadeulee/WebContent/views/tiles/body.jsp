@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!-- fontawesome 댓글,좋아요 모양 구현-->
+	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -303,22 +306,22 @@
 			<h2>베스트 후기</h2>
 			<p>베스트 후기야 누눈누눈나나나나나</p>
 		</div>
-
 		<div class="owl-carousel testimonials-carousel">
+			<c:forEach var="board" items="${boards }">
 
 			<div class="testimonial-item">
+				<h3>${board.rnickname }</h3>
+				<h4><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> ${board.likes }</h4>
+				<img src="/nadeulee/uploadProfile/${board.profile }"
+					class="" alt="">
+				
 				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 대구는 아프리카보다 매우
-					덥습니다 서프라이즈 굉장히 놀랍다뉸 <i
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i> ${board.rcontent }<i
 						class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-1.jpg"
-					class="testimonial-img" alt="">
-				<h3>마이넴 사울굿맨</h3>
-				<h4>Ceo &amp; Founder</h4>
+				</p> 
 			</div>
-
-			<div class="testimonial-item">
+			</c:forEach>
+			<!-- <div class="testimonial-item">
 				<p>
 					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 가나다라마바사
 					아차차차차차차 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
@@ -366,10 +369,10 @@
 					class="testimonial-img" alt="">
 				<h3>John Larson</h3>
 				<h4>Entrepreneur</h4>
-			</div>
+			</div> -->
 
 		</div>
-
+	
 	</div>
 </section>
 <!-- End review Section -->
