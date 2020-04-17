@@ -44,7 +44,7 @@ public class ReviewWriteController extends HttpServlet {
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String SAVE_DIR = "Image"; //이미지 폴더의 이름
+		String SAVE_DIR = "\\Image"; //이미지 폴더의 이름
 		
 		//인코딩
 		request.setCharacterEncoding("utf-8");
@@ -70,8 +70,8 @@ public class ReviewWriteController extends HttpServlet {
 		rvo.setNickname(nickname);
 		
 		//실제로 저장되는 정보는 톰캣 work스페이스 안이다. 배포 후 시도해 보아야 한다.
-		String appPath = request.getServletContext().getRealPath("/");
-		String savePath = appPath + SAVE_DIR;
+		System.out.println();
+		String savePath = SAVE_DIR;
 		String uploadFile = "";
 		
 		File fileSaveDir = new File(savePath);
@@ -83,7 +83,8 @@ public class ReviewWriteController extends HttpServlet {
 		for (Part part : request.getParts()) {
 			String fileName = extractFileName(part);
 			if(!fileName.equals("")) {
-				uploadFile = savePath + File.separator + fileName;
+				uploadFile = fileName;
+				System.out.println(uploadFile);
 				File f = new FileRenamePolicy().rename(new File(uploadFile));
 				String uploadFileName = f.getParent() + ":" + f.getName();
 				part.write(uploadFile);
