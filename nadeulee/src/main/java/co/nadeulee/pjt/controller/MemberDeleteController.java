@@ -18,13 +18,13 @@ import co.nadeulee.pjt.VO.MemberVO;
  * Servlet implementation class MemberDelete
  */
 @WebServlet("/memberDelete.do")
-public class MemberDelete extends HttpServlet {
+public class MemberDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberDelete() {
+    public MemberDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }

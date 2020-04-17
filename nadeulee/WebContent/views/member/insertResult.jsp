@@ -8,6 +8,7 @@
 <br>
 <div class="container">
 	<div id="msg">${requestScope.msg}</div>
+	<div><br/></div>
 	<button class="btn btn-primary" type="button"
 		onclick="location.href='home.do'">홈으로</button>
 

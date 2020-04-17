@@ -33,6 +33,7 @@ public class CateFrontController extends HttpServlet {
 		map.put("/allList.cate", new AllListController());
 		map.put("/jungu.cate", new JunguController());
 		map.put("/suseonggu.cate", new SuseongguController());
+		map.put("/dongu.cate", new DonguController());
 		map.put("/bukgu.cate", new BukguController());
 		map.put("/namgu.cate", new NamguController());
 		map.put("/seogu.cate", new SeoguController());

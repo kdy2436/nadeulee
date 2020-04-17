@@ -70,9 +70,8 @@ public class ReviewWriteController extends HttpServlet {
 		rvo.setNickname(nickname);
 		
 		//실제로 저장되는 정보는 톰캣 work스페이스 안이다. 배포 후 시도해 보아야 한다.
-		String appPath = request.getServletContext().getRealPath("");
+		
 		String savePath = SAVE_DIR;
-		System.out.println(appPath);
 		String uploadFile = "";
 		
 		File fileSaveDir = new File(savePath);
@@ -84,7 +83,8 @@ public class ReviewWriteController extends HttpServlet {
 		for (Part part : request.getParts()) {
 			String fileName = extractFileName(part);
 			if(!fileName.equals("")) {
-				uploadFile = savePath + File.separator + fileName;
+				uploadFile = fileName;
+				System.out.println(uploadFile);
 				File f = new FileRenamePolicy().rename(new File(uploadFile));
 				String uploadFileName = f.getParent() + ":" + f.getName();
 				part.write(uploadFile);
@@ -95,8 +95,6 @@ public class ReviewWriteController extends HttpServlet {
 					rvo.setImg1(uploadFile);
 				System.out.println(uploadFile);
 				}
-				
-				
 				
 				if(part.getName().equals("File2")) {
 					rvo.setImg2(uploadFile);

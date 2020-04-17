@@ -27,6 +27,7 @@ public class TourDAO {
 			while(rs.next()) {
 				vo = new TourVO();
 				vo.setContent_id(rs.getString("content_id"));
+				vo.setTitle(rs.getString("title"));
 				vo.setAddr(rs.getString("addr"));
 				vo.setAge(rs.getString("age"));
 				vo.setCat1(rs.getString("cat1"));
