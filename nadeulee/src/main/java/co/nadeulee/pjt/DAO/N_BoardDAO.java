@@ -42,11 +42,12 @@ public class N_BoardDAO {
 
 	public int noticeInsert(N_BoardVO notice) { // 공지사항 등록
 		int n = 0;
-		String sql = "insert into n_board (n_no, title, content) values (NB_SEQ.nextval,?,?)";
+		String sql = "insert into n_board (n_no, title, content, n_photo) values (NB_SEQ.nextval,?,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, notice.getTitle());
 			psmt.setString(2, notice.getContent());
+			psmt.setString(3, notice.getN_photo());
 			n = psmt.executeUpdate();
 
 		} catch (SQLException e) {
