@@ -18,13 +18,13 @@ import co.nadeulee.pjt.VO.MemberVO;
  * Servlet implementation class MemberInfoUpdate
  */
 @WebServlet("/memberInfoUpdate.do")
-public class MemberInfoUpdate extends HttpServlet {
+public class MemberInfoUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberInfoUpdate() {
+    public MemberInfoUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }

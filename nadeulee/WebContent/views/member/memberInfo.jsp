@@ -6,9 +6,13 @@
 	#centerDiv {
 		/* margin : 0 auto; */
 	}
-	#btnSave, #btnCancel, #btnHome, #btnDelete {
+	#btnSave, #btnCancel, #btnHome, #btnDelete, #btnUpload {
 		width: 90px;
 		height: 40px;
+	}
+	#viewProfile {
+		width: 260px;
+		height: 300px;
 	}
 
 </style>
@@ -24,8 +28,16 @@
 		</div>
 		<div class="row align-items-center" >
 		<div class="col-xl-4 col-md-12 col-sm-12" align="center">
+		<form id="frmProfile" name="frmProfile" action="memberProfileUpdate.do" method="post" enctype="multipart/form-data">
 			<h2>프로필 사진</h2><br>
-			<img src="${view.profile }" id="">
+			  <img src="uploadProfile/${view.profile }" id="viewProfile">
+			<div>
+			</div>
+			<div class="form-group">
+				<label for="file"></label> <input type="file" class="form-control" id="file" name="file">
+			</div>
+			<button type="submit" id="btnUpload" class="btn btn-outline-secondary">사진등록</button>
+			</form>
 		</div>
 		<div class="col-xl-6 col-md-12 col-sm-12" id="centerDiv" >
 			<!-- 폼양식 액션추가 -->
@@ -70,10 +82,12 @@
 				</div>
 				<!--  성별 끝 -->
 				<!--  프로필 사진 -->
-				<div class="form-group">
-					<label for="profile">프로필</label> <input type="file"
-						class="form-control" id="profile" name="profile">
-				</div>
+				
+					<!-- <div class="form-group">
+						<label for="profile">프로필</label> <input type="file"
+							class="form-control" id="profile" name="profile">
+					</div> -->
+				
 				<!--  프로필 사진 끝-->
 				<!--  버튼메뉴 -->
 				<div class="text-center">

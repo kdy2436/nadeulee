@@ -49,7 +49,7 @@
 					<button type="submit" class="btn btn-outline-primary" id="btnLogin">로그인</button>
 					&nbsp;&nbsp;
 					<button type="button" class="btn btn-outline-danger" id="btnJoin"
-						onclick="location.href='memberJoin.do'">회원가입</button>
+						onclick="location.href='memberjoin.do'">회원가입</button>
 					&nbsp;&nbsp;
 					<button type="button" class="btn btn-outline-success" id="btnHome"
 						onclick="location.href='home.do'">홈</button>

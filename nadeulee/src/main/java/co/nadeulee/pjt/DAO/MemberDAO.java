@@ -81,6 +81,23 @@ public class MemberDAO {
 		return n;
 	}
 	
+	public int profileUpdate(MemberVO vo) {
+		int n =0;
+		String sql = "update member set profile=? where email=?";
+		Connection conn = GetConnection.getConn();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getProfile());
+			psmt.setString(2, vo.getEmail());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			GetConnection.close(conn);
+		}
+		return n;
+	}
+	
 	public int delete (MemberVO vo) {
 		int n=0;
 		String sql = "delete from member where email=?";
