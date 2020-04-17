@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
-	
+<!-- fontawesome 댓글,좋아요 모양 구현-->
+	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>	
 <style>
 	#centerDiv {
 		/* margin : 0 auto; */
@@ -108,18 +109,59 @@
 	  <!--  활동이력 리스트 섹션 -->
 	  <div><br/></div>
 	  <div><br/></div>
-	  <div class="row align-items-center" >
+	<!--   <div class="row align-items-center" >
 	  		<div class="col-xl-4 col-md-12 col-sm-12" align="center">
 	  			<h2>내가 작성한 글</h2>
-	  		</div>
+	  		</div> -->
 	  		<!--  작성글 불러오는 섹션 -->
-	  		<div class="php-email-form">
-	  		
-	  				*작성한 글 불러오기
-	  		
-	  		</div>
+	  		<!-- *작성한 글 불러오기 -->
+	  		<div>
+	<div class="container">
+		<!-- <form id="kjh" name="kjh" action="reviewDelete.do" method="post"> -->
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th width="30">작성일</th>
+						<th width="50">닉네임</th>
+						<th width="300">내용</th>
+						<th width="30">좋아요</th>
+						<th width="50"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:choose>
+						<c:when test="${empty boards}">
+							<tr>
+								<td colspan="4" align="center">데이터가 없습니다.</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="board" items="${boards}">
+							
+							
+						
+								<tr>
+									<td>${board.rdate}</td>
+									<td>${board.nickname}</td>
+									<td>${board.rcontent}</td>
+									<td>${board.likes}</td>
+									<td><a href="reviewDelete.do?r_no=${board.rno }"><i class="far fa-trash-alt"></i> 삭제</a></td>
+								</tr>
+								
+						
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</tbody>
+			</table>
+	
+		<br>
+	
+	</div>
+	
+</div>
 	  		<!--  작성글 불러오기 끝 -->
-	  </div>
+	
 	  
 	</div>
 
@@ -167,6 +209,12 @@
         
         xhp.send("name="+nickName);
     })
+
+    function kjh(){
+		var form = document.kjh;
+		form.submit();
+	}
+ 
     
     //아이디 중복체크
     /* document.getElementById('email').addEventListener('change',()=>{
