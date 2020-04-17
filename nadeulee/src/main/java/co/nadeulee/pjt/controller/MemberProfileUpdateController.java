@@ -101,7 +101,5 @@ public class MemberProfileUpdateController extends HttpServlet {
 			out.println("</script>");
 			out.close();
 		}
-		
 	}
-
 }
