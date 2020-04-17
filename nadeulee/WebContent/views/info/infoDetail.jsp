@@ -7,6 +7,9 @@
 	width: 80%;
 	height: 200px;
 }
+.middle{
+	
+}
 </style>
 
 <main id="main">
@@ -66,12 +69,12 @@
 </main>
 <!-- End #main -->
 <div class="row align-items-center">
-	<div class="col-xl-6 col-md-12 col-sm-12" align="right">
+	<div class="col-xl-6 col-md-12 middle" align="right">
 		<jsp:include page="../map/googleMap.jsp"></jsp:include>
 	</div>
 
 	<!-- 날씨 위젯 -->
-	<div class="col-xl-6 col-md-12 col-sm-12" align="left">
+	<div class="col-xl-6 col-md-12 middle" align="left">
 		<!-- weather widget start -->
 		<div id="m-booked-weather-bl250-3123">
 			<div class="booked-wzs-250-175 weather-customize"
