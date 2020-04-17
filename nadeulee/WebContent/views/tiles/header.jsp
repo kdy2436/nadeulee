@@ -25,6 +25,7 @@
 									<li><a href="suseonggu.cate">수성구</a></li>
 									<li><a href="seogu.cate">서구</a></li>
 									<li><a href="namgu.cate">남구</a></li>
+									<li><a href="dongu.cate">동구</a></li>
 									<li><a href="bukgu.cate">북구</a></li>
 									<li><a href="dalseogu.cate">달서구</a></li>
 									<li><a href="dalseonggun.cate">달성군</a></li>

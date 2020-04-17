@@ -44,6 +44,7 @@ public class LoginCheckController extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("home.do");
 			session.setAttribute("nickname", vo.getNickname()); // 이름담고
 			session.setAttribute("email", vo.getEmail()); // 이메일담고
+			session.setAttribute("pw", vo.getPw()); 
 			session.setAttribute("auth", vo.getAuth());// 권한담고
 			dispatcher.forward(request, response);
 

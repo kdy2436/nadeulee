@@ -12,8 +12,8 @@
 		height: 40px;
 	}
 	#viewProfile {
-		width: 260px;
-		height: 300px;
+		width: 230px;
+		height: 270px;
 	}
 
 </style>
@@ -35,7 +35,7 @@
 			<div>
 			</div>
 			<div class="form-group">
-				<label for="file"></label> <input type="file" class="form-control" id="file" name="file">
+				<label for="profile"></label> <input type="file" class="form-control" id="profile" name="profile">
 			</div>
 			<button type="submit" id="btnUpload" class="btn btn-outline-secondary">사진등록</button>
 			</form>

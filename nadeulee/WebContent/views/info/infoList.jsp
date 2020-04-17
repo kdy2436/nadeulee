@@ -64,11 +64,14 @@
 					<div class="portfolio-wrap">
 						<figure>
 							<c:if test="${empty infoList.image}">
-								<a href="infoDetail.do?id=${infoList.content_id}">노이미지</a>
+								<a href="infoDetail.do?id=${infoList.content_id}"><img style="width:100%; height:100%"
+									src="/nadeulee/Image/noimg.png" class="img-fluid" alt=""
+									></a>
 							</c:if>
 							<c:if test="${!empty infoList.image}">
-								<a href="infoDetail.do?id=${infoList.content_id}"><img
-									src="${infoList.image}" class="img-fluid" alt=""></a>
+								<a href="infoDetail.do?id=${infoList.content_id}"><img style="width:100%; height:100%"
+									src="${infoList.image}" class="img-fluid" alt=""
+									onError="this.src='/img/noimg.png';"></a>
 							</c:if>
 
 						</figure>
