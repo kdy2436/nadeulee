@@ -31,7 +31,8 @@
 		</div>
 
 		<div class="row">
-			<div class="col-lg-2 col-md-6 d-flex align-items-stretch">
+			<div
+				class="col-lg-2 col-md-6 col-sm-4 d-flex align-items-stretch mt-4 mt-md-0">
 				<div class="icon-box">
 					<div class="icon">
 						<i class='bx bxs-tree bx-tada bx-rotate-90' style='color: #007c0c'></i>
@@ -44,7 +45,7 @@
 			</div>
 
 			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+				class="col-lg-2 col-md-6 col-sm-4 d-flex align-items-stretch mt-4 mt-md-0">
 				<div class="icon-box">
 					<div class="icon">
 						<i class='bx bx-happy-heart-eyes bx-tada bx-rotate-180'
@@ -58,7 +59,7 @@
 			</div>
 
 			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+				class="col-lg-2 col-md-6 col-sm-4 d-flex align-items-stretch mt-4 mt-lg-0">
 				<div class="icon-box">
 					<div class="icon">
 						<i class='bx bx-walk bx-rotate-180 bx-tada' style='color: #0088ff'></i>
@@ -70,7 +71,7 @@
 				</div>
 			</div>
 			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+				class="col-lg-2 col-md-6 col-sm-4 d-flex align-items-stretch mt-4 mt-lg-0">
 				<div class="icon-box">
 					<div class="icon">
 						<i class='bx bxs-florist bx-tada bx-rotate-270'
@@ -84,7 +85,7 @@
 			</div>
 
 			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+				class="col-lg-2 col-md-6 col-sm-4 d-flex align-items-stretch mt-4 mt-lg-0">
 				<div class="icon-box">
 					<div class="icon">
 						<i class='bx bxs-directions bx-tada bx-rotate-270'
@@ -97,7 +98,7 @@
 				</div>
 			</div>
 			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+				class="col-lg-2 col-md-6 col-sm-4 d-flex align-items-stretch mt-4 mt-lg-0">
 				<div class="icon-box">
 					<div class="icon">
 						<i class='bx bxs-ship bx-tada' style='color: #03a38d'></i>
@@ -115,7 +116,7 @@
 
 <!-- map js -->
 <script src="js/jquery-1.9.1.min.js"></script>
-
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	function regional_map_on(local) {
 		document.getElementById('regional_map').src = 'views/mainmap/img/DAEGU_'
@@ -128,11 +129,10 @@
 	$(document).ready(function() {
 		$("#loc_ul").hover(function() {
 			$('#regional_map').attr("src", 'views/mainmap/img/DAEGU_Bukgu.png')
-			$(this).fadeIn(500);
 
 		}, function() {
 			$('#regional_map').attr("src", 'views/mainmap/img/DAEGU_Map.png')
-			$(this).fadeOut(100);
+
 		});
 	});
 </script>
@@ -159,13 +159,11 @@
 					onmouseout="regional_map();" />
 				<area shape="poly"
 					coords="213,49,231,69,231,87,232,99,236,112,233,118,234,126,231,134,236,142,234,144,225,142,220,154,225,162,234,164,240,165,251,156,259,156,265,162,273,160,280,168,283,176,292,175,298,171,306,169,312,175,320,177,332,176,337,167,341,159,337,152,343,144,341,135,333,130,340,121,333,112,330,118,323,102,327,86,320,78,328,72,324,62,318,50,318,39,282,22,275,23,263,24,257,24,250,32,242,24,232,29,220,37,211,48"
-					href="donggu.cate" alt="동구"
-					onmouseover="regional_map_on('Donggu');"
+					href="dongu.cate" alt="동구" onmouseover="regional_map_on('Donggu');"
 					onmouseout="regional_map();" />
 				<area shape="poly"
 					coords="194,153,195,167,191,171,202,175,220,177,225,160,222,157,208,157,193,153"
-					href="junggu.cate" alt="중구"
-					onmouseover="regional_map_on('Junggu');"
+					href="jungu.cate" alt="중구" onmouseover="regional_map_on('Junggu');"
 					onmouseout="regional_map();" />
 				<area shape="poly"
 					coords="194,171,203,174,218,174,221,180,221,207,208,218,205,224,188,207,184,198,185,191,192,183,194,172"
@@ -177,7 +175,7 @@
 					onmouseout="regional_map();" />
 				<area shape="poly"
 					coords="206,220,219,208,220,178,221,172,226,159,240,164,247,154,260,153,266,157,270,158,280,166,281,168,290,174,298,171,303,169,312,173,308,179,315,186,302,202,305,210,306,216,282,237,256,227,252,228,240,223,230,226,220,226"
-					href="Suseonggu.cate" alt="수성구"
+					href="suseonggu.cate" alt="수성구"
 					onmouseover="regional_map_on('Suseonggu');"
 					onmouseout="regional_map();" />
 			</map>
@@ -231,26 +229,26 @@
 
 
 
-
+			<!-- 카드시작 -->
 		</div>
 		<div class="col-lg-6 col-md-12">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="row">
-						<div class="col-lg-6 col-md-12">
+						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="card-box bg-blue">
 								<div class="inner">
 									<h3>가족과함께</h3>
 									<p>주말은 가족과 함께지!</p>
 								</div>
 								<div class="icon">
-									<i class="fa fa-heart" aria-hidden="true"></i>
+									<i class="bx bxs-heart" aria-hidden="true"></i>
 								</div>
-								<a href="#" class="card-box-footer">자세히보기 <i
+								<a href="family.cate" class="card-box-footer">자세히보기 <i
 									class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
-						<div class="col-lg-6 col-md-12">
+						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="card-box bg-green">
 								<div class="inner">
 									<h3>나혼자</h3>
@@ -259,11 +257,11 @@
 								<div class="icon">
 									<i class="bx bx-walk" aria-hidden="true"></i>
 								</div>
-								<a href="#" class="card-box-footer">View More <i
+								<a href="alone.cate" class="card-box-footer">View More <i
 									class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
-						<div class="col-lg-6 col-md-12">
+						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="card-box bg-orange">
 								<div class="inner">
 									<h3>역사좀아니?</h3>
@@ -272,11 +270,11 @@
 								<div class="icon">
 									<i class="bx bx-arch" aria-hidden="true"></i>
 								</div>
-								<a href="#" class="card-box-footer">View More <i
+								<a href="history.cate" class="card-box-footer">View More <i
 									class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
-						<div class="col-lg-6 col-md-12">
+						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="card-box bg-red">
 								<div class="inner">
 									<h3>대구축제</h3>
@@ -285,7 +283,7 @@
 								<div class="icon">
 									<i class="bx bxs-like"> </i>
 								</div>
-								<a href="#" class="card-box-footer">View More <i
+								<a href="festival.cate" class="card-box-footer">View More <i
 									class="fa fa-arrow-circle-right"></i></a>
 							</div>
 
@@ -297,7 +295,7 @@
 	</div>
 </div>
 
-
+<!-- 카드끝 -->
 
 <!-- ======= review Section ======= -->
 <section id="testimonials" class="testimonials">

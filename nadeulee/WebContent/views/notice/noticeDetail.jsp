@@ -5,6 +5,7 @@
 	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
 	crossorigin="anonymous">
+
 <br>
 <br>
 <br>
@@ -13,7 +14,7 @@
 <br>
 <br>
 <br>
-<div class="container col-md-6">
+<div id="base" class="container col-md-8">
 	<div class="card">
 		<div class="card-body">
 			<h4 class="card-title mb-3">${detail.title }</h4>
@@ -21,7 +22,9 @@
 				<i class="far fa-user"></i> ${detail.nickname} · <i
 					class="far fa-clock"></i> ${detail.ndate}
 			</h6>
-			<p class="card-text">${detail.content}</p>
+			<p class="card-text">${detail.content}
+				<br> <img src="/nadeulee/Image/${detail.n_photo}" id="n_photo">
+			</p>
 		</div>
 		<c:choose>
 			<c:when test="${not empty email}">
@@ -41,4 +44,5 @@
 		</div>
 	</div>
 </div>
-
+<br>
+<br>

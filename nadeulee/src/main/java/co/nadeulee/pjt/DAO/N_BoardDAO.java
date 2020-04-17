@@ -67,6 +67,7 @@ public class N_BoardDAO {
 				vo.setNdate(rs.getDate("ndate"));
 				vo.setNickname(rs.getString("nickname"));
 				vo.setContent(rs.getString("content"));
+				vo.setN_photo(rs.getString("n_photo"));
 			}
 
 		} catch (Exception e) {

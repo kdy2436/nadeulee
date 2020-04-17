@@ -7,11 +7,16 @@
 	width: 80%;
 	height: 200px;
 }
-.middle{
+
+.middle {
 	
 }
 </style>
-
+<script type="text/javascript">
+	function goBack() {
+		window.history.back();
+	}
+</script>
 <main id="main">
 
 	<!-- ======= Breadcrumbs ======= -->
@@ -22,8 +27,8 @@
 				style="margin-top: 10rem;">
 				<h2>${vo.title}</h2>
 				<ol>
-					<li><a href="home.do">Home</a></li>
-					<li>Information Details</li>
+					<li><a href="home.do">홈으로가기</a></li>
+					<li><a href="javascript:goBack()">이전으로가기</a></li>
 				</ol>
 			</div>
 
@@ -190,67 +195,79 @@
 
 
 <!-- 날씨 끝 -->
-
-<!-- ======= Footer ======= -->
-<footer id="footer">
-
-	<div class="footer-top">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-lg-3 col-md-6 ">
-					<img class="reviewImg" src="/nadeulee/assets/img/test/여행1.jpg"
-						alt="여행리뷰 사진">
-					<div class="text">후기가 들어갈 자리</div>
-				</div>
-				<div class="col-lg-3 col-md-6 ">
-					<img class="reviewImg" src="/nadeulee/assets/img/test/여행2.jpg"
-						alt="여행리뷰 사진">
-					<div class="text">후기가 들어갈 자리</div>
-				</div>
-				<div class="col-lg-3 col-md-6 ">
-					<img class="reviewImg" src="/nadeulee/assets/img/test/여행3.jpg"
-						alt="여행리뷰 사진">
-					<div class="text">후기가 들어갈 자리</div>
-				</div>
-				<div class="col-lg-3 col-md-6 ">
-					<img class="reviewImg" src="/nadeulee/assets/img/test/여행4.jpg"
-						alt="여행리뷰 사진">
-					<div class="text">후기가 들어갈 자리</div>
-				</div>
-
-			</div>
+<br>
+<br>
+<!-- ======= review Section ======= -->
+<section id="testimonials" class="testimonials">
+	<div class="container">
+		<div class="section-title">
+			<h2>베스트 후기</h2>
 		</div>
+		<div class="owl-carousel testimonials-carousel">
+			<div class="testimonial-item">
+				<p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 대구는 아프리카보다 매우
+					덥습니다 서프라이즈 굉장히 놀랍다뉸 <i
+						class="bx bxs-quote-alt-right quote-icon-right"></i>
+				</p>
+				<img src="assets/img/testimonials/testimonials-1.jpg"
+					class="testimonial-img" alt="">
+				<h3>마이넴 사울굿맨</h3>
+				<h4>Ceo &amp; Founder</h4>
+			</div>
+
+			<div class="testimonial-item">
+				<p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 가나다라마바사
+					아차차차차차차 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+				</p>
+				<img src="assets/img/testimonials/testimonials-2.jpg"
+					class="testimonial-img" alt="">
+				<h3>Sara Wilsson</h3>
+				<h4>Designer</h4>
+			</div>
+
+			<div class="testimonial-item">
+				<p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 그만하고싶다
+					빨리끝내끝내끝내 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+				</p>
+				<img src="assets/img/testimonials/testimonials-3.jpg"
+					class="testimonial-img" alt="">
+				<h3>Jena Karlis</h3>
+				<h4>Store Owner</h4>
+			</div>
+
+			<div class="testimonial-item">
+				<p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat enim
+					eram quae cillum dolore dolor amet nulla culpa multos export minim
+					fugiat minim velit minim dolor enim duis veniam ipsum anim magna
+					sunt elit fore quem dolore labore illum veniam. <i
+						class="bx bxs-quote-alt-right quote-icon-right"></i>
+				</p>
+				<img src="assets/img/testimonials/testimonials-4.jpg"
+					class="testimonial-img" alt="">
+				<h3>Matt Brandon</h3>
+				<h4>Freelancer</h4>
+			</div>
+
+			<div class="testimonial-item">
+				<p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis quorum
+					aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
+					noster veniam enim culpa labore duis sunt culpa nulla illum cillum
+					fugiat legam esse veniam culpa fore nisi cillum quid. <i
+						class="bx bxs-quote-alt-right quote-icon-right"></i>
+				</p>
+				<img src="assets/img/testimonials/testimonials-5.jpg"
+					class="testimonial-img" alt="">
+				<h3>John Larson</h3>
+				<h4>Entrepreneur</h4>
+			</div>
+
+		</div>
+
 	</div>
-
-	<div class="container d-md-flex py-4">
-
-		<div class="mr-md-auto text-center text-md-left">
-			<div class="copyright">
-				&copy; Copyright <strong><span>Lumia</span></strong>. All Rights
-				Reserved
-			</div>
-			<div class="credits">
-				<!-- All the links in the footer should remain intact. -->
-				<!-- You can delete the links only if you purchased the pro version. -->
-				<!-- Licensing information: https://bootstrapmade.com/license/ -->
-				<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/lumia-bootstrap-business-template/ -->
-				Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-			</div>
-		</div>
-		<div class="social-links text-center text-md-right pt-3 pt-md-0">
-			<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> <a
-				href="#" class="facebook"><i class="bx bxl-facebook"></i></a> <a
-				href="#" class="instagram"><i class="bx bxl-instagram"></i></a> <a
-				href="#" class="google-plus"><i class="bx bxl-skype"></i></a> <a
-				href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-		</div>
-	</div>
-</footer>
-<!-- End Footer -->
-
-<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-</body>
-
-</html>
+</section>
+<!-- End review Section -->

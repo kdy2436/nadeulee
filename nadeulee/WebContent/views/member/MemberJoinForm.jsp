@@ -13,9 +13,9 @@
 </style>
 
 <div>
-	<br />
+	<br /> <br /> <br />
 </div>
-<section id="contact" class="contact section-bg">
+<section id="contact" class="contact">
 	<div class="container">
 
 		<div class="section-title">
@@ -23,7 +23,8 @@
 		</div>
 		<div class="col-lg-8" id="centerDiv">
 			<!-- 폼양식 액션추가 -->
-			<form id="frm" name="frm" action="memberInsert.do" method="post" enctype="multipart/form-data">
+			<form id="frm" name="frm" action="memberInsert.do" method="post"
+				enctype="multipart/form-data">
 				<!--  이메일e mail 시작 -->
 				<div class="form-group">
 					<label for="name">이메일<font color="red"> &nbsp;*</font></label> <input
@@ -57,9 +58,12 @@
 				<!--  성별 끝 -->
 				<!--  프로필 사진 -->
 				<div class="form-group">
-					<label for="profile">프로필</label> <input type="file" class="form-control" id="profile" name="profile">
+					<label for="profile">프로필</label> <input type="file"
+						class="form-control" id="profile" name="profile">
 				</div>
 				<!--  프로필 사진 끝-->
+
+				<br />
 				<!--  버튼메뉴 -->
 				<div class="text-center">
 					<button type="submit" id="btnJoin" class="btn btn-outline-danger"

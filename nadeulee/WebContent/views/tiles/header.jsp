@@ -7,7 +7,7 @@
 		<div class="container d-flex align-items-center">
 			<div class="logo mr-auto">
 				<h1>
-					<a href="home.do">나들이 갈까요</a>
+					<a href="home.do">Let's Pic <font size="4">in daegu</font></a>
 				</h1>
 			</div>
 
