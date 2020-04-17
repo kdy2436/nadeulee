@@ -1,6 +1,7 @@
 package co.nadeulee.pjt.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,6 +30,8 @@ public class LoginCheckController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out=response.getWriter();
 		HttpSession session = request.getSession(true);
 		MemberDAO dao = new MemberDAO();
 		MemberVO vo = new MemberVO();
@@ -49,9 +52,12 @@ public class LoginCheckController extends HttpServlet {
 			dispatcher.forward(request, response);
 
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("login.do");
-			dispatcher.forward(request, response);
-
+			response.setContentType("text/html; charset=utf-8");
+			out.println("<script language='javascript'>");
+			out.println("alert('아이디 혹은 비밀번호를 다시 확인 해주세요');");
+			out.println("location.href = 'login.do';"); 
+			out.println("</script>");
+			out.close();
 		}
 	}
 }
