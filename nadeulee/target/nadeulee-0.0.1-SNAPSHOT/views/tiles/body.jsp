@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-<!-- <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <!-- ======= Hero Section ======= -->
 <section id="hero"
 	class="d-flex flex-column justify-content-center align-items-center">
@@ -11,14 +13,14 @@
 			Welcome to <span>DAEGU</span>
 		</h1>
 		<h2>대구로 오세요</h2>
-		<a href="reviewList.do" class="btn-get-started scrollto">여행후기보기</a>
+		<a href="#about" class="btn-get-started scrollto">Get Started</a>
 	</div>
 </section>
 <!-- End Hero -->
 <br />
 
 
-<!-- =======  Section ======= -->
+<!-- ======= What We Do Section ======= -->
 <section id="what-we-do" class="what-we-do">
 	<div class="container">
 
@@ -28,87 +30,49 @@
 		</div>
 
 		<div class="row">
-			<div class="col-lg-2 col-md-6 d-flex align-items-stretch">
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
 				<div class="icon-box">
 					<div class="icon">
-						<i class='bx bxs-tree bx-tada bx-rotate-90' style='color: #007c0c'></i>
+						<i class="bx bxl-dribbble"></i>
 					</div>
 					<h4>
-						<a href="infoDetail.do?id=2360858">#팔공산</a>
+						<a href="">여행지</a>
 					</h4>
-					<p></p>
+					<p>생각을하자 생각 띵크띵크</p>
 				</div>
 			</div>
 
 			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+				class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
 				<div class="icon-box">
 					<div class="icon">
-						<i class='bx bx-happy-heart-eyes bx-tada bx-rotate-180'
-							style='color: #ffbe00'></i>
+						<i class="bx bx-file"></i>
 					</div>
 					<h4>
-						<a href="infoDetail.do?id=128627">#이월드</a>
+						<a href="">축제</a>
 					</h4>
-					<p></p>
+					<p>그마안그마안그망ㄴ</p>
 				</div>
 			</div>
 
 			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+				class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
 				<div class="icon-box">
 					<div class="icon">
-						<i class='bx bx-walk bx-rotate-180 bx-tada' style='color: #0088ff'></i>
+						<i class="bx bx-tachometer"></i>
 					</div>
 					<h4>
-						<a href="infoDetail.do?id=2599899">#동성로</a>
+						<a href="">흐규규ㅠ규귝규규</a>
 					</h4>
-					<p></p>
-				</div>
-			</div>
-			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-				<div class="icon-box">
-					<div class="icon">
-						<i class='bx bxs-florist bx-tada bx-rotate-270'
-							style='color: #ff71c1'></i>
-					</div>
-					<h4>
-						<a href="infoDetail.do?id=2470053">#강정보</a>
-					</h4>
-					<p></p>
+					<p>잘거야잘거야</p>
 				</div>
 			</div>
 
-			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-				<div class="icon-box">
-					<div class="icon">
-						<i class='bx bxs-directions bx-tada bx-rotate-270'
-							style='color: #b1933c'></i>
-					</div>
-					<h4>
-						<a href="infoDetail.do?id=2377728">#옻골마을</a>
-					</h4>
-					<p></p>
-				</div>
-			</div>
-			<div
-				class="col-lg-2 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-				<div class="icon-box">
-					<div class="icon">
-						<i class='bx bxs-ship bx-tada' style='color: #03a38d'></i>
-					</div>
-					<h4>
-						<a href="infoDetail.do?id=1115613">#수성못</a>
-					</h4>
-					<p></p>
-				</div>
-			</div>
 		</div>
+
 	</div>
 </section>
-<!--  Section -->
+<!-- End What We Do Section -->
 
 <!-- map js -->
 <script src="js/jquery-1.9.1.min.js"></script>
@@ -179,56 +143,6 @@
 					onmouseout="regional_map();" />
 			</map>
 			<!--// map -->
-
-			<!-- weather widget start -->
-			<div id="m-booked-small-t3-68215">
-				<div class="booked-weather-160x36 w160x36-18"
-					style="color: #333333; border-radius: 4px; -moz-border-radius: 4px; border: none">
-					<a target="_blank" style="color: #08488D;"
-						href="https://booked.kr/weather/daegu-17943"
-						class="booked-weather-160x36-city">대구광역시</a> <a target="_blank"
-						class="booked-weather-160x36-right" href="https://www.booked.net/"><img
-						src="//s.bookcdn.com/images/letter/s5.gif"
-						alt="https://www.booked.net/" /></a>
-					<div class="booked-weather-160x36-degree">
-						<span class="plus">+</span>12&deg;<span>C</span>
-					</div>
-				</div>
-			</div>
-			<script type="text/javascript">
-				var css_file = document.createElement("link");
-				css_file.setAttribute("rel", "stylesheet");
-				css_file.setAttribute("type", "text/css");
-				css_file.setAttribute("href",
-						'https://s.bookcdn.com/css/w/bw-160-36.css?v=0.0.1');
-				document.getElementsByTagName("head")[0].appendChild(css_file);
-				function setWidgetData(data) {
-					if (typeof (data) != 'undefined' && data.results.length > 0) {
-						for (var i = 0; i < data.results.length; ++i) {
-							var objMainBlock = document
-									.getElementById('m-booked-small-t3-68215');
-							if (objMainBlock !== null) {
-								var copyBlock = document
-										.getElementById('m-bookew-weather-copy-'
-												+ data.results[i].widget_type);
-								objMainBlock.innerHTML = data.results[i].html_code;
-								if (copyBlock !== null)
-									objMainBlock.appendChild(copyBlock);
-							}
-						}
-					} else {
-						alert('data=undefined||data.results is empty');
-					}
-				}
-			</script>
-			<script type="text/javascript" charset="UTF-8"
-				src="https://widgets.booked.net/weather/info?action=get_weather_info&ver=6&cityID=17943&type=13&scode=2&ltid=3457&domid=593&anc_id=69666&cmetric=1&wlangID=24&color=fff5d9&wwidth=158&header_color=fff5d9&text_color=333333&link_color=08488D&border_form=3&footer_color=fff5d9&footer_text_color=333333&transparent=1"></script>
-			<!-- weather widget end -->
-
-
-
-
-
 		</div>
 		<div class="col-lg-6 col-md-12">
 			<div class="container-fluid">
@@ -238,12 +152,12 @@
 							<div class="card-box bg-blue">
 								<div class="inner">
 									<h3>가족과함께</h3>
-									<p>주말은 가족과 함께지!</p>
+									<p>놀러갑시다다다다다</p>
 								</div>
 								<div class="icon">
-									<i class="fa fa-heart" aria-hidden="true"></i>
+									<i class="fa fa-graduation-cap" aria-hidden="true"></i>
 								</div>
-								<a href="#" class="card-box-footer">자세히보기 <i
+								<a href="#" class="card-box-footer">View More <i
 									class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
@@ -254,7 +168,7 @@
 									<p>나혼자~이길을걷고~</p>
 								</div>
 								<div class="icon">
-									<i class="bx bx-walk" aria-hidden="true"></i>
+									<i class="fa fa-money" aria-hidden="true"></i>
 								</div>
 								<a href="#" class="card-box-footer">View More <i
 									class="fa fa-arrow-circle-right"></i></a>
@@ -263,11 +177,11 @@
 						<div class="col-lg-6 col-md-12">
 							<div class="card-box bg-orange">
 								<div class="inner">
-									<h3>역사좀아니?</h3>
+									<h3>역사좀 아늬</h3>
 									<p>역사속으로</p>
 								</div>
 								<div class="icon">
-									<i class="bx bx-arch" aria-hidden="true"></i>
+									<i class="fa fa-user-plus" aria-hidden="true"></i>
 								</div>
 								<a href="#" class="card-box-footer">View More <i
 									class="fa fa-arrow-circle-right"></i></a>
@@ -276,11 +190,11 @@
 						<div class="col-lg-6 col-md-12">
 							<div class="card-box bg-red">
 								<div class="inner">
-									<h3>대구축제</h3>
-									<p>다이나믹한 대구여행!</p>
+									<h3>축제쓰</h3>
+									<p>페스티발쓰</p>
 								</div>
 								<div class="icon">
-									<i class="bx bxs-like"> </i>
+									<i class="fa fa-users"></i>
 								</div>
 								<a href="#" class="card-box-footer">View More <i
 									class="fa fa-arrow-circle-right"></i></a>
@@ -297,7 +211,7 @@
 
 
 <!-- ======= review Section ======= -->
-<section id="testimonials" class="testimonials">
+<section id="testimonials" class="testimonials section-bg">
 	<div class="container">
 		<div class="section-title">
 			<h2>베스트 후기</h2>

@@ -68,8 +68,7 @@
 							</c:if>
 							<c:if test="${!empty infoList.image}">
 								<a href="infoDetail.do?id=${infoList.content_id}"><img
-									src="${infoList.image}" class="img-fluid" alt=""
-									onError="this.src='/img/noimg.png';"></a>
+									src="${infoList.image}" class="img-fluid" alt=""></a>
 							</c:if>
 
 						</figure>

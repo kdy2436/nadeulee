@@ -12,8 +12,8 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height:  450px;
-        width: 450px;
+        height:  550px;
+        width: 500px;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -39,7 +39,7 @@
     	  //지도 구현
        		map = new google.maps.Map(document.getElementById('map'), {
        		center: place,
-       		zoom: 16
+       		zoom: 17
         }); 
        		
        	// 해당 장소 마크표시

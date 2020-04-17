@@ -54,20 +54,20 @@ public class MemberInfoUpdateController extends HttpServlet {
 		
 		String email = (String)session.getAttribute("email");
 		String nickName = request.getParameter("nickName");
-		String profile = request.getParameter("profile");
+//		String profile = request.getParameter("profile");
 		String pw = request.getParameter("pw");
 			
 		vo.setEmail(email);
 		vo.setNickname(nickName);
 		vo.setPw(pw);
-		vo.setProfile(profile);
+//		vo.setProfile(profile);
 		int n = dao.update(vo);
 		
 		if ( n != 0) {
 			response.setContentType("text/html; charset=utf-8");
 			out.println("<script language='javascript'>");
 			out.println("alert('정보수정이 완료 되었습니다.');");
-			out.println("location.href = 'home.do';"); 
+			out.println("location.href = 'memberInfoView.do';"); 
 			out.println("</script>");
 			out.close();
 			

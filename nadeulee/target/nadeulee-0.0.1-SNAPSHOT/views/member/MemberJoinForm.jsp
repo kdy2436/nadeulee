@@ -23,7 +23,7 @@
 		</div>
 		<div class="col-lg-8" id="centerDiv">
 			<!-- 폼양식 액션추가 -->
-			<form id="frm" name="frm" action="memberInsert.do" method="post" enctype="multipart/form-data">
+			<form id="frm" name="frm" action="memberInsert.do" method="post">
 				<!--  이메일e mail 시작 -->
 				<div class="form-group">
 					<label for="name">이메일<font color="red"> &nbsp;*</font></label> <input
@@ -57,7 +57,8 @@
 				<!--  성별 끝 -->
 				<!--  프로필 사진 -->
 				<div class="form-group">
-					<label for="profile">프로필</label> <input type="file" class="form-control" id="profile" name="profile">
+					<label for="profile">프로필</label> <input type="file"
+						class="form-control" id="profile" name="profile">
 				</div>
 				<!--  프로필 사진 끝-->
 				<!--  버튼메뉴 -->
