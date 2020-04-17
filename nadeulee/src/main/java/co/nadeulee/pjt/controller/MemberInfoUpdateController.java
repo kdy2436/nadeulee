@@ -55,7 +55,14 @@ public class MemberInfoUpdateController extends HttpServlet {
 		String email = (String)session.getAttribute("email");
 		String nickName = request.getParameter("nickName");
 //		String profile = request.getParameter("profile");
-		String pw = request.getParameter("pw");
+		
+		String pw= request.getParameter("pw");
+		System.out.println(pw);
+		if (pw.equals("") ) {
+			pw = (String  )session.getAttribute("pw");
+		} else { 
+			pw = request.getParameter("pw");
+		}
 			
 		vo.setEmail(email);
 		vo.setNickname(nickName);

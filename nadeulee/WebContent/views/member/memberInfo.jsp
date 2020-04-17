@@ -11,8 +11,8 @@
 		height: 40px;
 	}
 	#viewProfile {
-		width: 260px;
-		height: 300px;
+		width: 230px;
+		height: 270px;
 	}
 
 </style>
