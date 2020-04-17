@@ -95,6 +95,7 @@ public class MemberInsertController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("nickname", member.getNickname());
 			session.setAttribute("email", member.getEmail());
+			session.setAttribute("pw", member.getPw());
 			session.setAttribute("auth", member.getAuth());
 
 		} else {

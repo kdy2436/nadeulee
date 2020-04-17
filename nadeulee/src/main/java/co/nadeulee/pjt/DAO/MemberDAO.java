@@ -175,7 +175,7 @@ public class MemberDAO {
 
 	public MemberVO login(MemberVO member) {
 		Connection conn = GetConnection.getConn();
-		String sql = "select email , auth, nickname from member where email = ? and pw =?";
+		String sql = "select email, auth, nickname from member where email = ? and pw =?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, member.getEmail());
