@@ -13,9 +13,7 @@
 </style>
 
 <div>
-	<br />
-	<br />
-	<br />
+	<br /> <br /> <br />
 </div>
 <section id="contact" class="contact">
 	<div class="container">
@@ -64,6 +62,8 @@
 						class="form-control" id="profile" name="profile">
 				</div>
 				<!--  프로필 사진 끝-->
+
+				<br />
 				<!--  버튼메뉴 -->
 				<div class="text-center">
 					<button type="submit" id="btnJoin" class="btn btn-outline-danger"
