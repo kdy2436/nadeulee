@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- fontawesome 댓글,좋아요 모양 구현-->
-	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -92,7 +92,7 @@
 							style='color: #b1933c'></i>
 					</div>
 					<h4>
-						<a href="infoDetail.do?id=2377728">#옻골마을</a>
+						<a href="infoDetail.do?id=894145">#옻골마을</a>
 					</h4>
 					<p></p>
 				</div>
@@ -307,17 +307,20 @@
 		<div class="owl-carousel testimonials-carousel">
 			<c:forEach var="board" items="${boards }">
 
-			<div class="testimonial-item">
-				<h3>${board.rnickname }</h3>
-				<h4><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> ${board.likes }</h4>
-				<img src="/nadeulee/uploadProfile/${board.profile }"
-					class="" alt="">
-				
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> ${board.rcontent }<i
-						class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p> 
-			</div>
+				<div class="testimonial-item">
+					<h3>${board.rnickname }</h3>
+					<h4>
+						<i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> ${board.likes }
+					</h4>
+					<img src="/nadeulee/uploadProfile/${board.profile }" class=""
+						alt="">
+
+					<p>
+						<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+						${board.rcontent }<i
+							class="bx bxs-quote-alt-right quote-icon-right"></i>
+					</p>
+				</div>
 			</c:forEach>
 			<!-- <div class="testimonial-item">
 				<p>
@@ -370,7 +373,7 @@
 			</div> -->
 
 		</div>
-	
+
 	</div>
 </section>
 <!-- End review Section -->

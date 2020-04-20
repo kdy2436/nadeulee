@@ -62,11 +62,11 @@
 
 		<div class="mr-md-auto text-center text-md-left">
 			<div class="copyright">
-				&copy; Copyright <strong><span>NADEULEE</span></strong>. All Rights
+				&copy; Copyright <strong><span>LET's PIC</span></strong>. All Rights
 				Reserved
 			</div>
 			<div class="credits">
-				Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+				Designed by <a href="https://bootstrapmade.com/">Team Let's Pic</a>
 			</div>
 		</div>
 		<div class="social-links text-center text-md-right pt-3 pt-md-0">
