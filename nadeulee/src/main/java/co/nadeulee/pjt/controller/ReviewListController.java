@@ -10,8 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import co.nadeulee.pjt.DAO.MemberDAO;
 import co.nadeulee.pjt.DAO.R_BoardDAO;
+import co.nadeulee.pjt.VO.MemberVO;
 import co.nadeulee.pjt.VO.R_BoardVO;
 
 @WebServlet("/reviewList.do")
@@ -35,15 +38,21 @@ public class ReviewListController extends HttpServlet {
 	private void doAction(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String path = "/reviewBoard/ReviewList.tiles";
+		//session 추출
+		HttpSession session = request.getSession();
 		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		R_BoardDAO dao = new R_BoardDAO();
-		
-		
-
 		ArrayList<R_BoardVO> list = dao.selectReview();
 		request.setAttribute("boards", list);
+		
+		MemberDAO mdao = new MemberDAO();
+		MemberVO vo = new MemberVO();
+		String email = (String)session.getAttribute("email");
+		vo.setEmail(email);
+		vo = mdao.select(vo);
+		request.setAttribute("view", vo);
 		
 		
 		/*
