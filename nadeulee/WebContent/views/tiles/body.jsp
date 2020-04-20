@@ -37,8 +37,8 @@
 	<div class="container">
 
 		<div class="section-title">
-			<h2>대구에 오시면</h2>
-			<p>매우 더워요 불닭볶음면 같이 먹으면 더 더워</p>
+			<h2>대구로 오세요~!</h2>
+			<p>대구 6대 관광명소</p>
 		</div>
 
 		<div class="row">
@@ -313,7 +313,7 @@
 	<div class="container">
 		<div class="section-title">
 			<h2>베스트 후기</h2>
-			<p>베스트 후기야 누눈누눈나나나나나</p>
+			<p></p>
 		</div>
 		<div class="owl-carousel testimonials-carousel">
 			<c:forEach var="board" items="${boards }">
