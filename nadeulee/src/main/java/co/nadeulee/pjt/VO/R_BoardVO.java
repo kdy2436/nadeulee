@@ -52,9 +52,21 @@ public class R_BoardVO {
 	private String typeid;
 	
 	private ArrayList<R_BoardVO> commentlist;
+	private int comments;
 	
 	
-	
+
+
+	public int getComments() {
+		return comments;
+	}
+
+
+	public void setComments(int comments) {
+		this.comments = comments;
+	}
+
+
 	public ArrayList<R_BoardVO> getCommentlist() {
 		return commentlist;
 	}

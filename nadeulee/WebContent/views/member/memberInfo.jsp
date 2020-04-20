@@ -115,7 +115,9 @@
 	  		</div> -->
 	  		<!--  작성글 불러오는 섹션 -->
 	  		<!-- *작성한 글 불러오기 -->
-	  		<div>
+	  		<div class="section-title">
+	  		<h2>작성한 글	</h2>
+	  		</div>
 	<div class="container">
 		<!-- <form id="kjh" name="kjh" action="reviewDelete.do" method="post"> -->
 			<table class="table table-hover">
@@ -159,9 +161,63 @@
 	
 	</div>
 	
-</div>
+
 	  		<!--  작성글 불러오기 끝 -->
+
+<div><br/></div>
+<div><br/></div>
+<!-- *작성한 댓글 불러오기 -->
+<div class="section-title">
+	  		<h2>작성한 댓글	</h2>
+	  		</div>
+	<div class="container">
+		<!-- <form id="kjh" name="kjh" action="reviewDelete.do" method="post"> -->
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th width="50">후기글번호</th>
+						<th width="30">작성일</th>
+						<th width="300">내용</th>
+						<th width="50"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:choose>
+						<c:when test="${empty boards}">
+							<tr>
+								<td colspan="4" align="center">데이터가 없습니다.</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="comment" items="${comments}">
+							
+							
+						
+								<tr>
+									<td>${comment.rno}</td>
+									<td>${comment.cdate}</td>
+									<td>${comment.ccontent}</td>
+									<td><a href="commentDelete.do?c_no=${comment.cno }"><i class="far fa-trash-alt"></i> 삭제</a></td>
+								</tr>
+								
+						
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</tbody>
+			</table>
 	
+		<br>
+	
+	</div>
+
+
+
+
+	
+
+
+
 	  
 	</div>
 

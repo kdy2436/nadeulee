@@ -354,14 +354,16 @@
             </div>
             <div class="timeline-likes">
                <div class="stats-right">
-				<span class="stats-text">${board.title}</span>
-				<span class="stats-text">${board.likes } likes</span>
-                <span class="stats-text">Comments</span>
+				<span class="stats-text">#${board.title}</span>
+				<%-- <span class="stats-text">${board.likes } likes</span>
+				<span class="stats-text">${board.comments }Comments</span> --%>
+                
                </div>
             </div>
             <div class="timeline-footer">
-               <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> Like</a>
-               <a href="javascript:;" class="m-r-15 text-inverse-lighter" onclick="kjh()"><i class="fa fa-comments fa-fw fa-lg m-r-3" ></i> Comment</a>
+            
+               <a href="updateLikes.do?rno=${board.rno }" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> ${board.likes }</a>
+               <a href="javascript:;" class="m-r-15 text-inverse-lighter" onclick="kjh()"><i class="fa fa-comments fa-fw fa-lg m-r-3" ></i> ${board.comments }</a>
             </div>
             
    			

@@ -15,9 +15,9 @@ public class R_BoardDAO {
 	public ArrayList<R_BoardVO> selectReview() {
 		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
 		R_BoardVO rboard;
-		String sql = "select rno, r.content_id, title, r.email, r.nickname, profile, rcontent, rdate, likes, img1, img2, img3\r\n"
-				+ "from r_board r, tour t, member m\r\n"
-				+ "where r.content_id = t.content_id and r.email = m.email order by 1 desc";
+		String sql = "select rno, r.content_id, title, r.email, r.nickname, profile, rcontent, rdate, likes, img1, img2, img3, (select count(*) from c_board where rno = r.rno) as comments\r\n" + 
+				"from r_board r, tour t, member m\r\n" + 
+				"where r.content_id = t.content_id and r.email = m.email order by 1 desc";
 		Connection conn = GetConnection.getConn();
 		
 		try {
@@ -37,6 +37,7 @@ public class R_BoardDAO {
 				rboard.setImg1(rs.getString(10));
 				rboard.setImg2(rs.getString(11));
 				rboard.setImg3(rs.getString(12));
+				rboard.setComments(rs.getInt(13));
 				rboard.setCommentlist(selectComment(rboard.getRno()));
 				
 				
@@ -95,12 +96,13 @@ public class R_BoardDAO {
 		ArrayList<R_BoardVO> list2 = new ArrayList<R_BoardVO>();
 		R_BoardVO rboard;
 		String sql = "select cno, ccontent, cdate, c.rno, c.email, m.nickname, profile\r\n" + 
-		"from c_board c, member m, r_board r\r\n" + 
+				"from c_board c, member m, r_board r\r\n" + 
 				"where c.email = m.email and c.rno = r.rno and c.rno=? order by 1";
 		Connection conn = GetConnection.getConn();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, rno);
+			
 			ResultSet rs = psmt.executeQuery();
 			while (rs.next()) {
 				rboard = new R_BoardVO();
@@ -111,6 +113,7 @@ public class R_BoardDAO {
 				rboard.setEmail(rs.getString(5));
 				rboard.setNickname(rs.getString(6));
 				rboard.setProfile(rs.getString(7));
+				
 				list2.add(rboard);
 			}
 		} catch (SQLException e) {
@@ -120,6 +123,9 @@ public class R_BoardDAO {
 		return list2;
 
 	}
+	
+	
+	
 	
 	public int commentWrite(R_BoardVO rboard) {
 		int n = 0;
@@ -168,6 +174,20 @@ public class R_BoardDAO {
 		return n;
 	}
 	
+	public int commentDeleteOne(int cno) {
+		int n = 0;
+		try {
+			Connection conn = GetConnection.getConn();
+			String sql = "DELETE FROM C_BOARD WHERE cno=? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1,cno);
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return n;
+	}
+	
 	
 	public ArrayList<R_BoardVO> selectMyReview(String email) {
 		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
@@ -190,6 +210,33 @@ public class R_BoardDAO {
 				rboard.setImg2(rs.getString(8));
 				rboard.setImg3(rs.getString(9));
 				rboard.setNickname(rs.getString(10));
+				list.add(rboard);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+
+	}
+	
+	public ArrayList<R_BoardVO> selectMyComment(String email) {
+		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
+		R_BoardVO rboard;
+		String sql = "select cno, ccontent, cdate, rno, email from c_board where email=? order by 1 desc";
+		Connection conn = GetConnection.getConn();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, email);
+			ResultSet rs = psmt.executeQuery();
+			while (rs.next()) {
+				rboard = new R_BoardVO();
+				rboard.setCno(rs.getInt(1));
+				rboard.setCcontent(rs.getString(2));
+				rboard.setCdate(rs.getDate(3));
+				rboard.setRno(rs.getInt(4));
+				rboard.setEmail(rs.getString(5));
+			
 				list.add(rboard);
 			}
 		} catch (SQLException e) {
@@ -243,5 +290,19 @@ public class R_BoardDAO {
 
 	}
 	
+	public void updateLikes(int rno){
+		Connection conn = GetConnection.getConn();
+		String sql = "update r_board set likes=likes+1 where rno=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, rno);
+			psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	
+	}
+		
 	
 }

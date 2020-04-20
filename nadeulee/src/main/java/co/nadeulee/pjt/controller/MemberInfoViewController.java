@@ -51,11 +51,12 @@ public class MemberInfoViewController extends HttpServlet {
 		
 		
 		R_BoardDAO rdao = new R_BoardDAO();
-		
 		ArrayList<R_BoardVO> list = rdao.selectMyReview(email);
 		request.setAttribute("boards", list);
 		
-		
+		rdao = new R_BoardDAO();
+		ArrayList<R_BoardVO> list2 = rdao.selectMyComment(email);
+		request.setAttribute("comments", list2);
 		
 		
 		
