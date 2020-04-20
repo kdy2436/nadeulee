@@ -20,7 +20,7 @@
 </c:if>
 <div>
 	<div>
-		<br /> <br /> <br /> <br />
+		<br /> <br /> <br /> <br /> <br />
 	</div>
 	<section id="contact">
 		<div class="container">
@@ -58,6 +58,7 @@
 		</div>
 	</section>
 	<div>
-		<br />
+		<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+		<br /> <br />
 	</div>
 </div>
