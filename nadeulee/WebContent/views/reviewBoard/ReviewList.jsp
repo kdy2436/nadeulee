@@ -279,6 +279,8 @@
 
 <div class="container">
    <ul class="timeline">
+   <c:choose>
+   	<c:when test="${not empty auth}">
      <li><!-- 리뷰를 작성하는 영역 -->
          <div class="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
@@ -322,6 +324,9 @@
          </div>
          </form>
       </li>
+      </c:when>
+      <c:otherwise><h3 align="center">후기와 댓글 작성은 로그인 후 이용 가능합니다.</h3><br/></c:otherwise>
+      </c:choose>
       <!-- 리뷰를 작성하는 영역 -->
       
       <!-- 리스트-->
@@ -380,46 +385,15 @@
             	</div>
          		</div> 
             </c:forEach>
-           <%--  <div class="timeline-comment-box">
-               <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-               <div class="input">
-                  <form id="frm" name="frm" action="commentWrite.do" method="post">
-                     <div class="input-group">
-                     	<input type="hidden" id="rno2" name="rno2" value="${board.rno }">
-                        <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
-                        <span class="input-group-btn p-l-10">	
-                        <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
-                        </span>
-                     </div>
-                  </form>
-               </div>
-            </div> --%>
+           
             </c:when>
-            <%-- <c:otherwise>
-            	<div class="timeline-likes">
-            	<div class="stats-left">
-            		<span class="stats-text">아직 댓글이 없습니다.</span>
-            	</div>
-            	</div>
-            	<div class="timeline-comment-box">
-               <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-               <div class="input">
-                  <form action="commentWrite.do?r_no=${board.rno }">
-                  <form id="frm" name="frm" action="commentWrite.do" method="post">
-                     <div class="input-group">
-                     	<input type="hidden" id="rno2" name="rno2" value="${board.rno }">
-                        <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
-                        <span class="input-group-btn p-l-10">	
-                        <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
-                        </span>
-                     </div>
-                  </form>
-               </div>
-            </div>
-            </c:otherwise> --%>
-            </c:choose>
+           </c:choose>
+             
+             
+			<c:choose>
+   			<c:when test="${not empty auth}">
              <div class="timeline-comment-box">
-               <div class="user"><img src="/nadeulee/uploadProfile/${board.profile }"></div>
+               <div class="user"><img src="/nadeulee/uploadProfile/${view.profile }"></div>
                <div class="input">
                   <form id="frm" name="frm" action="commentWrite.do" method="post">
                      <div class="input-group">
@@ -432,12 +406,15 @@
                         </span>
                      </div>
                   </form>
+                  
                </div>
             </div>
+            </c:when></c:choose>
      	</div>
           </c:forEach>
           </ul>
       </div>
+      
        <!-- 리스트-->
       
 
