@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<meta content="" name="descriptison">
-<meta content="" name="keywords">
-
 <!-- fontawesome 댓글,좋아요 모양 구현-->
 <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
 
@@ -179,10 +176,23 @@ body {
 	padding-top: 15px
 }
 
-.timeline-footer a:not (.btn ) {
-	color: #575d63
-}
+.timeline-footer
+ 
+a
+:not
+ 
+(
+.btn
+ 
+)
+{
+color
+:
+ 
+#575d63
 
+
+}
 .timeline-footer a:not (.btn ):focus, .timeline-footer a:not (.btn ):hover
 	{
 	color: #2d353c
@@ -345,21 +355,20 @@ body {
 							<span class="userimage"><img
 								src="/nadeulee/uploadProfile/${board.profile }" alt=""></span> <span
 								class="username"><a href="javascript:;">${board.rnickname }</a><small></small></span>
-							<span class="pull-right text-muted">
-								<!-- 123 Views -->
+							<span class="pull-right text-muted"> <!-- 123 Views -->
 							</span>
 						</div>
 
 						<div class="timeline-content">
 							<p class="lead">${board.rcontent }</p>
 							<p class="m-t-20">
-								<img src="/nadeulee/Image/${board.img1 }">
+								<img src="/nadeulee/Image/${board.img1 }" alt="">
 							</p>
 							<p class="m-t-20">
-								<img src="/nadeulee/Image/${board.img2 }">
+								<img src="/nadeulee/Image/${board.img2 }" alt="">
 							</p>
 							<p class="m-t-20">
-								<img src="/nadeulee/Image/${board.img3 }">
+								<img src="/nadeulee/Image/${board.img3 }" alt="">
 							</p>
 						</div>
 						<div class="timeline-likes">

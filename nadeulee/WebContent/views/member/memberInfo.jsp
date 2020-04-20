@@ -9,8 +9,13 @@
 	
 }
 
-#btnSave, #btnCancel, #btnHome, #btnDelete, #btnUpload {
+#btnSave, #btnCancel, #btnHome, #btnDelete {
 	width: 90px;
+	height: 40px;
+}
+
+#btnUpload {
+	width: 140px;
 	height: 40px;
 }
 
@@ -22,11 +27,8 @@
 
 <div>
 	<br />
-	<br />
-	<br />
-	<br />
 </div>
-<section id="contact" class="contact">
+<section id="contact" class="contact section-bg">
 	<div class="container">
 
 		<div class="section-title">
@@ -46,7 +48,7 @@
 							class="form-control" id="profile" name="profile">
 					</div>
 					<button type="submit" id="btnUpload"
-						class="btn btn-outline-secondary">사진등록</button>
+						class="btn btn-outline-secondary">사진등록/초기화</button>
 				</form>
 			</div>
 			<div class="col-xl-6 col-md-12 col-sm-12" id="centerDiv">
@@ -84,14 +86,14 @@
 							<c:when test="${view.gender == '여자'}">
 								<label><input type="radio" id="male" name="gender"
 									value="남자" onclick="return(false);">남자</label>&nbsp; 
-								<label><input type="radio" id="female" name="gender"
-									value="여자" checked onclick="return(false);">여자</label>
+                        <label><input type="radio" id="female"
+									name="gender" value="여자" checked onclick="return(false);">여자</label>
 							</c:when>
 							<c:otherwise>
 								<label><input type="radio" id="male" name="gender"
 									value="남자" checked onclick="return(false);">남자</label>&nbsp; 
-								<label><input type="radio" id="female" name="gender"
-									value="여자" onclick="return(false);">여자</label>
+                        <label><input type="radio" id="female"
+									name="gender" value="여자" onclick="return(false);">여자</label>
 							</c:otherwise>
 						</c:choose>
 
@@ -100,9 +102,9 @@
 					<!--  프로필 사진 -->
 
 					<!-- <div class="form-group">
-						<label for="profile">프로필</label> <input type="file"
-							class="form-control" id="profile" name="profile">
-					</div> -->
+                  <label for="profile">프로필</label> <input type="file"
+                     class="form-control" id="profile" name="profile">
+               </div> -->
 
 					<!--  프로필 사진 끝-->
 					<!--  버튼메뉴 -->
@@ -114,7 +116,7 @@
 							onclick="location.href=' # ' ">다시작성</button>
 						&nbsp;&nbsp;
 						<button type="button" id="btnDelete" class="btn btn-outline-dark"
-							onclick="location.href='memberDelete.do' ">회원탈퇴</button>
+							onclick="checkDelete()">회원탈퇴</button>
 						&nbsp;&nbsp;
 						<button type="button" id="btnHome" class="btn btn-outline-success"
 							onClick="location.href='home.do' ">홈</button>
@@ -132,9 +134,9 @@
 			<br />
 		</div>
 		<!--   <div class="row align-items-center" >
-	  		<div class="col-xl-4 col-md-12 col-sm-12" align="center">
-	  			<h2>내가 작성한 글</h2>
-	  		</div> -->
+           <div class="col-xl-4 col-md-12 col-sm-12" align="center">
+              <h2>내가 작성한 글</h2>
+           </div> -->
 		<!--  작성글 불러오는 섹션 -->
 		<!-- *작성한 글 불러오기 -->
 		<div class="section-title">
@@ -252,8 +254,17 @@
 </section>
 
 <script>
-	//비밀번호 중복확인을 위한 함수
-	document.getElementById('pwc').addEventListener('change',(event)=>{
+   //회원탈퇴 재확인 
+   function checkDelete() {
+      if (confirm("정말 탈퇴 하시겠습니까??") == true){    //확인
+         location.href="memberDelete.do";
+      }else{   //취소
+          return;
+      }
+   }
+
+   //비밀번호 중복확인을 위한 함수
+   document.getElementById('pwc').addEventListener('change',(event)=>{
 
         //비밀번호 값을 가져온다
         var pw = document.frm.pwc.value;
@@ -278,26 +289,26 @@
         //데이터를 id=id형식으로 넘겨줌.
         xhp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
         xhp.onreadystatechange = function(){
-        	
-        	if(xhp.readyState == 4 && xhp.status == 200){
-  			  var result = JSON.parse(xhp.responseText);
-  			  
-  			  document.getElementById('nickCheck').innerHTML=result.msg;
-  			  
-  			  //아이디가 중복되면 버튼을 disabled한다.
-  			  if(result.able =='disabled'){
-  				  document.getElementById('btnSave').disabled=false;
-  			  }
-  		  }
+           
+           if(xhp.readyState == 4 && xhp.status == 200){
+             var result = JSON.parse(xhp.responseText);
+             
+             document.getElementById('nickCheck').innerHTML=result.msg;
+             
+             //아이디가 중복되면 버튼을 disabled한다.
+             if(result.able =='disabled'){
+                document.getElementById('btnSave').disabled=false;
+             }
+          }
         };
         
         xhp.send("name="+nickName);
     })
 
     function kjh(){
-		var form = document.kjh;
-		form.submit();
-	}
+      var form = document.kjh;
+      form.submit();
+   }
  
     
     //아이디 중복체크
@@ -311,22 +322,22 @@
         //데이터를 id=id형식으로 넘겨줌.
         xhp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
         xhp.onreadystatechange = function(){
-        	
-        	if(xhp.readyState == 4 && xhp.status == 200){
-  			  var result = JSON.parse(xhp.responseText);
-  			  
-  			  document.getElementById('check').innerHTML=result.msg;
-  			  
-  			  //아이디가 중복되면 버튼을 disabled한다.
-  			  if(result.able =='disabled'){
-  				  document.getElementById('btnSave').disabled=false;
-  			  }
-  		  }
+           
+           if(xhp.readyState == 4 && xhp.status == 200){
+             var result = JSON.parse(xhp.responseText);
+             
+             document.getElementById('check').innerHTML=result.msg;
+             
+             //아이디가 중복되면 버튼을 disabled한다.
+             if(result.able =='disabled'){
+                document.getElementById('btnSave').disabled=false;
+             }
+          }
         };
         
         xhp.send("email="+email);
     }) */
-	
+   
 </script>
 
 </body>
