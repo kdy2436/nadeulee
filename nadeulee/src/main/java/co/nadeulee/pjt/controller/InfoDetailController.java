@@ -1,6 +1,7 @@
 package co.nadeulee.pjt.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.nadeulee.pjt.DAO.R_BoardDAO;
 import co.nadeulee.pjt.DAO.TourDAO;
+import co.nadeulee.pjt.VO.R_BoardVO;
 import co.nadeulee.pjt.VO.TourVO;
 
 @WebServlet("/infoDetail.do")
@@ -28,10 +31,15 @@ public class InfoDetailController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		TourDAO dao = new TourDAO();
+		R_BoardDAO Rdao = new R_BoardDAO();
 		
 		String id = request.getParameter("id");
 		
 		TourVO vo = dao.select(id);
+		
+		ArrayList<R_BoardVO> list = Rdao.ContentBestReview(vo.getContent_id());
+		
+		request.setAttribute("list", list);
 		request.setAttribute("vo", vo);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("info/infoDetail.tiles");

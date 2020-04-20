@@ -277,8 +277,46 @@ public class R_BoardDAO {
 				rboard.setImg3(rs.getString(13));
 				rboard.setCommentlist(selectComment(rboard.getRno()));
 				
-				
-				
+				list.add(rboard);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		GetConnection.close(rs, psmt, conn);
+		return list;
+
+	}
+	
+	
+	public ArrayList<R_BoardVO> ContentBestReview(String content_id) {
+		ArrayList<R_BoardVO> list = new ArrayList<R_BoardVO>();
+		R_BoardVO rboard;
+		String sql = "select rownum rn, b.* from " + 
+				"(select * from r_board " + 
+				"where content_id = ? " + 
+				"order by likes desc)b " +
+				"where likes BETWEEN 1 and 3";
+		Connection conn = GetConnection.getConn();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, content_id);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				rboard = new R_BoardVO();
+				rboard.setRno(rs.getInt(2));
+				rboard.setRcontent_id(rs.getString(3));
+				rboard.setTitle(rs.getString(4));
+				rboard.setRemail(rs.getString(5));
+				rboard.setRnickname(rs.getString(6));
+				rboard.setProfile(rs.getString(7));
+				rboard.setRcontent(rs.getString(8));
+				rboard.setRdate(rs.getDate(9));
+				rboard.setLikes(rs.getInt(10));
+				rboard.setImg1(rs.getString(11));
+				rboard.setImg2(rs.getString(12));
+				rboard.setImg3(rs.getString(13));
+				rboard.setCommentlist(selectComment(rboard.getRno()));
 				
 				list.add(rboard);
 			}
@@ -289,6 +327,8 @@ public class R_BoardDAO {
 		return list;
 
 	}
+	
+	
 	
 	public void updateLikes(int rno){
 		Connection conn = GetConnection.getConn();

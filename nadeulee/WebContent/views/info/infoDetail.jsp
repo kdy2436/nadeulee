@@ -8,8 +8,9 @@
 	height: 200px;
 }
 
-.middle {
-	
+#map {
+	margin-left: auto;
+	margin-right: auto;
 }
 </style>
 <script type="text/javascript">
@@ -73,94 +74,98 @@
 
 </main>
 <!-- End #main -->
-<div class="row align-items-center">
-	<div class="col-xl-6 col-md-12 middle" align="right">
-		<jsp:include page="../map/googleMap.jsp"></jsp:include>
+<div class="container">
+	<div class="row ">
+		<div class="col-sm-12 align-items-center " align="right">
+			<jsp:include page="../map/googleMap.jsp"></jsp:include>
+		</div>
 	</div>
-
 	<!-- 날씨 위젯 -->
-	<div class="col-xl-6 col-md-12 middle" align="left">
-		<!-- weather widget start -->
-		<div id="m-booked-weather-bl250-3123">
-			<div class="booked-wzs-250-175 weather-customize"
-				style="background-color: #2c88eb; width: 430px;" id="width3">
-				<div class="booked-wzs-250-175_in">
-					<div class="booked-wzs-250-175-data">
-						<div class="booked-wzs-250-175-left-img wrz-03">
-							<a target="_blank" href="https://www.booked.net/"> <img
-								src="//s.bookcdn.com/images/letter/logo.gif" alt="booked.net" />
-							</a>
-						</div>
-						<div class="booked-wzs-250-175-right">
-							<div class="booked-wzs-day-deck">
-								<div class="booked-wzs-day-val">
-									<div class="booked-wzs-day-number">
-										<span class="plus">+</span>10
+	<div class="row">
+		<div class="col-sm-12 mt-3" align="left">
+			<!-- weather widget start -->
+			<div id="m-booked-weather-bl250-3123">
+				<div class="booked-wzs-250-175 weather-customize"
+					style="background-color: #2c88eb; width: 430px;" id="width3">
+					<div class="booked-wzs-250-175_in">
+						<div class="booked-wzs-250-175-data">
+							<div class="booked-wzs-250-175-left-img wrz-03">
+								<a target="_blank" href="https://www.booked.net/"> <img
+									src="//s.bookcdn.com/images/letter/logo.gif" alt="booked.net" />
+								</a>
+							</div>
+							<div class="booked-wzs-250-175-right">
+								<div class="booked-wzs-day-deck">
+									<div class="booked-wzs-day-val">
+										<div class="booked-wzs-day-number">
+											<span class="plus">+</span>10
+										</div>
+										<div class="booked-wzs-day-dergee">
+											<div class="booked-wzs-day-dergee-val">&deg;</div>
+											<div class="booked-wzs-day-dergee-name">C</div>
+										</div>
 									</div>
-									<div class="booked-wzs-day-dergee">
-										<div class="booked-wzs-day-dergee-val">&deg;</div>
-										<div class="booked-wzs-day-dergee-name">C</div>
+									<div class="booked-wzs-day">
+										<div class="booked-wzs-day-d">
+											H: <span class="plus">+</span>14&deg;
+										</div>
+										<div class="booked-wzs-day-n">
+											L: <span class="plus">+</span>6&deg;
+										</div>
 									</div>
 								</div>
-								<div class="booked-wzs-day">
-									<div class="booked-wzs-day-d">
-										H: <span class="plus">+</span>14&deg;
-									</div>
-									<div class="booked-wzs-day-n">
-										L: <span class="plus">+</span>6&deg;
+								<div class="booked-wzs-250-175-info">
+									<div class="booked-wzs-250-175-city">대구광역시</div>
+									<div class="booked-wzs-250-175-date">금요일, 10 4월</div>
+									<div class="booked-wzs-left">
+										<span class="booked-wzs-bottom-l">7일 예보 보기</span>
 									</div>
 								</div>
 							</div>
-							<div class="booked-wzs-250-175-info">
-								<div class="booked-wzs-250-175-city">대구광역시</div>
-								<div class="booked-wzs-250-175-date">금요일, 10 4월</div>
-								<div class="booked-wzs-left">
-									<span class="booked-wzs-bottom-l">7일 예보 보기</span>
-								</div>
-							</div>
 						</div>
+						<a target="_blank" href="https://booked.kr/weather/daegu-17943">
+							<table cellpadding="0" cellspacing="0"
+								class="booked-wzs-table-250">
+								<tr>
+									<td>목</td>
+									<td>토</td>
+									<td>일</td>
+									<td>월</td>
+									<td>화</td>
+									<td>수</td>
+								</tr>
+								<tr>
+									<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
+									<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
+									<td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td>
+									<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
+									<td class="week-day-ico"><div class="wrz-sml wrzs-01"></div></td>
+									<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
+								</tr>
+								<tr>
+									<td class="week-day-val"><span class="plus">+</span>10&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>17&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>15&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>15&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>22&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>23&deg;</td>
+								</tr>
+								<tr>
+									<td class="week-day-val"><span class="plus">+</span>8&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>7&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>6&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>5&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>6&deg;</td>
+									<td class="week-day-val"><span class="plus">+</span>9&deg;</td>
+								</tr>
+							</table>
+						</a>
 					</div>
-					<a target="_blank" href="https://booked.kr/weather/daegu-17943">
-						<table cellpadding="0" cellspacing="0"
-							class="booked-wzs-table-250">
-							<tr>
-								<td>목</td>
-								<td>토</td>
-								<td>일</td>
-								<td>월</td>
-								<td>화</td>
-								<td>수</td>
-							</tr>
-							<tr>
-								<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-								<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-								<td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td>
-								<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-								<td class="week-day-ico"><div class="wrz-sml wrzs-01"></div></td>
-								<td class="week-day-ico"><div class="wrz-sml wrzs-03"></div></td>
-							</tr>
-							<tr>
-								<td class="week-day-val"><span class="plus">+</span>10&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>17&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>15&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>15&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>22&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>23&deg;</td>
-							</tr>
-							<tr>
-								<td class="week-day-val"><span class="plus">+</span>8&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>7&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>6&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>5&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>6&deg;</td>
-								<td class="week-day-val"><span class="plus">+</span>9&deg;</td>
-							</tr>
-						</table>
-					</a>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </div>
 <!-- 날씨 위젯 관련 스크립트문 -->
 <script type="text/javascript">
@@ -197,6 +202,7 @@
 <!-- 날씨 끝 -->
 <br>
 <br>
+
 <!-- ======= review Section ======= -->
 <section id="testimonials" class="testimonials">
 	<div class="container">
@@ -204,67 +210,25 @@
 			<h2>베스트 후기</h2>
 		</div>
 		<div class="owl-carousel testimonials-carousel">
-			<div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 대구는 아프리카보다 매우
-					덥습니다 서프라이즈 굉장히 놀랍다뉸 <i
-						class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-1.jpg"
-					class="testimonial-img" alt="">
-				<h3>마이넴 사울굿맨</h3>
-				<h4>Ceo &amp; Founder</h4>
-			</div>
-
-			<div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 가나다라마바사
-					아차차차차차차 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-2.jpg"
-					class="testimonial-img" alt="">
-				<h3>Sara Wilsson</h3>
-				<h4>Designer</h4>
-			</div>
-
-			<div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 그만하고싶다
-					빨리끝내끝내끝내 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-3.jpg"
-					class="testimonial-img" alt="">
-				<h3>Jena Karlis</h3>
-				<h4>Store Owner</h4>
-			</div>
-
-			<div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat enim
-					eram quae cillum dolore dolor amet nulla culpa multos export minim
-					fugiat minim velit minim dolor enim duis veniam ipsum anim magna
-					sunt elit fore quem dolore labore illum veniam. <i
-						class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-4.jpg"
-					class="testimonial-img" alt="">
-				<h3>Matt Brandon</h3>
-				<h4>Freelancer</h4>
-			</div>
-
-			<div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis quorum
-					aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-					noster veniam enim culpa labore duis sunt culpa nulla illum cillum
-					fugiat legam esse veniam culpa fore nisi cillum quid. <i
-						class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-5.jpg"
-					class="testimonial-img" alt="">
-				<h3>John Larson</h3>
-				<h4>Entrepreneur</h4>
-			</div>
+			<c:choose>
+				<c:when test="${!empty list}">
+					<c:forEach items="${list }" var="comment">
+						<div class="testimonial-item">
+							<p>
+								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+								${comment.rcontent} <i
+									class="bx bxs-quote-alt-right quote-icon-right"></i>
+							</p>
+							<img src="assets/img/testimonials/testimonials-1.jpg"
+								class="testimonial-img" alt="">
+							<h3>${comment.rnickname}</h3>
+						</div>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<div>데이터가 없습니다.</div>
+				</c:otherwise>
+			</c:choose>
 
 		</div>
 
