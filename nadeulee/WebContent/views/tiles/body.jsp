@@ -6,6 +6,17 @@
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<style>
+	#target{
+		line_height:1.4;
+		height:4.2em; 
+		overflow-y:hidden; 
+		text-overflow: ellipsis; 
+		
+	}
+</style>
+	
+	
 <!-- ======= Hero Section ======= -->
 <section id="hero"
 	class="d-flex flex-column justify-content-center align-items-center">
@@ -307,70 +318,21 @@
 		<div class="owl-carousel testimonials-carousel">
 			<c:forEach var="board" items="${boards }">
 
-				<div class="testimonial-item">
-					<h3>${board.rnickname }</h3>
-					<h4>
-						<i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> ${board.likes }
-					</h4>
-					<img src="/nadeulee/uploadProfile/${board.profile }" class=""
-						alt="">
-
-					<p>
-						<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-						${board.rcontent }<i
-							class="bx bxs-quote-alt-right quote-icon-right"></i>
-					</p>
-				</div>
+			<div class="testimonial-item pb-3">
+				<h3>${board.rnickname }</h3>
+				<h4><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> ${board.likes }</h4>
+				
+				<p>
+					<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+						<div id="target" >${board.rcontent }</div>
+					<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+				</p>
+				
+				<img style="width:90%; height:250px;" src="/nadeulee/Image/${board.img1 }"
+								class="testimonial-img" alt="">
+				
+			</div>
 			</c:forEach>
-			<!-- <div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 가나다라마바사
-					아차차차차차차 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-2.jpg"
-					class="testimonial-img" alt="">
-				<h3>Sara Wilsson</h3>
-				<h4>Designer</h4>
-			</div>
-
-			<div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> 그만하고싶다
-					빨리끝내끝내끝내 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-3.jpg"
-					class="testimonial-img" alt="">
-				<h3>Jena Karlis</h3>
-				<h4>Store Owner</h4>
-			</div>
-
-			<div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> Fugiat enim
-					eram quae cillum dolore dolor amet nulla culpa multos export minim
-					fugiat minim velit minim dolor enim duis veniam ipsum anim magna
-					sunt elit fore quem dolore labore illum veniam. <i
-						class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-4.jpg"
-					class="testimonial-img" alt="">
-				<h3>Matt Brandon</h3>
-				<h4>Freelancer</h4>
-			</div>
-
-			<div class="testimonial-item">
-				<p>
-					<i class="bx bxs-quote-alt-left quote-icon-left"></i> Quis quorum
-					aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-					noster veniam enim culpa labore duis sunt culpa nulla illum cillum
-					fugiat legam esse veniam culpa fore nisi cillum quid. <i
-						class="bx bxs-quote-alt-right quote-icon-right"></i>
-				</p>
-				<img src="assets/img/testimonials/testimonials-5.jpg"
-					class="testimonial-img" alt="">
-				<h3>John Larson</h3>
-				<h4>Entrepreneur</h4>
-			</div> -->
 
 		</div>
 

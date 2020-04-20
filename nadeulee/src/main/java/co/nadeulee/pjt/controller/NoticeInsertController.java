@@ -31,7 +31,7 @@ public class NoticeInsertController extends HttpServlet {
 		N_BoardDAO dao = new N_BoardDAO();
 		String filepath = request.getSession().getServletContext().getRealPath("Image");
 
-		int filesize = 1024 * 1024 * 2;
+		int filesize = 1024 * 1024 * 10;
 		MultipartRequest multi = new MultipartRequest(request, filepath, filesize, "utf-8",
 				new DefaultFileRenamePolicy());
 

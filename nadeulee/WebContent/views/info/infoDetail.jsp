@@ -12,6 +12,17 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+<style>
+	#target{
+		line_height:1.4;
+		height:4.2em; 
+		overflow-y:hidden; 
+		text-overflow: ellipsis; 
+		
+	}
+</style>
+
 </style>
 <script type="text/javascript">
 	function goBack() {
@@ -213,12 +224,13 @@
 			<c:choose>
 				<c:when test="${!empty list}">
 					<c:forEach items="${list }" var="comment">
-						<div class="testimonial-item" style="height:400px;">
-							<p style="hidden">
-								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-								${comment.rcontent} <i
-									class="bx bxs-quote-alt-right quote-icon-right"></i>
-							</p>
+						<div class="testimonial-item pb-5" style="height:400px;">
+						
+					<p>
+						<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+							<div id="target" >${comment.rcontent }</div>
+						<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+					</p>
 							<img style="width:90%; height:250px;" src="/nadeulee/Image/${comment.img1 }"
 								class="testimonial-img" alt="">
 							<h3>${comment.rnickname}</h3>

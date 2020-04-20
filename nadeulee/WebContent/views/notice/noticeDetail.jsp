@@ -22,7 +22,10 @@
 <br>
 <br>
 <br>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/kdy2436/nadeulee
 <div id="base" class="container col-md-8">
 	<div class="card">
 		<div class="card-body">
@@ -31,12 +34,9 @@
 				<i class="far fa-user"></i> ${detail.nickname} · <i
 					class="far fa-clock"></i> ${detail.ndate}
 			</h6>
-			<div style="white-space: pre;">
-				<c:out value="${content}" />
-				<p class="card-text">${detail.content}
-					<br> <img src="/nadeulee/Image/${detail.n_photo}" id="n_photo">
-				</p>
-			</div>
+			<p class="card-text">${detail.content}
+				<br> <img src="/nadeulee/Image/${detail.n_photo}" id="n_photo">
+			</p>
 		</div>
 		<c:choose>
 			<c:when test="${not empty email}">
