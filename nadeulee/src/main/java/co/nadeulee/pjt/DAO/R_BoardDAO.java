@@ -304,19 +304,16 @@ public class R_BoardDAO {
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				rboard = new R_BoardVO();
-				rboard.setRno(rs.getInt(2));
-				rboard.setRcontent_id(rs.getString(3));
-				rboard.setTitle(rs.getString(4));
-				rboard.setRemail(rs.getString(5));
-				rboard.setRnickname(rs.getString(6));
-				rboard.setProfile(rs.getString(7));
-				rboard.setRcontent(rs.getString(8));
-				rboard.setRdate(rs.getDate(9));
-				rboard.setLikes(rs.getInt(10));
-				rboard.setImg1(rs.getString(11));
-				rboard.setImg2(rs.getString(12));
-				rboard.setImg3(rs.getString(13));
-				rboard.setCommentlist(selectComment(rboard.getRno()));
+				rboard.setRno(rs.getInt("rno"));
+				rboard.setRcontent_id(rs.getString("content_id"));
+				rboard.setRemail(rs.getString("email"));
+				rboard.setRnickname(rs.getString("nickname"));
+				rboard.setRcontent(rs.getString("rcontent"));
+				rboard.setRdate(rs.getDate("rdate"));
+				rboard.setLikes(rs.getInt("likes"));
+				rboard.setImg1(rs.getString("img1"));
+				rboard.setImg2(rs.getString("img2"));
+				rboard.setImg3(rs.getString("img3"));
 				
 				list.add(rboard);
 			}

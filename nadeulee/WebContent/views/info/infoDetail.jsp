@@ -213,13 +213,13 @@
 			<c:choose>
 				<c:when test="${!empty list}">
 					<c:forEach items="${list }" var="comment">
-						<div class="testimonial-item">
-							<p>
+						<div class="testimonial-item" style="height:400px;">
+							<p style="hidden">
 								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
 								${comment.rcontent} <i
 									class="bx bxs-quote-alt-right quote-icon-right"></i>
 							</p>
-							<img src="assets/img/testimonials/testimonials-1.jpg"
+							<img style="width:90%; height:250px;" src="/nadeulee/Image/${comment.img1 }"
 								class="testimonial-img" alt="">
 							<h3>${comment.rnickname}</h3>
 						</div>
