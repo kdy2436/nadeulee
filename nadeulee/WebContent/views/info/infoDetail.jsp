@@ -214,7 +214,7 @@
 				<c:when test="${!empty list}">
 					<c:forEach items="${list }" var="comment">
 						<div class="testimonial-item" style="height:400px;">
-							<p style="hidden">
+							<p style="height:100px; overflow-y:hidden;">
 								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
 								${comment.rcontent} <i
 									class="bx bxs-quote-alt-right quote-icon-right"></i>
