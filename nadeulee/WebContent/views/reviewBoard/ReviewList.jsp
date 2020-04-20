@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<meta content="" name="descriptison">
+<meta content="" name="keywords">
+
 <!-- fontawesome 댓글,좋아요 모양 구현-->
 <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
 
@@ -176,23 +179,10 @@ body {
 	padding-top: 15px
 }
 
-.timeline-footer
- 
-a
-:not
- 
-(
-.btn
- 
-)
-{
-color
-:
- 
-#575d63
-
-
+.timeline-footer a:not (.btn ) {
+	color: #575d63
 }
+
 .timeline-footer a:not (.btn ):focus, .timeline-footer a:not (.btn ):hover
 	{
 	color: #2d353c
@@ -283,49 +273,58 @@ color
 
 	<div class="container">
 		<ul class="timeline">
-			<li>
-				<!-- 리뷰를 작성하는 영역 -->
-				<div class="timeline-icon">
-					<a href="javascript:;">&nbsp;</a>
-				</div>
-
-				<form id="frm" name="frm" enctype="multipart/form-data"
-					method="post" action="reviewWrite.do">
-					<div class="timeline-body">
-						<div class="timeline-header d-flex">
-
-							<input id="searchText" placeholder="Where have you been?">
-							<a id="searchBtn" href="javascript:;"
-								class="m-r-15 text-inverse-lighter"><i
-								class="fas fa-search fa-fw fa-lg m-r-3"></i></a> <select
-								class="form-control ml-1 " id="searchResult" name="searchResult">
-								<option>여행지를 선택해주세요</option>
-							</select>
+			<c:choose>
+				<c:when test="${not empty auth}">
+					<li>
+						<!-- 리뷰를 작성하는 영역 -->
+						<div class="timeline-icon">
+							<a href="javascript:;">&nbsp;</a>
 						</div>
-						<div class="timeline-content">
-							<textarea class="form-control" id="message" name="message"
-								rows="6" placeholder="What are you thinking?"></textarea>
-							<div class="timeline-likes">
-								<div class="stats-right d-flex">
-									<label> <input type="file" class="custom-file-input"
-										id="file1" name="File1"> <i
-										class="far fa-image fa-fw fa-lg m-r-3"></i> image
-									</label> <label> <input type="file" class="custom-file-input"
-										id="file2" name="File2"> <i
-										class="far fa-image fa-fw fa-lg m-r-3"></i> image
-									</label> <label> <input type="file" class="custom-file-input"
-										id="file3" name="File3"> <i
-										class="far fa-image fa-fw fa-lg m-r-3"></i> image
-									</label> &nbsp;
 
+						<form id="frm" name="frm" enctype="multipart/form-data"
+							method="post" action="reviewWrite.do">
+							<div class="timeline-body">
+								<div class="timeline-header d-flex">
+
+									<input id="searchText" placeholder="Where have you been?">
+									<a id="searchBtn" href="javascript:;"
+										class="m-r-15 text-inverse-lighter"><i
+										class="fas fa-search fa-fw fa-lg m-r-3"></i></a> <select
+										class="form-control ml-1 " id="searchResult"
+										name="searchResult">
+										<option>여행지를 선택해주세요</option>
+									</select>
 								</div>
-								<button class="btn btn-primary f-s-12 rounded-corner"
-									type="submit">Submit</button>
+								<div class="timeline-content">
+									<textarea class="form-control" id="message" name="message"
+										rows="6" placeholder="What are you thinking?"></textarea>
+									<div class="timeline-likes">
+										<div class="stats-right d-flex">
+											<label> <input type="file" class="custom-file-input"
+												id="file1" name="File1"> <i
+												class="far fa-image fa-fw fa-lg m-r-3"></i> image
+											</label> <label> <input type="file" class="custom-file-input"
+												id="file2" name="File2"> <i
+												class="far fa-image fa-fw fa-lg m-r-3"></i> image
+											</label> <label> <input type="file" class="custom-file-input"
+												id="file3" name="File3"> <i
+												class="far fa-image fa-fw fa-lg m-r-3"></i> image
+											</label> &nbsp;
+
+										</div>
+										<button class="btn btn-primary f-s-12 rounded-corner"
+											type="submit">Submit</button>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-				</form>
-			</li>
+						</form>
+					</li>
+				</c:when>
+				<c:otherwise>
+					<h3 align="center">후기와 댓글 작성은 로그인 후 이용 가능합니다.</h3>
+					<br />
+				</c:otherwise>
+			</c:choose>
 			<!-- 리뷰를 작성하는 영역 -->
 
 			<!-- 리스트-->
@@ -346,20 +345,21 @@ color
 							<span class="userimage"><img
 								src="/nadeulee/uploadProfile/${board.profile }" alt=""></span> <span
 								class="username"><a href="javascript:;">${board.rnickname }</a><small></small></span>
-							<span class="pull-right text-muted"> <!-- 123 Views -->
+							<span class="pull-right text-muted">
+								<!-- 123 Views -->
 							</span>
 						</div>
 
 						<div class="timeline-content">
 							<p class="lead">${board.rcontent }</p>
 							<p class="m-t-20">
-								<img src="/nadeulee/Image/${board.img1 }" alt="">
+								<img src="/nadeulee/Image/${board.img1 }">
 							</p>
 							<p class="m-t-20">
-								<img src="/nadeulee/Image/${board.img2 }" alt="">
+								<img src="/nadeulee/Image/${board.img2 }">
 							</p>
 							<p class="m-t-20">
-								<img src="/nadeulee/Image/${board.img3 }" alt="">
+								<img src="/nadeulee/Image/${board.img3 }">
 							</p>
 						</div>
 						<div class="timeline-likes">
@@ -397,69 +397,44 @@ color
 										</div>
 									</div>
 								</c:forEach>
-								<%--  <div class="timeline-comment-box">
-               <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-               <div class="input">
-                  <form id="frm" name="frm" action="commentWrite.do" method="post">
-                     <div class="input-group">
-                        <input type="hidden" id="rno2" name="rno2" value="${board.rno }">
-                        <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
-                        <span class="input-group-btn p-l-10">   
-                        <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
-                        </span>
-                     </div>
-                  </form>
-               </div>
-            </div> --%>
-							</c:when>
-							<%-- <c:otherwise>
-               <div class="timeline-likes">
-               <div class="stats-left">
-                  <span class="stats-text">아직 댓글이 없습니다.</span>
-               </div>
-               </div>
-               <div class="timeline-comment-box">
-               <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"></div>
-               <div class="input">
-                  <form action="commentWrite.do?r_no=${board.rno }">
-                  <form id="frm" name="frm" action="commentWrite.do" method="post">
-                     <div class="input-group">
-                        <input type="hidden" id="rno2" name="rno2" value="${board.rno }">
-                        <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
-                        <span class="input-group-btn p-l-10">   
-                        <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
-                        </span>
-                     </div>
-                  </form>
-               </div>
-            </div>
-            </c:otherwise> --%>
-						</c:choose>
-						<div class="timeline-comment-box">
-							<div class="user">
-								<img src="/nadeulee/uploadProfile/${board.profile }">
-							</div>
-							<div class="input">
-								<form id="frm" name="frm" action="commentWrite.do" method="post">
-									<div class="input-group">
-										<input type="hidden" id="rno" name="rno" value="${board.rno }">
-										<!-- <input type="hidden" id="email" name="email" value="admin@admin.com"> -->
 
-										<input type="text" id="ccontent" name="ccontent"
-											class="form-control rounded-corner"
-											placeholder="Write a comment..."> <span
-											class="input-group-btn p-l-10">
-											<button class="btn btn-primary f-s-12 rounded-corner"
-												type="submit">Comment</button>
-										</span>
+							</c:when>
+						</c:choose>
+
+
+						<c:choose>
+							<c:when test="${not empty auth}">
+								<div class="timeline-comment-box">
+									<div class="user">
+										<img src="/nadeulee/uploadProfile/${view.profile }">
 									</div>
-								</form>
-							</div>
-						</div>
+									<div class="input">
+										<form id="frm" name="frm" action="commentWrite.do"
+											method="post">
+											<div class="input-group">
+												<input type="hidden" id="rno" name="rno"
+													value="${board.rno }">
+												<!-- <input type="hidden" id="email" name="email" value="admin@admin.com"> -->
+
+												<input type="text" id="ccontent" name="ccontent"
+													class="form-control rounded-corner"
+													placeholder="Write a comment..."> <span
+													class="input-group-btn p-l-10">
+													<button class="btn btn-primary f-s-12 rounded-corner"
+														type="submit">Comment</button>
+												</span>
+											</div>
+										</form>
+
+									</div>
+								</div>
+							</c:when>
+						</c:choose>
 					</div>
 			</c:forEach>
 		</ul>
 	</div>
+
 	<!-- 리스트-->
 
 
