@@ -269,6 +269,7 @@ body {
 	<br />
 	<br />
 
+<<<<<<< HEAD
 	<div class="container">
 		<ul class="timeline">
 			<li>
@@ -355,7 +356,94 @@ body {
 							<div class="stats-right">
 								<span class="stats-text">#${board.title}</span>
 								<%-- <span class="stats-text">${board.likes } likes</span>
+=======
+<div class="container">
+   <ul class="timeline">
+   <c:choose>
+   	<c:when test="${not empty auth}">
+     <li><!-- 리뷰를 작성하는 영역 -->
+         <div class="timeline-icon">
+            <a href="javascript:;">&nbsp;</a>
+         </div>
+       
+         <form id="frm" name="frm" enctype="multipart/form-data" method="post" action="reviewWrite.do">
+         <div class="timeline-body">
+         	<div class="timeline-header d-flex">
+         	
+         		<input id="searchText" placeholder="Where have you been?">
+         		<a id="searchBtn" href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fas fa-search fa-fw fa-lg m-r-3"></i></a>
+         		<select class="form-control ml-1 " id="searchResult" name="searchResult">
+         			<option>여행지를 선택해주세요</option>
+         		</select>
+         	</div>
+            <div class="timeline-content">
+               <textarea class="form-control" id="message" name ="message" rows="6" placeholder="What are you thinking?"></textarea>
+            <div class="timeline-likes">
+               <div class="stats-right d-flex">
+                  <label>
+	                  <input type="file" class="custom-file-input" id="file1" name="File1">
+	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
+	                  image
+                  </label>
+                    <label>
+	                  <input type="file" class="custom-file-input" id="file2" name="File2">
+	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
+	                  image
+                  </label>
+                    <label>
+	                  <input type="file" class="custom-file-input" id="file3" name="File3">
+	                  <i class="far fa-image fa-fw fa-lg m-r-3"></i>
+	                  image
+                  </label>
+                  &nbsp;
+                  
+               </div>
+               <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Submit</button>
+            </div>
+            </div>
+         </div>
+         </form>
+      </li>
+      </c:when>
+      <c:otherwise><h3 align="center">후기와 댓글 작성은 로그인 후 이용 가능합니다.</h3><br/></c:otherwise>
+      </c:choose>
+      <!-- 리뷰를 작성하는 영역 -->
+      
+      <!-- 리스트-->
+      	<c:forEach var="board" items="${boards }">
+		
+      <li>	
+         <!-- begin timeline-time -->
+         <div class="timeline-time">
+            <span class="date">${board.rdate }</span>
+            <span class="time">No. ${board.rno}</span>
+         </div>
+         
+         <div class="timeline-icon">
+            <a href="javascript:;">&nbsp;</a>
+         </div>
+         <!-- end timeline-icon -->
+         <!-- begin timeline-body -->
+         <div class="timeline-body">
+            <div class="timeline-header">
+            	<span class="userimage"><img src="/nadeulee/uploadProfile/${board.profile }" alt=""></span>
+               <span class="username"><a href="javascript:;">${board.rnickname }</a><small></small></span>
+               	<span class="pull-right text-muted"><!-- 123 Views --></span>
+            </div>
+            
+            <div class="timeline-content">
+               <p class="lead">${board.rcontent }</p>
+               <p class="m-t-20"><img src="/nadeulee/Image/${board.img1 }" alt=""></p>
+               <p class="m-t-20"><img src="/nadeulee/Image/${board.img2 }" alt=""></p>
+               <p class="m-t-20"><img src="/nadeulee/Image/${board.img3 }" alt=""></p>
+            </div>
+            <div class="timeline-likes">
+               <div class="stats-right">
+				<span class="stats-text">#${board.title}</span>
+				<%-- <span class="stats-text">${board.likes } likes</span>
+>>>>>>> branch 'master' of https://github.com/kdy2436/nadeulee
 				<span class="stats-text">${board.comments }Comments</span> --%>
+<<<<<<< HEAD
 
 							</div>
 						</div>
@@ -433,6 +521,63 @@ body {
 									<div class="input-group">
 										<input type="hidden" id="rno" name="rno" value="${board.rno }">
 										<!-- <input type="hidden" id="email" name="email" value="admin@admin.com"> -->
+=======
+                
+               </div>
+            </div>
+            <div class="timeline-footer">
+            
+               <a href="updateLikes.do?rno=${board.rno }" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i> ${board.likes }</a>
+               <a href="javascript:;" class="m-r-15 text-inverse-lighter" onclick="kjh()"><i class="fa fa-comments fa-fw fa-lg m-r-3" ></i> ${board.comments }</a>
+            </div>
+            
+   			
+   			<c:choose>
+   			<c:when test="${not empty board.commentlist}">
+            <%-- <c:if test="${board.rno eq comment.crno}"> --%>
+     		
+   			<c:forEach var="comment" items="${board.commentlist }">
+     		<div class="timeline-comment-box" style="">
+            	<div class="user"><img src="/nadeulee/uploadProfile/${board.profile }"></div>
+            	 <div><span class="username">${comment.nickname }</span>
+         		 <span class="pull-right text-muted">${comment.cdate }</span>
+         		 <p>${comment.ccontent }</p>
+            	</div>
+         		</div> 
+            </c:forEach>
+           
+            </c:when>
+           </c:choose>
+             
+             
+			<c:choose>
+   			<c:when test="${not empty auth}">
+             <div class="timeline-comment-box">
+               <div class="user"><img src="/nadeulee/uploadProfile/${view.profile }"></div>
+               <div class="input">
+                  <form id="frm" name="frm" action="commentWrite.do" method="post">
+                     <div class="input-group">
+                     	<input type="hidden" id="rno" name="rno" value="${board.rno }">
+                     	<!-- <input type="hidden" id="email" name="email" value="admin@admin.com"> -->
+                     	
+                        <input type="text" id="ccontent" name="ccontent" class="form-control rounded-corner" placeholder="Write a comment...">
+                        <span class="input-group-btn p-l-10">	
+                        <button class="btn btn-primary f-s-12 rounded-corner" type="submit">Comment</button>
+                        </span>
+                     </div>
+                  </form>
+                  
+               </div>
+            </div>
+            </c:when></c:choose>
+     	</div>
+          </c:forEach>
+          </ul>
+      </div>
+      
+       <!-- 리스트-->
+      
+>>>>>>> branch 'master' of https://github.com/kdy2436/nadeulee
 
 										<input type="text" id="ccontent" name="ccontent"
 											class="form-control rounded-corner"

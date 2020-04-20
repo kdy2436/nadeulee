@@ -86,7 +86,6 @@ public class ReviewWriteController extends HttpServlet {
 				uploadFile = request.getRealPath(SAVE_DIR) + File.separator+ fileName;
 				File f = new FileRenamePolicy().rename(new File(uploadFile));
 				String uploadFileName = f.getParent() + File.separator + f.getName();
-				System.out.println(uploadFileName);
 				part.write(uploadFileName);
 				
 				//파일 순서에 따라 다른 컬럼에 저장한다.

@@ -37,6 +37,8 @@ public class InfoDetailController extends HttpServlet {
 		
 		TourVO vo = dao.select(id);
 		
+		System.out.println(vo.getContent_id());
+		
 		ArrayList<R_BoardVO> list = Rdao.ContentBestReview(vo.getContent_id());
 		
 		request.setAttribute("list", list);
